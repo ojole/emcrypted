@@ -1,0 +1,243 @@
+@font-face {
+    font-family: "Dankosaurus";
+    src: url("../public/fonts/Dankosaurus.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Tasty Birds Bold Sans";
+    src: url("../public/fonts/Tasty_Birds_Bold_Sans.otf") format("opentype");
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: #FFFFFF;
+    color: #333333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .emcrypted-title {
+    font-family: 'Dankosaurus', sans-serif;
+    font-size: 3rem;
+    margin: 20px 0;
+  }
+  
+  .hint-btn {
+    width: 150px;
+    height: 50px;
+    background-color: #FFDE34;
+    color: #333333;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Tasty Birds Bold Sans', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .hint-btn:hover {
+    background-color: #C08497;
+    color: #FFFFFF;
+  }
+  
+  .hint-btn:active {
+    transform: scale(0.95);
+  }
+  
+  #home-screen, #game-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  #exit-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000; /* Ensure the exit button is always on top */
+  }
+  
+  .exit-game {
+    font-size: 2.5rem;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 5px;
+  }
+  
+  .emoji-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+  
+  .emoji-grid span {
+    font-size: 2.5rem;
+    margin: 2px;
+    line-height: 1.5;
+    transition: opacity 0.5s ease-in-out;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+  
+  #movie-guess {
+    background-color: rgba(255, 222, 52, 0.8);
+    color: #333333;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-family: 'Tasty Birds Bold Sans', sans-serif;
+  }
+  
+  .search-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 60px;
+    width: 80%;
+    max-width: 300px;
+    z-index: 1000;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+    transform: translateX(-53%);
+    left: 50%;
+  }
+  
+  .result-item {
+    background-color: #FFDE34;
+    color: #333333;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Tasty Birds Bold Sans', sans-serif;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .result-item button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333333;
+  }
+  
+  .result-item button:hover {
+    color: #C08497;
+  }
+  
+  .highlighted {
+    opacity: 1;
+  }
+  
+  .dimmed {
+    opacity: 0.2;
+  }
+  
+  #hint-text-container {
+    font-family: 'Tasty Birds Bold Sans', sans-serif;
+    font-size: 1.2rem;
+    color: #333333;
+    margin-top: 10px;
+    padding: 5px 0;
+    max-width: 80%;
+    word-wrap: break-word;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+  
+  #countdown-timer {
+    font-size: 1rem;
+    color: #C08497;
+  }
+  
+  .victory-message {
+    font-family: 'Tasty Birds Bold Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #333333;
+    margin: 20px 0;
+  }
+  
+  .breakdown-container {
+    font-family: 'Tasty Birds Bold Sans', sans-serif;
+    font-size: 1rem;
+    color: #333333;
+    margin: 20px;
+    text-align: left;
+  }
+  
+  .results-message {
+    font-family: 'Tasty Birds Bold Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #333333;
+    margin: 20px;
+  }
+  
+  #home-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .emoji-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+  
+    #movie-guess {
+        width: 90%;
+    }
+  
+    .search-results {
+        max-width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .emoji-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+  
+    #movie-guess {
+        width: 100%;
+    }
+  
+    .search-results {
+        max-width: 100%;
+    }
+  }
