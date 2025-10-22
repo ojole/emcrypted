@@ -2,26 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import EmojiGrid from "./EmojiGrid";
 import HintButton from "./HintButton";
 import Header from "./Header";
-import './Game.css';
-import emojiData from "../data/data-by-emoji.json";
-import emojiComponents from "../data/data-emoji-components.json";
-import orderedEmoji from "../data/data-ordered-emoji.json";
-
-// Strict Emoji Sequence Analyzer
-const analyzeEmojiSequence = (emojiSequence) => {
-  const emojiRegex = /(\p{Emoji_Modifier_Base}(?:\p{Emoji_Modifier})?|\p{Emoji}\u200D(?:\p{Emoji}|\p{Emoji_Modifier_Base}(?:\p{Emoji_Modifier})?)|\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\p{Emoji}\u200D[\p{Emoji}\u200D]*\p{Emoji})/gu;
-  return [...emojiSequence.matchAll(emojiRegex)].map((match) => {
-    const emoji = match[0];
-    if (emojiData[emoji]) {
-      return emoji;  // Exact match in the emoji dataset
-    } else if (emojiComponents[emoji]) {
-      return emojiComponents[emoji];  // Handling of emoji components (like gender variants)
-    } else {
-      const variant = orderedEmoji.find(e => e === emoji || e.startsWith(emoji));
-      return variant || emoji;  // Default fallback
-    }
-  });
-};
+import "./Game.css";
+import { splitEmojiClusters } from "../utils/emojiSegment";
 
 const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
   const [moviesList, setMoviesList] = useState([]);
@@ -46,30 +28,33 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     setShowHint(false);
   };
 
-  const startNewGame = useCallback((movies) => {
-    const randomIndex = Math.floor(Math.random() * movies.length);
-    setSessionStartTime(Date.now());
-    setCurrentMovie(movies[randomIndex]);
-    setHintIndex(0);
-    setShowHint(false);
-    setHintTimer(10);
-    setIsCorrect(null);
-    setGuess("");
-    setHighlightedEmojis([]);
-    setDimmedEmojis([]);
-    setUsedGuesses([]);
-    setGameOver(false);
-    setRefereeData({
-      time: 0,
-      guesses: 0,
-      hintsUsed: 0,
-    });
-  }, [setRefereeData]);
+  const startNewGame = useCallback(
+    (movies) => {
+      const randomIndex = Math.floor(Math.random() * movies.length);
+      setSessionStartTime(Date.now());
+      setCurrentMovie(movies[randomIndex]);
+      setHintIndex(0);
+      setShowHint(false);
+      setHintTimer(10);
+      setIsCorrect(null);
+      setGuess("");
+      setHighlightedEmojis([]);
+      setDimmedEmojis([]);
+      setUsedGuesses([]);
+      setGameOver(false);
+      setRefereeData({
+        time: 0,
+        guesses: 0,
+        hintsUsed: 0,
+      });
+    },
+    [setRefereeData]
+  );
 
   useEffect(() => {
     const fetchMoviesList = async () => {
       try {
-        const response = await fetch("/data/moviesG2G.json"); // Use the new valid movie list
+        const response = await fetch("/data/moviesG2G.json");
         const movies = await response.json();
         startNewGame(movies);
         setMoviesList(movies);
@@ -80,8 +65,8 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     fetchMoviesList();
   }, [startNewGame]);
 
-  const handleGuessChange = (e) => {
-    const userInput = e.target.value;
+  const handleGuessChange = (event) => {
+    const userInput = event.target.value;
     setGuess(userInput);
 
     if (userInput.length > 0) {
@@ -124,7 +109,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
 
   const handleHintClick = () => {
     if (hintIndex < currentMovie.hints.length) {
-      const hintText = currentMovie.hints[hintIndex].split(" - ")[1]; // Extract hint text only
+      const hintText = currentMovie.hints[hintIndex].split(" - ")[1];
       setShowHint(true);
       setCurrentHint(hintText);
       setHintTimer(10);
@@ -150,17 +135,17 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
   };
 
   const highlightHintEmojis = (hintText, emojiSequence) => {
-    const analyzedEmojis = analyzeEmojiSequence(emojiSequence);
-    const hintEmojis = analyzeEmojiSequence(hintText);
+    const analyzedEmojis = splitEmojiClusters(emojiSequence);
+    const hintEmojis = splitEmojiClusters(hintText);
 
     let matchIndex = 0;
-    let highlighted = [];
-    let dimmed = [];
+    const highlighted = [];
+    const dimmed = [];
 
-    for (let i = 0; i < analyzedEmojis.length; i++) {
+    for (let i = 0; i < analyzedEmojis.length; i += 1) {
       if (analyzedEmojis[i] === hintEmojis[matchIndex]) {
         highlighted.push(i);
-        matchIndex++;
+        matchIndex += 1;
         if (matchIndex === hintEmojis.length) {
           break;
         }
@@ -247,5 +232,3 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
 };
 
 export default Game;
-
-
