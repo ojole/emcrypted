@@ -1,100 +1,152 @@
-@font-face {
-  font-family: "Dankosaurus";
-  src: url("../public/fonts/Dankosaurus.ttf") format("truetype");
+:root {
+  --app-font: "Dongle", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --app-bg: #ffffff;
+  --app-foreground: #333333;
+  --accent-yellow: #ffde34;
+  --accent-rose: #c08497;
 }
-@font-face {
-  font-family: "Tasty Birds Bold Sans";
-  src: url("../public/fonts/Tasty_Birds_Bold_Sans.otf") format("opentype");
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--app-font);
+  background-color: var(--app-bg);
+  color: var(--app-foreground);
 }
 
 body {
-  font-family: sans-serif;
-  background-color: #ffffff;
-  color: #333333;
   text-align: center;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+}
+
+button,
+.btn,
+.primary-button,
+.app-title,
+h1,
+h2,
+h3,
+input,
+.hint-text {
+  font-family: var(--app-font);
 }
 
 .emcrypted-title {
-  font-family: "Dankosaurus", sans-serif;
-  font-size: 3rem;
+  font-size: 3.2rem;
   margin: 20px 0;
 }
 
 .hint-btn {
-  width: 150px;
-  height: 50px;
-  background-color: #ffde34;
-  color: #333333;
-  padding: 15px 30px;
+  width: 160px;
+  height: 52px;
+  background-color: var(--accent-yellow);
+  color: var(--app-foreground);
+  padding: 14px 32px;
   margin: 10px;
   border: none;
-  border-radius: 5px;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1.2rem;
+  border-radius: 16px;
+  font-size: 1.8rem;
   cursor: pointer;
-  text-align: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.hint-btn:hover {
-  background-color: #c08497;
+.hint-btn:hover:enabled {
+  background-color: var(--accent-rose);
   color: #ffffff;
 }
 
-.hint-btn:active {
+.hint-btn:active:enabled {
   transform: scale(0.95);
 }
 
-#home-screen,
-#game-screen,
-#victory-screen,
-#result-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+.hint-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 #exit-container {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 12px;
+  right: 12px;
   z-index: 1000;
 }
 
 .exit-game {
-  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  background-color: transparent;
-  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .emoji-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 500px;
-  margin-bottom: 20px;
+  gap: 6px;
+  width: max-content;
+  margin: 0 auto 20px;
 }
 
 .emoji-item {
-  font-size: 2rem;
-  margin: 2px;
-  line-height: 1.5;
-  width: 3rem;
-  height: 3rem;
-  text-align: center;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 44px;
+  line-height: 44px;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.emoji-item img {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.emoji-grid.dim-others .emoji-item.dimmed {
+  opacity: 0.28;
+}
+
+.emoji-item.highlighted {
+  transform: scale(1.06);
+}
+.hint-active .emoji-item.highlighted img,
+.hint-active .emoji-item.highlighted {
+  animation: hintPulse 900ms ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes hintPulse {
+  0% {
+    transform: scale(1);
+    filter: saturate(1);
+  }
+  30% {
+    transform: scale(1.12);
+    filter: saturate(1.2);
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .search-bar {
@@ -106,17 +158,16 @@ body {
 }
 
 #movie-guess {
-  background-color: rgba(255, 222, 52, 0.8);
-  color: #333333;
+  background-color: rgba(255, 222, 52, 0.9);
+  color: var(--app-foreground);
   text-align: center;
   width: 80%;
-  max-width: 300px;
-  padding: 10px;
+  max-width: 320px;
+  padding: 12px 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 16px;
   margin-bottom: 20px;
-  font-size: 1.2rem;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
+  font-size: 1.8rem;
 }
 
 .search-results {
@@ -125,144 +176,127 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 60px;
+  bottom: 64px;
   width: 80%;
-  max-width: 300px;
+  max-width: 320px;
   z-index: 1000;
   background-color: transparent;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 8px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .result-item {
-  background-color: #ffde34;
-  color: #333333;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
+  background-color: var(--accent-yellow);
+  color: var(--app-foreground);
+  padding: 10px 16px;
+  margin: 6px 0;
+  border-radius: 12px;
   width: 100%;
   text-align: left;
   display: flex;
   justify-content: space-between;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
+  align-items: center;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.6rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .result-item button {
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   cursor: pointer;
-  color: #333333;
+  color: var(--app-foreground);
+}
+
+.result-item:hover {
+  transform: translateY(-2px);
 }
 
 .result-item button:hover {
-  color: #c08497;
+  color: var(--accent-rose);
 }
 
-.highlighted {
-  opacity: 1;
-}
 
-.dimmed {
-  opacity: 0.2;
-}
-
-#hint-text-container {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: calc(1rem + 0.5vw); /* Dynamic font size based on screen size */
-  color: #333333;
-  padding: 5px 0;
+.hint-text {
+  font-size: 2rem;
+  margin: 12px auto;
+  padding: 8px 12px;
   max-width: 80%;
-  word-wrap: break-word;
-  line-height: 1.5rem;
+  line-height: 2.2rem;
   text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.better-luck-next-time-screen,
+.victory-screen,
+.result-screen {
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  margin: 0 auto;
+  gap: 12px;
+  padding: 48px 16px 24px;
 }
 
-#countdown-timer {
-  font-size: 1rem;
-  color: #c08497;
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.better-luck-message,
 .victory-message,
-.results-message {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1.5rem;
-  color: #333333;
-  margin: 20px 0;
+.results-message,
+.breakdown-container,
+.result-title {
+  font-size: 2rem;
 }
 
 .breakdown-container {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1rem;
-  color: #333333;
-  margin: 20px;
+  max-height: 320px;
+  overflow-y: auto;
   text-align: left;
+  width: 100%;
+  padding: 0 12px;
 }
 
-#home-icon {
-  font-size: 2rem;
-  cursor: pointer;
-  margin-top: 20px;
+.game-screen,
+.home-screen {
+  position: relative;
 }
 
 @media (max-width: 768px) {
   .emoji-grid {
-    grid-template-columns: repeat(5, 1fr);
+    max-width: 90vw;
   }
+
   #movie-guess {
     width: 90%;
   }
+
   .search-results {
     max-width: 90%;
   }
 }
 
 @media (max-width: 480px) {
-  .emoji-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
   #movie-guess {
     width: 100%;
   }
+
   .search-results {
     max-width: 100%;
-  }
-}
-
-.home-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-}
-
-.hint-btn {
-  width: 60%;
-  max-width: 300px;
-  margin-bottom: 10px;
-}
-
-@media (max-width: 768px) {
-  .hint-btn {
-    width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hint-btn {
-    width: 90%;
   }
 }

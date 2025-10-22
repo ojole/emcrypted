@@ -58,7 +58,6 @@ const App = () => {
         <Game
           onVictory={showVictoryScreen}
           onExit={showBetterLuckNextTimeScreen}
-          refereeData={refereeData}
           setRefereeData={setRefereeData}
         />
       )}
@@ -72,7 +71,11 @@ const App = () => {
       )}
 
       {currentScreen === "betterLuckNextTime" && lastGameData && (
-        <BetterLuckNextTimeScreen gameData={lastGameData} onNextGame={startGame} />
+        <BetterLuckNextTimeScreen
+          gameData={lastGameData}
+          onNextGame={startGame}
+          onClose={goHome}
+        />
       )}
 
       {currentScreen === "result" && lastGameData && (

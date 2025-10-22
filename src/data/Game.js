@@ -1,87 +1,122 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import EmojiGrid from "./EmojiGrid";
 import HintButton from "./HintButton";
 import Header from "./Header";
-import './Game.css';
-import emojiData from "../data/data-by-emoji.json";
-import emojiComponents from "../data/data-emoji-components.json";
-import orderedEmoji from "../data/data-ordered-emoji.json";
+import EmojiIcon from "../components/EmojiIcon";
+import "./Game.css";
+import { indicesForHint, extractHintDescription } from "../utils/hintMapping";
 
-// Strict Emoji Sequence Analyzer
-const analyzeEmojiSequence = (emojiSequence) => {
-  const emojiRegex = /(\p{Emoji_Modifier_Base}(?:\p{Emoji_Modifier})?|\p{Emoji}\u200D(?:\p{Emoji}|\p{Emoji_Modifier_Base}(?:\p{Emoji_Modifier})?)|\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\p{Emoji}\u200D[\p{Emoji}\u200D]*\p{Emoji})/gu;
-  return [...emojiSequence.matchAll(emojiRegex)].map((match) => {
-    const emoji = match[0];
-    if (emojiData[emoji]) {
-      return emoji;  // Exact match in the emoji dataset
-    } else if (emojiComponents[emoji]) {
-      return emojiComponents[emoji];  // Handling of emoji components (like gender variants)
-    } else {
-      const variant = orderedEmoji.find(e => e === emoji || e.startsWith(emoji));
-      return variant || emoji;  // Default fallback
-    }
-  });
-};
-
-const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
+const Game = ({ onVictory, onExit, setRefereeData }) => {
   const [moviesList, setMoviesList] = useState([]);
   const [currentMovie, setCurrentMovie] = useState(null);
   const [guess, setGuess] = useState("");
   const [hintIndex, setHintIndex] = useState(0);
   const [searchResults, setSearchResults] = useState([]);
-  const [showHint, setShowHint] = useState(false);
-  const [hintTimer, setHintTimer] = useState(10);
   const [isCorrect, setIsCorrect] = useState(null);
   const [highlightedEmojis, setHighlightedEmojis] = useState([]);
   const [dimmedEmojis, setDimmedEmojis] = useState([]);
   const [usedGuesses, setUsedGuesses] = useState([]);
-  const [currentHint, setCurrentHint] = useState("");
+  const [currentHint, setCurrentHint] = useState(null);
   const [sessionStartTime, setSessionStartTime] = useState(Date.now());
   const [gameOver, setGameOver] = useState(false);
+  const [hintCountdown, setHintCountdown] = useState(0);
+  const [hintActive, setHintActive] = useState(false);
+  const [exitIcon, setExitIcon] = useState("❎");
+  const [exitPending, setExitPending] = useState(false);
+  const exitTimeoutRef = useRef(null);
 
-  const resetHintAndEmoji = () => {
-    setCurrentHint("");
-    setHighlightedEmojis([]);
-    setDimmedEmojis([]);
-    setShowHint(false);
-  };
+  const computeDimmed = useCallback((total, highlightedIdxs) => {
+    const highlightSet = new Set(highlightedIdxs);
+    const remainder = [];
+    for (let i = 0; i < total; i += 1) {
+      if (!highlightSet.has(i)) {
+        remainder.push(i);
+      }
+    }
+    return remainder;
+  }, []);
 
-  const startNewGame = useCallback((movies) => {
-    const randomIndex = Math.floor(Math.random() * movies.length);
-    setSessionStartTime(Date.now());
-    setCurrentMovie(movies[randomIndex]);
-    setHintIndex(0);
-    setShowHint(false);
-    setHintTimer(10);
-    setIsCorrect(null);
-    setGuess("");
-    setHighlightedEmojis([]);
-    setDimmedEmojis([]);
-    setUsedGuesses([]);
-    setGameOver(false);
-    setRefereeData({
-      time: 0,
-      guesses: 0,
-      hintsUsed: 0,
-    });
-  }, [setRefereeData]);
+  const startNewGame = useCallback(
+    (movies) => {
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+        exitTimeoutRef.current = null;
+      }
+      const randomIndex = Math.floor(Math.random() * movies.length);
+      const nextMovie = movies[randomIndex];
+      setSessionStartTime(Date.now());
+      setCurrentMovie(nextMovie);
+      setHintIndex(0);
+      setCurrentHint(null);
+      setHintCountdown(0);
+      setHintActive(false);
+      setHighlightedEmojis([]);
+      setDimmedEmojis([]);
+      setIsCorrect(null);
+      setGuess("");
+      setUsedGuesses([]);
+      setGameOver(false);
+      setExitIcon("❎");
+      setExitPending(false);
+      setSearchResults([]);
+      setRefereeData({
+        time: 0,
+        guesses: 0,
+        hintsUsed: 0,
+      });
+    },
+    [setRefereeData]
+  );
 
   useEffect(() => {
     const fetchMoviesList = async () => {
       try {
-        const response = await fetch("/data/moviesG2G.json"); // Use the new valid movie list
+        const response = await fetch("/data/moviesG2G.json");
         const movies = await response.json();
-        startNewGame(movies);
         setMoviesList(movies);
+        startNewGame(movies);
       } catch (error) {
         console.error("Error fetching movies:", error);
       }
     };
+
     fetchMoviesList();
   }, [startNewGame]);
 
-  const handleGuessChange = (e) => {
-    const userInput = e.target.value;
+  useEffect(() => {
+    return () => {
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!hintActive) {
+      return undefined;
+    }
+    if (hintCountdown <= 0) {
+      setHintActive(false);
+      setHintCountdown(0);
+      setHighlightedEmojis([]);
+      setDimmedEmojis([]);
+      return undefined;
+    }
+    const timer = setTimeout(() => {
+      setHintCountdown((prev) => prev - 1);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [
+    hintActive,
+    hintCountdown,
+    setHighlightedEmojis,
+    setDimmedEmojis,
+    setHintActive,
+    setHintCountdown,
+  ]);
+
+  const handleGuessChange = (event) => {
+    const userInput = event.target.value;
     setGuess(userInput);
 
     if (userInput.length > 0) {
@@ -123,54 +158,60 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
   };
 
   const handleHintClick = () => {
-    if (hintIndex < currentMovie.hints.length) {
-      const hintText = currentMovie.hints[hintIndex].split(" - ")[1]; // Extract hint text only
-      setShowHint(true);
-      setCurrentHint(hintText);
-      setHintTimer(10);
-      highlightHintEmojis(hintText, currentMovie.output);
-      setHintIndex((prev) => prev + 1);
+    if (!currentMovie || hintActive) return;
+    const hints = currentMovie.hints || [];
 
-      setRefereeData((prevData) => ({
-        ...prevData,
-        hintsUsed: prevData.hintsUsed + 1,
-      }));
-
-      const interval = setInterval(() => {
-        setHintTimer((prev) => {
-          if (prev === 1) {
-            clearInterval(interval);
-            resetHintAndEmoji();
-            return 10;
-          }
-          return prev - 1;
-        });
-      }, 1000);
+    if (hintIndex >= hints.length) {
+      return;
     }
+
+    const nextHint = hints[hintIndex];
+    const { indices, total } = indicesForHint(nextHint, currentMovie.output);
+    const description = extractHintDescription(nextHint);
+
+    setCurrentHint(description || null);
+    setHighlightedEmojis(indices);
+    setDimmedEmojis(indices.length ? computeDimmed(total, indices) : []);
+    setHintCountdown(10);
+    setHintActive(true);
+    setHintIndex((prev) => prev + 1);
+
+    setRefereeData((prevData) => ({
+      ...prevData,
+      hintsUsed: prevData.hintsUsed + 1,
+    }));
   };
 
-  const highlightHintEmojis = (hintText, emojiSequence) => {
-    const analyzedEmojis = analyzeEmojiSequence(emojiSequence);
-    const hintEmojis = analyzeEmojiSequence(hintText);
+  const handleExitGame = () => {
+    if (!currentMovie || exitPending) return;
+    const sessionTime = calculateSessionTime();
 
-    let matchIndex = 0;
-    let highlighted = [];
-    let dimmed = [];
-
-    for (let i = 0; i < analyzedEmojis.length; i++) {
-      if (analyzedEmojis[i] === hintEmojis[matchIndex]) {
-        highlighted.push(i);
-        matchIndex++;
-        if (matchIndex === hintEmojis.length) {
-          break;
-        }
-      } else {
-        dimmed.push(i);
-      }
+    if (hintActive) {
+      setHintActive(false);
+      setHintCountdown(0);
+      setHighlightedEmojis([]);
+      setDimmedEmojis([]);
     }
 
-    setHighlightedEmojis(highlighted);
-    setDimmedEmojis(dimmed);
+    setExitPending(true);
+    setExitIcon("😞");
+
+    exitTimeoutRef.current = setTimeout(() => {
+      setGameOver(true);
+      setRefereeData((prevData) => ({
+        ...prevData,
+        time: sessionTime,
+      }));
+
+      onExit({
+        title: currentMovie.title,
+        hintsUsed: hintIndex,
+        guesses: guess.length,
+        sessionTime,
+        breakdown: currentMovie.breakdown,
+      });
+      exitTimeoutRef.current = null;
+    }, 350);
   };
 
   const calculateSessionTime = useCallback(() => {
@@ -191,8 +232,13 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     <div className="game-screen">
       <Header />
       <span id="exit-container">
-        <button className="exit-game" onClick={onExit}>
-          ❎
+        <button
+          className="exit-game"
+          type="button"
+          aria-label="Exit game"
+          onClick={handleExitGame}
+        >
+          <EmojiIcon char={exitIcon} size={32} />
         </button>
       </span>
       {currentMovie && (
@@ -200,13 +246,11 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
           emojiSequence={currentMovie.output}
           highlightedEmojis={highlightedEmojis}
           dimmedEmojis={dimmedEmojis}
+          hintActive={hintActive}
         />
       )}
-      {showHint && (
-        <div id="hint-text-container">
-          {currentHint}
-          <span id="countdown-timer">{hintTimer}</span>
-        </div>
+      {currentHint && (
+        <div className="hint-text">{`Hint (${Math.max(hintCountdown, 0)}) - ${currentHint}`}</div>
       )}
       <div className="search-bar">
         <input
@@ -230,7 +274,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
               onClick={() => submitGuess(movie.title)}
             >
               <span>{movie.title}</span>
-              <button>
+              <button type="button">
                 {isCorrect === false && movie.title.toLowerCase() === guess.toLowerCase()
                   ? "👎"
                   : isCorrect === true && movie.title.toLowerCase() === guess.toLowerCase()
@@ -241,11 +285,16 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
           ))}
         </div>
       </div>
-      <HintButton displayHint={handleHintClick} />
+      <HintButton
+        displayHint={handleHintClick}
+        disabled={
+          !currentMovie ||
+          hintIndex >= (currentMovie?.hints?.length || 0) ||
+          hintActive
+        }
+      />
     </div>
   );
 };
 
 export default Game;
-
-
