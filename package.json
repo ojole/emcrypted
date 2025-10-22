@@ -19,7 +19,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sync:emoji": "node scripts/sync-fluent-emoji.cjs",
+    "compile:puzzles": "node scripts/compile-puzzles.cjs",
+    "prestart": "npm run compile:puzzles && npm run sync:emoji",
+    "prebuild": "npm run compile:puzzles && npm run sync:emoji"
   },
   "eslintConfig": {
     "extends": [
@@ -38,5 +42,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "glob": "^10.4.5"
   }
 }

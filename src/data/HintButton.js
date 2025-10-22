@@ -2,8 +2,8 @@ import React from 'react';
 
 const HintButton = ({ displayHint }) => {
   return (
-    <div>
-      <button className="hint-btn" onClick={displayHint}>
+    <div className="hint-button">
+      <button className="btn hint-btn" onClick={displayHint}>
         Hint
       </button>
     </div>

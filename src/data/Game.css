@@ -1,271 +1,193 @@
-/* Game.css */
-
-.emoji-item {
-  font-size: 2.5rem;
-  margin: 2px;
-  line-height: 1.5;
-  width: 3rem;
-  height: 3rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.highlighted {
-  opacity: 1;
-}
-
-.dimmed {
-  opacity: 0.2;
-}
-
-.result-screen, .victory-screen, .better-luck-next-time-screen {
+.game-screen {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  max-width: 90%;
+  position: relative;
 }
 
-.result-title {
-  font-family: "Dankosaurus", sans-serif;
+#exit-container {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 20;
 }
 
-@media (min-height: 800px) {
-  .result-screen, .victory-screen, .better-luck-next-time-screen {
-    padding: 20px;
-  }
-}
-
-#countdown-timer {
-  font-size: inherit; /* Match font size with hint */
-  padding-left: 10px; /* Add smooth padding */
-  transition: all 0.3s ease-in-out; /* Smooth transition for countdown */
-  color: #c08497;
-}
-.wrong-guess {
-  background-color: red;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.correct-guess {
-  background-color: green;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.hint-btn {
-  width: 150px;
-  height: 50px;
-  background-color: #ffde34;
-  color: #333333;
-  padding: 15px 30px;
-  margin: 10px;
+.exit-game {
+  background: none;
   border: none;
-  border-radius: 5px;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1.2rem;
+  padding: 4px;
   cursor: pointer;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s ease;
 }
 
-.hint-btn:hover {
-  background-color: #c08497;
-  color: #ffffff;
+.exit-game:active {
+  transform: scale(0.9);
 }
 
-.hint-btn:active {
-  transform: scale(0.95);
+.emoji-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#movie-guess {
-  background-color: rgba(255, 222, 52, 0.8);
+.emoji-grid {
+  --cell-size: clamp(36px, 5.2vw, 48px);
+  --cell-gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 7), var(--cell-size));
+  grid-auto-rows: var(--cell-size);
+  gap: var(--cell-gap);
+  justify-content: center;
+  width: 100%;
+  margin: 24px 0;
+}
+
+.emoji-item {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.18s ease;
+}
+
+.emoji-item::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 12px;
+  background: transparent;
+  pointer-events: none;
+  transition: background 0.18s ease;
+}
+
+.emoji-item img,
+.emoji-item .emoji-fallback {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+}
+
+.emoji-item.highlighted::before {
+  background: rgba(82, 132, 255, 0.18);
+}
+
+.emoji-grid.dim-others .emoji-item:not(.highlighted) {
+  opacity: 0.25;
+  filter: grayscale(0.35);
+}
+
+.hint-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 16px 0 8px;
+  padding: 8px 16px;
+  border-radius: 14px;
+  background: rgba(255, 222, 52, 0.35);
   color: #333333;
+  max-width: 640px;
   text-align: center;
-  width: 80%;
-  max-width: 300px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
+}
+
+.hint-text {
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.hint-count {
+  color: #d33;
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 32px;
+  text-align: right;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
 }
 
 .search-results {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 12px);
+  width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 60px;
-  width: 80%;
-  max-width: 300px;
-  z-index: 1000;
-  background-color: transparent;
-  border-radius: 5px;
-  padding: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  gap: 8px;
+  z-index: 10;
 }
 
 .result-item {
   background-color: #ffde34;
   color: #333333;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  width: 100%;
-  text-align: left;
+  padding: 12px 16px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
+  align-items: center;
+  font-size: 0.95rem;
   cursor: pointer;
-  font-size: 1rem;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.result-item:hover {
+  background-color: #f4ce26;
+}
+
+.result-item.correct-guess {
+  background-color: #1f8f4b;
+  color: #ffffff;
+}
+
+.result-item.wrong-guess {
+  background-color: #d64545;
+  color: #ffffff;
 }
 
 .result-item button {
   background: none;
   border: none;
-  font-size: 1.2rem;
+  color: inherit;
+  font-size: 1.35rem;
   cursor: pointer;
-  color: #333333;
 }
 
-.result-item button:hover {
-  color: #c08497;
-}
-
-.victory-message,
-.results-message {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1.5rem;
-  color: #333333;
-  margin: 20px 0;
-}
-
-.breakdown-container {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1rem;
-  color: #333333;
-  margin: 20px;
-  text-align: left;
-}
-
-@media (max-width: 768px) {
-  .emoji-grid {
-    grid-template-columns: repeat(5, 1fr);
+@media (max-width: 640px) {
+  .game-screen {
+    padding: 16px 12px 48px;
   }
-  #movie-guess {
-    width: 90%;
+
+  #exit-container {
+    top: 12px;
+    left: 12px;
   }
+
   .search-results {
-    max-width: 90%;
+    max-width: calc(100% - 24px);
   }
-}
-
-@media (max-width: 480px) {
-  .emoji-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  #movie-guess {
-    width: 100%;
-  }
-  .search-results {
-    max-width: 100%;
-  }
-}
-
-.hint-btn {
-  width: 60%;
-  max-width: 300px;
-  margin-bottom: 10px;
-}
-
-@media (max-width: 768px) {
-  .hint-btn {
-    width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hint-btn {
-    width: 90%;
-  }
-}
-
-#hint-text-container {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: calc(1rem + 0.5vw); /* Dynamic font size based on screen size */
-  color: #333333;
-  padding: 5px 0;
-  max-width: 80%;
-  word-wrap: break-word;
-  line-height: 1.5rem;
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-@media (max-width: 768px) {
-  #hint-text-container {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #hint-text-container {
-    font-size: 0.9rem;
-  }
-}
-
-/* Ensure victory and better-luck screens scale properly */
-.victory-screen, .better-luck-next-time-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  width: 100%;
-  max-width: 90%;
-  box-sizing: border-box;
-  overflow: hidden; /* Prevent overflow */
-}
-
-@media (max-width: 768px) {
-  .victory-screen, .better-luck-next-time-screen {
-    font-size: 0.9rem;
-  }
-}
-
-@media (min-height: 800px) {
-  .victory-screen, .better-luck-next-time-screen {
-    padding: 40px;
-  }
-}
-
-#exit-container {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-}
-
-.exit-game {
-  font-size: 2rem;
-  cursor: pointer;
-  background-color: transparent;
-  border: none; /* Remove border */
-  padding: 5px;
-}
-
-.exit-game:before {
-  content: '';
-  display: none; /* Hide extra emoji */
 }

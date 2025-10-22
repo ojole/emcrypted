@@ -2,12 +2,22 @@ import React from "react";
 
 const Home = ({ onStart, onLogin, onSignup, onLeaderboards }) => {
   return (
-    <div className="home-screen">
+    <div className="home">
       <h1 className="emcrypted-title">EMCRYPTED</h1>
-      <button className="hint-btn" onClick={onStart}>Start</button>
-      <button className="hint-btn" onClick={onLogin}>Login</button>
-      <button className="hint-btn" onClick={onSignup}>Signup</button>
-      <button className="hint-btn" onClick={onLeaderboards}>Leaderboards</button>
+      <div className="home-actions">
+        <button className="btn" onClick={onStart}>
+          Start
+        </button>
+        <button className="btn" onClick={onLogin}>
+          Login
+        </button>
+        <button className="btn" onClick={onSignup}>
+          Signup
+        </button>
+        <button className="btn" onClick={onLeaderboards}>
+          Leaderboards
+        </button>
+      </div>
     </div>
   );
 };
