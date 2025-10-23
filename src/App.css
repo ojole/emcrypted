@@ -1,276 +1,71 @@
-body {
-  font-family: sans-serif;
-  background-color: #ffffff;
-  color: #333333;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fdfdfd;
+  color: #1f1f1f;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .emcrypted-title {
-  font-family: "Dongle", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin: 20px 0;
+  font-family: "Dongle", system-ui, -apple-system, "Segoe UI", "Roboto", sans-serif;
+  font-size: clamp(2.75rem, 6vw, 4rem);
+  margin: 24px 0 12px;
+  letter-spacing: 1px;
 }
 
-button,
 .btn,
-.hint-btn,
-.result-item button,
-.exit-game {
-  font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-weight: 600;
-}
-
 .hint-btn {
-  width: 150px;
-  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border-radius: 14px;
+  border: none;
   background-color: #ffde34;
   color: #333333;
-  padding: 15px 30px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
+  line-height: 1;
   cursor: pointer;
-  text-align: center;
+  transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
+.btn:hover,
 .hint-btn:hover {
   background-color: #c08497;
   color: #ffffff;
 }
 
+.btn:active,
 .hint-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
 }
 
-#home-screen,
-#game-screen,
-#victory-screen,
-#result-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-#exit-container {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-}
-
-.exit-game {
-  font-size: 1.5rem;
-  cursor: pointer;
-  background-color: transparent;
-  padding: 5px;
-}
-
-.emoji-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
-  gap: 10px;
-  align-items: center;
-  justify-items: center;
-  max-width: 520px;
-  margin-bottom: 20px;
-}
-
-.emoji-item {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0;
-}
-
-.emoji-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  image-rendering: auto;
-}
-
-.search-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  position: relative;
-}
-
-#movie-guess {
-  background-color: rgba(255, 222, 52, 0.8);
-  color: #333333;
-  text-align: center;
-  width: 80%;
-  max-width: 300px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-}
-
-.search-results {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 60px;
-  width: 80%;
-  max-width: 300px;
-  z-index: 1000;
-  background-color: transparent;
-  border-radius: 5px;
-  padding: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.result-item {
-  background-color: #ffde34;
-  color: #333333;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  width: 100%;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.result-item button {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #333333;
-}
-
-.result-item button:hover {
-  color: #c08497;
-}
-
-.highlighted {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.dimmed {
-  opacity: 0.35;
-}
-
-#hint-text-container {
-  font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: calc(1rem + 0.5vw); /* Dynamic font size based on screen size */
-  color: #333333;
-  padding: 5px 0;
-  max-width: 80%;
-  word-wrap: break-word;
-  line-height: 1.5rem;
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-#countdown-timer {
-  font-size: 1rem;
-  color: #c08497;
-}
-
-.victory-message,
-.results-message {
-  font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 1.5rem;
-  color: #333333;
-  margin: 20px 0;
-}
-
-.breakdown-container {
-  font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 1rem;
-  color: #333333;
-  margin: 20px;
-  text-align: left;
-}
-
-#home-icon {
-  font-size: 2rem;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-  .emoji-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  #movie-guess {
-    width: 90%;
-  }
-  .search-results {
-    max-width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  .emoji-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  #movie-guess {
-    width: 100%;
-  }
-  .search-results {
-    max-width: 100%;
-  }
+.btn:disabled,
+.hint-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .home-screen {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 48px 16px 64px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  text-align: center;
+  gap: 16px;
 }
 
-.hint-btn {
-  width: 60%;
-  max-width: 300px;
-  margin-bottom: 10px;
+.home-screen .hint-btn {
+  width: 100%;
 }
 
-@media (max-width: 768px) {
-  .hint-btn {
-    width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hint-btn {
-    width: 90%;
-  }
+.emoji-icon img,
+.emoji-icon .emoji-fallback {
+  width: 100%;
+  height: 100%;
 }

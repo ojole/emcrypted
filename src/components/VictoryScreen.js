@@ -12,10 +12,10 @@ const VictoryScreen = ({ gameData, onNextGame, onResult }) => {
           <p key={index}>{item}</p>
         ))}
       </div>
-      <button className="hint-btn" onClick={onResult}>
+      <button className="btn hint-btn" type="button" onClick={onResult}>
         View Results
       </button>
-      <button className="hint-btn" onClick={onNextGame}>
+      <button className="btn hint-btn" type="button" onClick={onNextGame}>
         Next Game
       </button>
     </div>

@@ -1,32 +1,29 @@
 import React from "react";
-import { splitEmojiClusters } from "../utils/emojiSegment";
-import { assetPathForEmoji } from "../utils/emojiAssetMap";
+import EmojiIcon from "../utils/EmojiIcon";
 
-const EmojiGrid = ({ emojiSequence, highlightedEmojis = [], dimmedEmojis = [] }) => {
-  const clusters = splitEmojiClusters(emojiSequence);
+const DEFAULT_COLS = 7;
+
+const EmojiGrid = ({ tokens = [], highlightedEmojis = [], dimmedEmojis = [] }) => {
+  const highlightSet = new Set(highlightedEmojis);
+  const dimSet = new Set(dimmedEmojis);
+  const isDimming = dimSet.size > 0;
+  const columns = tokens.length
+    ? Math.min(DEFAULT_COLS, Math.max(3, Math.ceil(Math.sqrt(tokens.length))))
+    : DEFAULT_COLS;
+  const gridClass = ["emoji-grid", isDimming ? "dim-others" : ""].filter(Boolean).join(" ");
 
   return (
-    <div className="emoji-grid">
-      {clusters.map((emoji, index) => {
-        const src = assetPathForEmoji(emoji);
-        const stateClass = highlightedEmojis.includes(index)
-          ? "highlighted"
-          : dimmedEmojis.includes(index)
-          ? "dimmed"
-          : "";
-
+    <div className={gridClass} style={{ "--grid-cols": columns }}>
+      {tokens.map((token, index) => {
+        const highlighted = highlightSet.has(index);
+        const dimmed = !highlighted && dimSet.has(index);
+        const classes = ["emoji-item"];
+        if (highlighted) classes.push("highlighted");
+        if (dimmed) classes.push("dimmed");
         return (
-          <span key={`${emoji}-${index}`} className={`emoji-item ${stateClass}`} data-index={index}>
-            <img
-              src={src}
-              alt=""
-              draggable="false"
-              onError={(event) => {
-                const textNode = document.createTextNode(emoji);
-                event.currentTarget.replaceWith(textNode);
-              }}
-            />
-          </span>
+          <div key={`${token.hex || token.cluster || index}-${index}`} className={classes.join(" ")}>
+            <EmojiIcon asset={token.asset} cluster={token.cluster} size={48} />
+          </div>
         );
       })}
     </div>

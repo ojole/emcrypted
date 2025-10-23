@@ -1,250 +1,99 @@
-  .emcrypted-title {
-    font-family: "Dongle", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin: 20px 0;
-  }
+.victory-screen,
+.result-screen,
+.blnt-screen {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
 
-  button,
-  .btn,
-  .hint-btn,
-  .result-item button,
-  .exit-game {
-    font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-weight: 600;
-  }
+.victory-message,
+.results-message,
+.blnt-message {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #1f1f1f;
+}
 
-  body {
-    font-family: sans-serif;
-    background-color: #FFFFFF;
-    color: #333333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-  }
+.result-title,
+.blnt-title {
+  font-size: 2rem;
+  margin: 0;
+}
 
-  .hint-btn {
-    width: 150px;
-    height: 50px;
-    background-color: #FFDE34;
-    color: #333333;
-    padding: 15px 30px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  .hint-btn:hover {
-    background-color: #C08497;
-    color: #FFFFFF;
-  }
-  
-  .hint-btn:active {
-    transform: scale(0.95);
-  }
-  
-  #home-screen, #game-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  #exit-container {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1000; /* Ensure the exit button is always on top */
-  }
-  
-  .exit-game {
-    font-size: 2.5rem;
-    cursor: pointer;
-    background-color: transparent;
-    padding: 5px;
-  }
-  
-  .emoji-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
-    gap: 10px;
-    align-items: center;
-    justify-items: center;
-    max-width: 520px;
-    margin-bottom: 20px;
-  }
+.breakdown-container,
+.blnt-breakdown {
+  width: 100%;
+  background-color: rgba(255, 222, 52, 0.2);
+  border-radius: 18px;
+  padding: 16px;
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
 
-  .emoji-grid span {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0;
-  }
+.breakdown-container p,
+.blnt-breakdown p {
+  margin: 4px 0;
+  font-size: 1.35rem;
+}
 
-  .emoji-grid span img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    image-rendering: auto;
-  }
-  
-  .search-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: relative;
-  }
-  
-  #movie-guess {
-    background-color: rgba(255, 222, 52, 0.8);
-    color: #333333;
-    text-align: center;
-    width: 80%;
-    max-width: 300px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-    font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  }
-  
-  .search-results {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 60px;
-    width: 80%;
-    max-width: 300px;
-    z-index: 1000;
-    background-color: transparent;
-    border-radius: 5px;
-    padding: 10px;
-    transform: translateX(-53%);
-    left: 50%;
-  }
-  
-  .result-item {
-    background-color: #FFDE34;
-    color: #333333;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    width: 100%;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .result-item button {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: #333333;
-  }
-  
-  .result-item button:hover {
-    color: #C08497;
-  }
-  
-  .highlighted {
-    opacity: 1;
-    transform: scale(1.05);
-  }
+.victory-screen .hint-btn,
+.result-screen .hint-btn,
+.blnt-button {
+  width: 100%;
+  max-width: 280px;
+}
 
-  .dimmed {
-    opacity: 0.35;
-  }
-  
-  #hint-text-container {
-    font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 1.2rem;
-    color: #333333;
-    margin-top: 10px;
-    padding: 5px 0;
-    max-width: 80%;
-    word-wrap: break-word;
-    line-height: 1.5rem;
-    text-align: center;
-  }
-  
-  #countdown-timer {
-    font-size: 1rem;
-    color: #C08497;
-  }
-  
-  .victory-message {
-    font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 1.5rem;
-    color: #333333;
-    margin: 20px 0;
-  }
-  
-  .breakdown-container {
-    font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 1rem;
-    color: #333333;
-    margin: 20px;
-    text-align: left;
-  }
-  
-  .results-message {
-    font-family: "Pixelify Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 1.5rem;
-    color: #333333;
-    margin: 20px;
-  }
-  
-  #home-icon {
-    font-size: 2rem;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .emoji-grid {
-        grid-template-columns: repeat(5, 1fr);
-    }
-  
-    #movie-guess {
-        width: 90%;
-    }
-  
-    .search-results {
-        max-width: 90%;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .emoji-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-  
-    #movie-guess {
-        width: 100%;
-    }
-  
-    .search-results {
-        max-width: 100%;
-    }
-  }
+.blnt-emoji-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blnt-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blnt-stat {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  min-width: 120px;
+}
+
+.blnt-stat .label {
+  display: block;
+  font-size: 1.1rem;
+  color: rgba(31, 31, 31, 0.7);
+}
+
+.blnt-stat .value {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.hint-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.blnt-button {
+  margin-top: 8px;
+}
+
+.better-luck-next-time-screen {
+  display: contents;
+}

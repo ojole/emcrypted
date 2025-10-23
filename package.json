@@ -8,6 +8,9 @@
     "@testing-library/user-event": "^13.5.0",
     "csv-parse": "^6.1.0",
     "dotenv": "^17.2.3",
+    "fs-extra": "^11.3.2",
+    "glob": "^11.0.3",
+    "graphemer": "^1.4.0",
     "openai": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -21,7 +24,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sync:emoji": "node scripts/sync-fluent-emoji.cjs",
-    "postinstall": "npm run sync:emoji"
+    "compile:puzzles": "node scripts/compile-puzzles.cjs",
+    "prestart": "npm run compile:puzzles && npm run sync:emoji",
+    "prebuild": "npm run compile:puzzles && npm run sync:emoji",
+    "postinstall": "npm run compile:puzzles && npm run sync:emoji"
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "is-weakref": "^1.1.1"
   }
 }
