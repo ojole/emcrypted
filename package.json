@@ -8,9 +8,6 @@
     "@testing-library/user-event": "^13.5.0",
     "csv-parse": "^6.1.0",
     "dotenv": "^17.2.3",
-    "fs-extra": "^11.3.2",
-    "glob": "^11.0.3",
-    "graphemer": "^1.4.0",
     "openai": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -49,6 +46,9 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "fs-extra": "^11.3.2",
+    "glob": "^11.0.3",
+    "graphemer": "^1.4.0",
     "is-weakref": "^1.1.1"
   }
 }
