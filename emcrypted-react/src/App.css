@@ -327,6 +327,6 @@ body.theme-dark .top-left-username {
 
 @media (max-width: 768px) {
   .top-right-toggles {
-    right: max(12px, env(safe-area-inset-right));
+    right: calc(max(12px, env(safe-area-inset-right)) + 10px);
   }
 }

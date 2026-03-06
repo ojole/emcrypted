@@ -35,6 +35,7 @@
 
 .emoji-grid {
   --grid-cols: 6;
+  --emoji-render-size: 40px;
   --cell-gap: clamp(6px, 1.6vw, 12px);
   display: grid;
   grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
@@ -60,11 +61,10 @@
 .emoji-item svg,
 .emoji-item .emoji-icon,
 .emoji-item .emoji-fallback {
-  width: min(86%, 50px);
-  height: min(86%, 50px);
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  backface-visibility: hidden;
+  width: var(--emoji-render-size);
+  height: var(--emoji-render-size);
+  max-width: 90%;
+  max-height: 90%;
 }
 
 .emoji-item.highlighted {
@@ -376,16 +376,9 @@ body.theme-dark .result-arrow {
 
 @media (max-width: 480px) {
   .emoji-grid {
+    --emoji-render-size: 30px;
     --cell-gap: clamp(4px, 1.8vw, 8px);
     width: 100%;
-  }
-
-  .emoji-item img,
-  .emoji-item svg,
-  .emoji-item .emoji-icon,
-  .emoji-item .emoji-fallback {
-    width: min(84%, 34px);
-    height: min(84%, 34px);
   }
 }
 
@@ -393,7 +386,7 @@ body.theme-dark .result-arrow {
 .hintHistoryRail {
   position: fixed;
   top: calc(max(12px, env(safe-area-inset-top)) + var(--hud-size) + clamp(10px, 3vw, 20px));
-  left: max(12px, env(safe-area-inset-left));
+  left: calc(max(12px, env(safe-area-inset-left)) + clamp(10px, 2.4vw, 18px));
   transform: none;
   display: flex;
   flex-direction: column;
@@ -413,6 +406,7 @@ body.theme-dark .result-arrow {
   align-items: center;
   gap: 8px;
   pointer-events: auto;
+  overflow: visible;
 }
 
 .hintPill {
@@ -440,7 +434,7 @@ body.theme-dark .result-arrow {
 
 .hintDrawerHandle {
   width: calc(var(--hud-size) * 0.86);
-  min-height: 20px;
+  min-height: 24px;
   border: 0;
   background: transparent;
   padding: 0;
@@ -453,7 +447,7 @@ body.theme-dark .result-arrow {
 }
 
 .hintPillChevron {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   line-height: 1;
   color: #111111;
@@ -587,7 +581,7 @@ body.theme-dark .hintCountdownBar {
   /* Keep pills visible on mobile instead of hiding them */
   .hintHistoryRail {
     top: calc(max(12px, env(safe-area-inset-top)) + var(--hud-size) + clamp(12px, 4vw, 18px));
-    left: max(12px, env(safe-area-inset-left));
+    left: calc(max(12px, env(safe-area-inset-left)) + 14px);
     gap: clamp(6px, 3vw, 12px);
   }
   .hintPill {
@@ -595,9 +589,35 @@ body.theme-dark .hintCountdownBar {
     height: var(--hud-size);
     border-radius: calc(var(--hud-size) / 3);
   }
+
+  .emoji-grid {
+    --emoji-render-size: 34px;
+    --cell-gap: 6px;
+  }
 }
 
 @media (max-width: 480px) {
+  .hintHistoryRail {
+    left: calc(max(8px, env(safe-area-inset-left)) + 8px);
+  }
+
+  .hintBarRow {
+    white-space: normal;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.25;
+    gap: 0.35rem;
+  }
+
+  .countCluster {
+    gap: 0.22rem;
+  }
+
+  .hintBar {
+    padding-inline: 0.45rem;
+  }
+
   .text-input {
     font-size: clamp(1rem, 4.2vw, 1.15rem);
   }

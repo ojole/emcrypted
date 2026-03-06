@@ -486,7 +486,6 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
       };
       setHintHistory(prev => [...prev, newHint]);
       setHintIndex(prev => prev + 1);
-      setIsHintRailExpanded(false);
 
       // Update referee data with distinct hint count
       setRefereeData(prevData => ({
