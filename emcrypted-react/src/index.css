@@ -22,12 +22,16 @@
   --summaryHeadlineColor: #000;
   --summaryTitleColor: rgba(0, 0, 0, 0.8);
   --summaryStatsColor: rgba(0, 0, 0, 0.6);
-  --scrollbar-size: 9px;
+  --scrollbar-size: 8px;
   --scrollbar-thumb: rgba(255, 255, 255, 0.94);
   --scrollbar-thumb-hover: rgba(255, 255, 255, 1);
   --scrollbar-track: transparent;
   --scrollbar-sheen: rgba(255, 255, 255, 0.8);
   --scrollbar-shadow: rgba(118, 131, 153, 0.48);
+  --app-scroll-thumb: rgba(255, 255, 255, 0.96);
+  --app-scroll-thumb-hover: rgba(255, 255, 255, 1);
+  --app-scroll-thumb-shadow: rgba(120, 132, 154, 0.5);
+  --floating-ui-right-offset: 24px;
 }
 
 *, *::before, *::after {
@@ -48,11 +52,6 @@ select,
 .breakdown,
 .nav {
   font-family: var(--font-ui);
-}
-
-#root {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 html,
@@ -105,37 +104,28 @@ body.theme-dark {
   --scrollbar-track: transparent;
   --scrollbar-sheen: rgba(220, 234, 255, 0.44);
   --scrollbar-shadow: rgba(4, 12, 26, 0.68);
+  --app-scroll-thumb: rgba(130, 162, 228, 0.9);
+  --app-scroll-thumb-hover: rgba(160, 192, 250, 0.98);
+  --app-scroll-thumb-shadow: rgba(6, 17, 39, 0.72);
 }
 
-body::-webkit-scrollbar {
+.app-scroll-host {
+  width: 100%;
+  min-height: 100%;
+  height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.app-scroll-host::-webkit-scrollbar {
+  -webkit-appearance: none;
   width: 0;
   height: 0;
-}
-
-#root::-webkit-scrollbar {
-  width: var(--scrollbar-size);
-  height: var(--scrollbar-size);
-}
-
-#root::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
-}
-
-#root::-webkit-scrollbar-thumb {
-  min-height: 32px;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  background: var(--scrollbar-thumb);
-  background-clip: padding-box;
-  box-shadow:
-    inset 0 1px 0 var(--scrollbar-sheen),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.14),
-    0 0 0 1px var(--scrollbar-shadow),
-    0 0 12px rgba(0, 0, 0, 0.12);
-}
-
-#root::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-hover);
+  display: none;
 }
 
 body.theme-dark::before {
@@ -180,10 +170,42 @@ body.theme-dark::after {
   height: 100dvh;
   position: relative;
   z-index: 1;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-gutter: stable both-edges;
+  overflow: hidden;
+}
+
+.app-owned-scrollbar {
+  position: fixed;
+  top: max(10px, env(safe-area-inset-top));
+  bottom: max(10px, env(safe-area-inset-bottom));
+  right: max(8px, env(safe-area-inset-right));
+  width: 14px;
+  z-index: 900;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.16s ease;
+}
+
+.app-owned-scrollbar-visible {
+  opacity: 1;
+}
+
+.app-owned-scrollbar-thumb {
+  position: absolute;
+  right: 2px;
+  width: var(--scrollbar-size);
+  min-height: 34px;
+  border-radius: 999px;
+  background: var(--app-scroll-thumb);
+  box-shadow:
+    inset 0 1px 0 var(--scrollbar-sheen),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
+    0 0 0 1px var(--app-scroll-thumb-shadow),
+    0 0 10px rgba(0, 0, 0, 0.14);
+  transition: background-color 0.16s ease;
+}
+
+.app-owned-scrollbar-visible .app-owned-scrollbar-thumb:hover {
+  background: var(--app-scroll-thumb-hover);
 }
 
 #appFrame {

@@ -205,7 +205,7 @@ body,
 }
 
 .top-right-toggles {
-  right: calc(max(12px, env(safe-area-inset-right)) + var(--scrollbar-size, 9px) + 18px);
+  right: calc(max(12px, env(safe-area-inset-right)) + var(--floating-ui-right-offset, 24px));
 }
 
 .top-left-overlay {
@@ -322,5 +322,11 @@ body.theme-dark .top-left-username {
 @media (max-width: 480px) {
   .phoneCard {
     margin: clamp(24px, 7vh, 48px) auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-right-toggles {
+    right: max(12px, env(safe-area-inset-right));
   }
 }
