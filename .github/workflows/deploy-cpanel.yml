@@ -34,7 +34,9 @@ jobs:
         run: npm ci --prefix emcrypted-react --legacy-peer-deps
 
       - name: Build React app
-        run: npm run build --prefix emcrypted-react
+        run: |
+          rm -rf emcrypted-react/build
+          npm run build --prefix emcrypted-react
 
       - name: Install lftp
         run: |

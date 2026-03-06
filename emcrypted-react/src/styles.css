@@ -294,12 +294,27 @@
 
 .summaryBreakdownRow .emoji-col {
   min-width: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   text-align: center;
   flex-shrink: 0;
 }
 
 .summaryBreakdownRow .text-col {
   flex: 1;
+}
+
+.summaryUnicodeFallback {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 28px;
+  line-height: 1.15;
 }
 
 .summaryStats {

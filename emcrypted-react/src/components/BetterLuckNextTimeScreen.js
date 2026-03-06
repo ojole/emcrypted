@@ -150,6 +150,10 @@ const BetterLuckNextTimeScreen = ({ gameData, onNextGame, onHome }) => {
               tokensByCluster
             );
 
+            const showUnicodeFallback =
+              (!renderTokens || renderTokens.length === 0) &&
+              emojiClusters.length > 0;
+
             return (
               <div
                 key={`${line}-${index}`}
@@ -166,6 +170,12 @@ const BetterLuckNextTimeScreen = ({ gameData, onNextGame, onHome }) => {
                           size={28}
                         />
                       ))
+                    : showUnicodeFallback
+                    ? (
+                        <span className="summaryUnicodeFallback">
+                          {emojiClusters.join("")}
+                        </span>
+                      )
                     : null}
                 </div>
                 <div

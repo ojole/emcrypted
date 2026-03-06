@@ -76,9 +76,11 @@ const EmojiIcon = forwardRef(function EmojiIcon(
     [asset, hex, hexFull]
   );
   const [sourceIndex, setSourceIndex] = useState(0);
+  const [hasExhaustedSources, setHasExhaustedSources] = useState(false);
 
   useEffect(() => {
     setSourceIndex(0);
+    setHasExhaustedSources(false);
   }, [sourceCandidates]);
 
   const src = sourceCandidates[sourceIndex] || "";
@@ -88,15 +90,44 @@ const EmojiIcon = forwardRef(function EmojiIcon(
       if (typeof onError === "function") {
         onError(event);
       }
-      setSourceIndex((index) =>
-        index < sourceCandidates.length - 1 ? index + 1 : index
-      );
+      setSourceIndex((index) => {
+        if (index < sourceCandidates.length - 1) {
+          return index + 1;
+        }
+        setHasExhaustedSources(true);
+        return index;
+      });
     },
     [onError, sourceCandidates.length]
   );
 
-  if (!src) {
-    return null;
+  if (!src || hasExhaustedSources) {
+    const fallbackLabel = (cluster || text || alt || "?").trim() || "?";
+    return (
+      <span
+        ref={ref}
+        className={`emoji-icon emoji-fallback ${className}`.trim()}
+        aria-hidden={alt ? undefined : "true"}
+        title={alt || fallbackLabel}
+        data-hex={hexFull || hex || ""}
+        data-has-tone={hasTone ? "true" : "false"}
+        style={{
+          width: size,
+          height: size,
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: Math.max(12, Math.round(size * 0.82)),
+          lineHeight: 1,
+          maxWidth: "100%",
+          maxHeight: "100%",
+          ...style,
+        }}
+        {...rest}
+      >
+        {fallbackLabel}
+      </span>
+    );
   }
 
   return (

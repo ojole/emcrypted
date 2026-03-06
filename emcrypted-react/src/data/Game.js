@@ -81,6 +81,21 @@ const assetPathForCluster = (cluster) => {
   return `/vendor/fluent-emoji/${toHex(cluster)}.svg`;
 };
 
+const buildTokensFromEmojiString = (emojiString) => {
+  const source = String(emojiString || "");
+  if (!source) return [];
+  return splitGraphemes(source).map((cluster) => {
+    const hex = toHex(cluster);
+    return {
+      cluster,
+      hex,
+      hexBase: stripToneFromHex(hex),
+      hasTone: TONE_REGEX.test(cluster),
+      asset: assetPathForCluster(cluster),
+    };
+  });
+};
+
 const normalizeMovies = (data) => {
   if (!data) return [];
   if (Array.isArray(data)) return data.filter(Boolean);
@@ -113,21 +128,10 @@ const ensureMovieTokens = (movie) => {
           hex,
           hexBase,
           hasTone,
-          asset: token?.asset ?? null,
+          asset: token?.asset || assetPathForCluster(cluster),
         };
       })
-    : baseClusters.map((cluster) => {
-        const hexValue = toHex(cluster);
-        const hasTone = TONE_REGEX.test(cluster);
-        const hexBase = stripToneFromHex(hexValue);
-        return {
-          cluster,
-          hex: hexValue,
-          hexBase,
-          hasTone,
-          asset: null,
-        };
-      });
+    : buildTokensFromEmojiString(output);
 
   const tokenHex =
     Array.isArray(movie.tokenHex) && movie.tokenHex.length === tokens.length
@@ -389,10 +393,47 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
 
   // Apply emoji policy to game tokens
   const policyTokens = useMemo(() => {
-  if (!currentMovie || !Array.isArray(currentMovie.tokens)) return [];
-  const t = applyPolicyToTokens(currentMovie.tokens);
-  return (t && t.length) ? t : currentMovie.tokens;
-}, [currentMovie]);
+    if (!currentMovie) return [];
+
+    const sourceTokens =
+      Array.isArray(currentMovie.tokens) && currentMovie.tokens.length
+        ? currentMovie.tokens
+        : buildTokensFromEmojiString(currentMovie.emojiString || currentMovie.output || "");
+
+    if (!sourceTokens.length) return [];
+
+    const normalizedSourceTokens = sourceTokens.map((token) => {
+      const cluster = token?.cluster || "";
+      const hex = token?.hex || toHex(cluster);
+      return {
+        ...token,
+        cluster,
+        hex,
+        hexBase: token?.hexBase || stripToneFromHex(hex),
+        hasTone: typeof token?.hasTone === "boolean" ? token.hasTone : TONE_REGEX.test(cluster),
+        asset: token?.asset || assetPathForCluster(cluster),
+      };
+    });
+
+    const policyAppliedTokens = applyPolicyToTokens(normalizedSourceTokens);
+    const candidateTokens =
+      Array.isArray(policyAppliedTokens) && policyAppliedTokens.length
+        ? policyAppliedTokens
+        : normalizedSourceTokens;
+
+    return candidateTokens.map((token) => {
+      const cluster = token?.cluster || "";
+      const hex = token?.hex || toHex(cluster);
+      return {
+        ...token,
+        cluster,
+        hex,
+        hexBase: token?.hexBase || stripToneFromHex(hex),
+        hasTone: typeof token?.hasTone === "boolean" ? token.hasTone : TONE_REGEX.test(cluster),
+        asset: token?.asset || assetPathForCluster(cluster),
+      };
+    });
+  }, [currentMovie]);
 
   const showHint = useCallback((hintObj) => {
     const { emojiText, message, id } = hintObj;
@@ -551,12 +592,21 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                 setIsHintRailExpanded((prev) => !prev);
               }}
             >
-              <EmojiIcon
-                asset={questionMarkToken.asset}
-                hex={questionMarkToken.hex}
-                hasTone={questionMarkToken.hasTone}
-                size={28}
-              />
+              <span className="hintPillToggleContent">
+                <EmojiIcon
+                  className="hintPillToggleIcon"
+                  asset={questionMarkToken.asset}
+                  hex={questionMarkToken.hex}
+                  hasTone={questionMarkToken.hasTone}
+                  size={22}
+                />
+                <span
+                  className={`hintPillChevron ${isHintRailExpanded ? "hintPillChevron-open" : ""}`}
+                  aria-hidden="true"
+                >
+                  ▾
+                </span>
+              </span>
             </button>
 
             {isHintRailExpanded && hintHistory.map((hint) => {

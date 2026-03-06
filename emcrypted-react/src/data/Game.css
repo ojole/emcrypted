@@ -411,6 +411,32 @@ body.theme-dark .result-arrow {
   border-style: solid;
 }
 
+.hintPillToggleContent {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  line-height: 1;
+}
+
+.hintPillToggleIcon {
+  filter: saturate(1.2) hue-rotate(-12deg) brightness(1.05);
+}
+
+.hintPillChevron {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--hint-red);
+  transform: translateY(-1px);
+  transition: transform 0.15s ease;
+}
+
+.hintPillChevron-open {
+  transform: translateY(-1px) rotate(180deg);
+}
+
 .hintPill:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
