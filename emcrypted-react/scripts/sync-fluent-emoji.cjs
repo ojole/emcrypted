@@ -430,8 +430,25 @@ const SKIN_TONE_FOLDERS = {
 };
 
 const buildAssetIndex = async () => {
-  if (!fs.existsSync(ASSETS_DIR)) {
-    console.warn("[sync-fluent-emoji] Fluent emoji assets not found at", ASSETS_DIR);
+  const indexDirCandidates = [ASSETS_DIR, DEST_DIR];
+  let indexDir = null;
+  let svgFiles = [];
+
+  for (const candidate of indexDirCandidates) {
+    if (!fs.existsSync(candidate)) continue;
+    const files = glob.sync("*.svg", { cwd: candidate, absolute: false });
+    if (files.length > 0) {
+      indexDir = candidate;
+      svgFiles = files;
+      break;
+    }
+  }
+
+  if (!indexDir) {
+    console.warn(
+      "[sync-fluent-emoji] Fluent emoji assets not found in expected index dirs:",
+      indexDirCandidates.join(", ")
+    );
     return { glyph: new Map(), hex: new Map(), name: new Map() };
   }
 
@@ -439,11 +456,8 @@ const buildAssetIndex = async () => {
   const hexMap = new Map();
   const nameMap = new Map();
 
-  // Read all SVG files from the flat vendor/fluent-emoji directory
-  const svgFiles = glob.sync("*.svg", { cwd: ASSETS_DIR, absolute: false });
-
   for (const svgFilename of svgFiles) {
-    const svgPath = path.join(ASSETS_DIR, svgFilename);
+    const svgPath = path.join(indexDir, svgFilename);
     const hexStr = svgFilename.replace(".svg", "");
 
     // Create a glyph from the hex code

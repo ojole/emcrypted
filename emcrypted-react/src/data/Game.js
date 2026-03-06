@@ -283,15 +283,14 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
         try {
           moviesData = await loadMovies(PRIMARY_DATA_URL);
         } catch (err) {
-          if (err.status && err.status !== 404) {
-            console.warn("Failed to load compiled puzzles, falling back", err);
-          }
-          if (!err.status || err.status === 404) {
-            moviesData = await loadMovies(FALLBACK_DATA_URL);
-          }
+          console.warn("Failed to load compiled puzzles, trying fallback source", err);
+          moviesData = await loadMovies(FALLBACK_DATA_URL);
         }
 
         const normalized = normalizeMovies(moviesData).map(ensureMovieTokens);
+        if (!normalized.length) {
+          throw new Error("No movies available after loading puzzle data");
+        }
         setMoviesList(normalized);
         startNewGame(normalized);
       } catch (error) {

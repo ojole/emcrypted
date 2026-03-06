@@ -213,43 +213,44 @@
 
   /* Firefox scrollbar */
   scrollbar-width: thin;
-  /* default to dark-style values, we'll override below with .light */
-  scrollbar-color: rgba(30,40,70,0.9) rgba(255,255,255,0.06);
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 /* Light theme override for Firefox */
 .summaryScrollable.light {
-  scrollbar-color: #999 rgba(0,0,0,0.06);
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 /* WebKit scrollbar styling */
 .summaryScrollable::-webkit-scrollbar {
-  width: 6px;
+  width: calc(var(--scrollbar-size, 8px) - 1px);
 }
 
 .summaryScrollable::-webkit-scrollbar-track {
   background: transparent;
-  border-radius: 4px;
-}
-
-.summaryScrollable.dark::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.06);
-}
-
-.summaryScrollable.light::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.06);
 }
 
 .summaryScrollable::-webkit-scrollbar-thumb {
   border-radius: 4px;
+  border: 1px solid transparent;
+  background: var(--scrollbar-thumb);
+  background-clip: padding-box;
+  box-shadow:
+    inset 0 1px 0 var(--scrollbar-sheen),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.14),
+    0 0 0 1px var(--scrollbar-shadow);
 }
 
 .summaryScrollable.dark::-webkit-scrollbar-thumb {
-  background: rgba(30,40,70,0.9);  /* deep navy that matches Hint/primary buttons in dark */
+  background: var(--scrollbar-thumb);
 }
 
 .summaryScrollable.light::-webkit-scrollbar-thumb {
-  background: #999;               /* subtle gray for light mode */
+  background: var(--scrollbar-thumb);
+}
+
+.summaryScrollable::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Fixed bottom section (stats) */

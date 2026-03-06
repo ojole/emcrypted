@@ -1,452 +1,1038 @@
 [
   {
-    "title": "The Godfather",
-    "description": "A crime saga about power, loyalty, and family succession.",
-    "output": "🤵💼👨🍝🔫",
+    "title": "The Shawshank Redemption",
+    "description": "'The Shawshank Redemption' is a tale of enduring hope and friendship. Wrongfully convicted for the murder of his wife and her lover, banker Andy Dufresne is sentenced to life at Shawshank Prison. There he develops a unique bond with longtime inmate Red, who procures items for the other inmates. Despite his seemingly dire circumstances, Andy maintains his innocence and keeps hope alive.",
+    "output": "👨‍⚖️🔨📖⛓️🏢🔒🚬💻💡🕊️🎒📚🔨🗝️🏢🛠️🏞️🌦️🌊💌👬🐦🗽👫💰🍻💭🔓⏳🎶🌹💼🔨🌌🌦️🚶‍♂️💼💵🕊️💌👬💥🗺️🚿🌦️🗽👫⛵🎬",
     "hints": [
-      "1. 🤵💼 - A powerful family business.",
-      "2. 👨🍝 - Family tradition and Italian roots.",
-      "3. 🔫 - Violence and betrayal shape the legacy."
+      "1. 👨‍⚖️🔨📖 - A sentence that changes destiny",
+      "2. ⛓️🏢🔒 - Enclosed within high walls",
+      "3. 🚬💻💡 - Unlikely trading in prison",
+      "4. 🕊️🎒📚🔨 - Knowledge and courage behind the mask",
+      "5. 🏢🛠️🏞️ - Secret behind the wall",
+      "6. 🌦️🌊💌👬 - Hope carried with one letter",
+      "7. 🐦🗽👫 - Freedom outside prison",
+      "8. 💰🍻💭🔓 - Celebrating an old friend",
+      "9. ⏳🎶🌹 - Time encapsulated in melodies",
+      "10. 🚶‍♂️💼💵 - An unexpected fortune",
+      "11. 🕊️💌👬🗺️ - Good news travels far",
+      "12. 💥🚿🌦️ - A startling revelation",
+      "13. 🗽👫⛵ - Dream comes true"
     ],
     "breakdown": [
-      "• 🤵💼 - Organized power and leadership.",
-      "• 👨🍝 - Family loyalty at the center.",
-      "• 🔫 - The cost of control and succession."
-    ]
-  },
-  {
-    "title": "Titanic",
-    "description": "A romance unfolds aboard a doomed ocean liner.",
-    "output": "🚢🧊💔🌊",
-    "hints": [
-      "1. 🚢 - A famous ship voyage.",
-      "2. 🧊 - Disaster in the North Atlantic.",
-      "3. 💔🌊 - Tragic love and loss at sea."
-    ],
-    "breakdown": [
-      "• 🚢 - The massive passenger liner.",
-      "• 🧊 - Collision with an iceberg.",
-      "• 💔🌊 - Love story ending in tragedy."
-    ]
-  },
-  {
-    "title": "Jurassic Park",
-    "description": "Scientists bring dinosaurs back, and chaos follows.",
-    "output": "🦖🦕🏝️🚙",
-    "hints": [
-      "1. 🦖🦕 - Prehistoric creatures return.",
-      "2. 🏝️ - A remote island attraction.",
-      "3. 🚙 - A park tour gone wrong."
-    ],
-    "breakdown": [
-      "• 🦖🦕 - Cloned dinosaurs.",
-      "• 🏝️ - Isolated theme park setting.",
-      "• 🚙 - Visitors trying to survive."
-    ]
-  },
-  {
-    "title": "The Matrix",
-    "description": "A hacker discovers reality is a machine-controlled simulation.",
-    "output": "💊🕶️💻🔫",
-    "hints": [
-      "1. 💊 - A world-changing choice.",
-      "2. 🕶️💻 - Hackers and hidden truth.",
-      "3. 🔫 - Stylized action in virtual reality."
-    ],
-    "breakdown": [
-      "• 💊 - The red pill decision.",
-      "• 🕶️💻 - Digital illusion and rebellion.",
-      "• 🔫 - Combat against machine control."
-    ]
-  },
-  {
-    "title": "Star Wars",
-    "description": "A galactic struggle between rebellion and empire.",
-    "output": "⭐🚀⚔️👑",
-    "hints": [
-      "1. ⭐🚀 - Adventure in space.",
-      "2. ⚔️ - Epic battles between forces.",
-      "3. 👑 - Destiny and leadership."
-    ],
-    "breakdown": [
-      "• ⭐🚀 - Interstellar setting.",
-      "• ⚔️ - Conflict between light and dark.",
-      "• 👑 - Lineage and power."
+      "• 👨‍⚖️🔨📖 - Represents the unjust sentence given to Andy Dufresne",
+      "• ⛓️🏢🔒 - Signifies the Shawshank Prison",
+      "• 🚬💻💡 - Depicts the trade and 'business' in prison, orchestrated by Red",
+      "• 🕊️🎒📚🔨 - Represents the hope and knowledge Andy shares with others",
+      "• 🏢🛠️🏞️ - Symbolizes Andy's secret tunnel",
+      "• 🌦️🌊💌👬 - Emphasizes the ever-lasting friendship and faith between Red and Andy",
+      "• 🐦🗽👫 - Depicts the freedom and life outside the prison walls",
+      "• 💰🍻💭🔓 - Signifies the celebration by Red in memory of Andy after his escape",
+      "• ⏳🎶🌹 - Represents the enduring power of art and music within the prison",
+      "• 🚶‍♂️💼💵 - Shows the unexpected inheritance left by Andy",
+      "• 🕊️💌👬🗺️ - Indicates the message Andy left for Red, signaling his escape",
+      "• 💥🚿🌦️ - Connotes the shocking revelation of Andy's escape",
+      "• 🗽👫⛵ - Illustrates Red's journey to reunite with Andy, fulfilling his dream of freedom."
     ]
   },
   {
     "title": "The Dark Knight",
-    "description": "Batman faces a chaotic criminal mastermind.",
-    "output": "🦇🌃🃏🚓",
+    "description": "In 'The Dark Knight', Batman, with the help of Jim Gordon and new district attorney Harvey Dent, is set to dismantle the remaining criminal organizations that plague Gotham. However, a new psychotic criminal known as the Joker emerges who thrusts Gotham into anarchy and forces Batman closer to crossing the fine line between hero and vigilante.",
+    "output": "🦸‍♂️🌃🕵️‍♂️👮‍♂️⚖️🎭🦇💪⏳💣💥🏦🔥💰💀😈🎭🤡💔💣🚗🦸‍♂️👮‍♂️🔍🖤🦇🏍️😱💥🏦💔⚰️🕵️‍♂️⚖️🔥🦇💪💔🦸‍♂️🌃🃏🦸‍♂️🌃😠🎭🛳️💥🃏💥🦸‍♂️😠⏱️😭💥🦇🌃",
     "hints": [
-      "1. 🦇 - Gotham's vigilante.",
-      "2. 🌃🃏 - A city terrorized by chaos.",
-      "3. 🚓 - Crime, justice, and moral pressure."
+      "1. 🦸‍♂️🌃 - Vengeance in action.",
+      "2. 👮‍♂️ - Upholding justice.",
+      "3. 🦸‍♂️🕵️‍♂️👮‍♂️⚖️ - Trio battling against crime.",
+      "4. 💥🏦🔥 - A bank under seige.",
+      "5. 🎭🃏 - New face of chaos.",
+      "6. 💔💣 - Heartbreaking explosion.",
+      "7. 🦇🏍️💥 - A pursuit through city streets.",
+      "8. 💔⚰️🕵️ - A fallen protector.",
+      "9. 🦇💪💔🦸‍♂️🌃 - A hero's struggle.",
+      "10. 💥🃏 - Confronting the nemesis.",
+      "11. 😠⏱️💥 - A tense countdown.",
+      "12. 🦇🌃 - A hero emerges from the shadows."
     ],
     "breakdown": [
-      "• 🦇 - Batman's symbol.",
-      "• 🌃🃏 - The Joker's campaign of fear.",
-      "• 🚓 - Law enforcement caught in the middle."
+      "• 🦸‍♂️🌃 - Represents Batman, protecting Gotham city.",
+      "• 👮‍♂️ - Symbolizes Jim Gordon, who works closely with Batman.",
+      "• 🕵️‍♂️⚖️ - Represents Harvey Dent, the driving force in the battle against crime.",
+      "• 💥🏦🔥 - Illustrates the iconic bank robbery scene involving Joker.",
+      "• 🎭🃏 - Represents the arrival of Joker, the new psychopathic criminal in Gotham.",
+      "• 💔💣 - Showcases the tragic hospital explosion scene.",
+      "• 🦇🏍️💥 - Reflects the intense chase scenes with Batman on his Batpod.",
+      "• 💔⚰️🕵️ - Depicts the loss of Harvey Dent, and his transformation into Two-Face.",
+      "• 🦇💪💔🦸‍♂️🌃 - Symbolizes Batman's fight against crime despite facing personal loss and struggles.",
+      "• 💥🃏 - Portrays the explosive encounters between Batman and the Joker.",
+      "• 😠⏱️💥 - Represents the tension-filled climax with a ticking time bomb.",
+      "• 🦇🌃 - Shows Batman, the Dark Knight, emerging as the symbol of hope for Gotham city."
     ]
   },
   {
     "title": "Inception",
-    "description": "A team performs high-stakes heists inside dreams.",
-    "output": "💤🧠🏙️🔄",
+    "description": "Inception follows Dom Cobb, a professional thief who steals information by infiltrating people's subconscious. Cobb gets a chance at redemption and to return to his old life when he is offered an impossible task: to plant an idea into a person's mind, an act known as \"inception\". In a world where dreams can be manipulated and controlled, Cobb and his team must succeed against all odds.",
+    "output": "😴💭🌎💼👨‍💼👥💎🙊⛰️🎢🏙️🏃‍♂️💡🧠🔒🔑💣🕰️⏳💔🎁😴✈️🌊💼🔫🏛️😥👦👧🤝😴🌇🏢💥😱💡⌛💣😴🛏️🚂🔑🌀📉💭🧑🌅👨‍👧‍👦💥✈️😊🌎",
     "hints": [
-      "1. 💤🧠 - Entering layered dreams.",
-      "2. 🏙️ - Reality bends in cityscapes.",
-      "3. 🔄 - Time and memory loops."
+      "1. 😴💭 - The world of dreams.",
+      "2. 💼👨‍💼 - A corporate thief.",
+      "3. 🙊⛰️ - A secret mission.",
+      "4. 🎢🏙️ - Intricate and complex set pieces.",
+      "5. 🏃‍♂️💡 - A race to implement an idea.",
+      "6. 🧠🔒🔑 - Unlocking the mind's potentials.",
+      "7. 💣🕰️ - Ticking time bomb scenarios.",
+      "8. ✈️🌊 - A plane and a tidal wave, key plot points.",
+      "9. 🔫🏛️ - High stakes at majestic locations.",
+      "10. 👦👧 - A broken family waiting for reunion.",
+      "11. 😴🌇 - Dreams within dreams.",
+      "12. 🏢💥 - Collapsing dreams indicate danger.",
+      "13. ⌛💣 - The countdown to extract or plant an idea.",
+      "14. 🛏️🚂 - Some unusual methods to enter the dream world.",
+      "15. 🌀📉 - The confusing twists and sudden downturns.",
+      "16. 💭🧑 - A man's central idea that shapes everything.",
+      "17. 👨‍👧‍👦🌅 - A father's hope for a new beginning."
     ],
     "breakdown": [
-      "• 💤🧠 - Shared dream technology.",
-      "• 🏙️ - Altered environments.",
-      "• 🔄 - Nested levels and ambiguity."
+      "• 😴💭 - Represents dreams, the main setting of the movie.",
+      "• 💼👨‍💼 - Represents Dom Cobb, the professional thief and protagonist of the film.",
+      "• 🙊⛰️ - The secret mission, the \"mountain\" they have to climb.",
+      "• 🎢🏙️ - Symbolizes dream manipulation and constructing dream realities.",
+      "• 🏃‍♂️💡 - The race against time to plant the idea.",
+      "• 🧠🔒🔑 - The concept of the mind as a safe that can be unlocked.",
+      "• 💣🕰️ - Imminent danger in the subconscious.",
+      "• ✈️🌊 - The wake-up mechanics and the water symbolism.",
+      "• 🔫🏛️ - The conflict and tension that occur in dream stages.",
+      "• 👦👧 - A symbol of Cobb's children, his main motivation.",
+      "• 😴🌇 - Represents the concept of dream layers.",
+      "• 🏢💥 - The collapsing of the dreamed realities indicating danger.",
+      "• ⌛💣 - The urgency of their mission.",
+      "• 🛏️🚂 - Represents the unique methods used to induce dreams.",
+      "• 🌀📉 - The disorientation caused by the plot's complex twists.",
+      "• 💭🧑 - The core idea or thought that defines a person, relating to inception.",
+      "• 👨‍👧‍👦🌅 - Cobb's underlying longing for redemption and a new start with his family."
     ]
   },
   {
     "title": "Forrest Gump",
-    "description": "A kind-hearted man unknowingly intersects with major events.",
-    "output": "🏃🍫🪶🚌",
+    "description": "Forrest Gump is a kind-hearted man from Alabama with low intelligence but has incredible good fortune. He witnesses and influences many defining historical events in the 20th century while pursuing his life-long love, Jenny.",
+    "output": "👦🍫🏃‍♂️🏈🦐👩‍❤️‍👨🇺🇸✉️🏞️💕👨‍🎓🚁🎖️💔🌈👶💺👟🏥✌️⏳🍤📺⚾🍦🚀🏓🗽🌽🕌🎤👟✈️🛏️🍎🎄🧸📻🎓🎾🏀💵🏆⛳📸💌🌃🚶‍♂️💭",
     "hints": [
-      "1. 🏃 - A life defined by running.",
-      "2. 🍫 - An iconic line about life.",
-      "3. 🪶🚌 - Fate and a long journey."
+      "1. 👦🍫 - A simple man's story through life.",
+      "2. 🏃‍♂️🏈 - Achievements in sports.",
+      "3. 🦐 - A lucky venture into a new career.",
+      "4. 👩‍❤️‍👨🇺🇸 - Love and patriotic duty wound together.",
+      "5. 🚁🎖️ - A war hero's journey.",
+      "6. 💔🌈 - Heartbreaks and hope.",
+      "7. 👶💺 - New beginnings and reflections.",
+      "8. 👟✈️ - Running through life and beyond borders.",
+      "9. 🗽🌽🕌 - A stroll through history.",
+      "10. 🎄🍦 - Simple pleasures of life."
     ],
     "breakdown": [
-      "• 🏃 - Forrest's persistence.",
-      "• 🍫 - Unexpected life outcomes.",
-      "• 🪶🚌 - Chance and movement through history."
+      "• 👦🍫 - Represents Forrest, a man who believes \"Life is like a box of chocolates\".",
+      "• 🏃‍♂️🏈 - Depicts his athletic abilities despite his limitations.",
+      "• 🦐 - Forrest's successful shrimping business.",
+      "• 👩‍❤️‍👨🇺🇸 - The love story between Forrest and Jenny intertwined with his service in the Vietnam War.",
+      "• 🚁🎖️ - Depicts his time in the war and his medal of honor.",
+      "• 💔🌈 - Represents the heartbreaking yet hopeful storyline.",
+      "• 👶💺 - Refers to Forrest's son and his time reflecting on a park bench.",
+      "• 👟✈️ - His iconic run across America, and visits to China and Vietnam.",
+      "• 🗽🌽🕌 - The significant historical events and places Forrest encounters.",
+      "• 🎄🍦 - The simple yet profound joys as portrayed in the film."
     ]
   },
   {
-    "title": "The Lion King",
-    "description": "A young lion prince must reclaim his place.",
-    "output": "🦁👑🌅🐗",
+    "title": "Star Wars",
+    "description": "Star Wars is an epic science fiction saga set in a distant galaxy. It follows the journey of Luke Skywalker, a young farm boy who gets caught up in a galactic rebellion against the tyrannical Empire. With help from Obi-Wan Kenobi, Princess Leia, Han Solo, and other allies, Luke becomes a Jedi and confronts the evil Darth Vader and Emperor Palpatine.",
+    "output": "👨‍🌾⭐️🌌🚀⚔️🤖🤖👴👨‍🚀👸🌑🏰👿⚔️🧙‍♂️🔮🚀👽🌋☠️👿👹⭐️🚀🏆✌️🦸‍♂️🎉👑🌌⚔️🦹‍♂️🌟",
     "hints": [
-      "1. 🦁 - A royal lion cub.",
-      "2. 👑 - The circle of kingship.",
-      "3. 🌅🐗 - Exile, growth, and return."
+      "1. 👨‍🌾 - Humble beginnings.",
+      "2. ⭐️🌌 - A cosmic adventure.",
+      "3. ⚔️🤖🤖 - Allies in unexpected places.",
+      "4. 👴 -A wise mentor.",
+      "5. 👸 - A princess in distress.",
+      "6. 🌑🏰 - An intimidating stronghold.",
+      "7. 👿⚔️🧙‍♂️ - Facing a formidable foe.",
+      "8. 🔮 - A powerful artifact.",
+      "9. 👽 - Exotic beings from another planet.",
+      "10. 🌋☠️ - A deadly landscape.",
+      "11. 👿👹 - Unmasking the evil.",
+      "12. ⭐️🚀 - A symbolic saga.",
+      "13. 🏆✌️ - Triumph over evil.",
+      "14. 🦸‍♂️ - A hero's rise to fame.",
+      "15. 🎉👑 - A festive celebration.",
+      "16. 🌌⚔️ - Galactic conflict.",
+      "17. 🦹‍♂️🌟 - An iconic villain."
     ],
     "breakdown": [
-      "• 🦁 - Simba's journey.",
-      "• 👑 - Legacy and responsibility.",
-      "• 🌅🐗 - Life away from home before redemption."
-    ]
-  },
-  {
-    "title": "Jaws",
-    "description": "A seaside town is hunted by a giant shark.",
-    "output": "🦈🏖️🚤😱",
-    "hints": [
-      "1. 🦈 - A terrifying predator.",
-      "2. 🏖️ - A beach community in danger.",
-      "3. 🚤😱 - A tense hunt on the water."
-    ],
-    "breakdown": [
-      "• 🦈 - The great white threat.",
-      "• 🏖️ - Tourism versus safety.",
-      "• 🚤😱 - Final confrontation at sea."
-    ]
-  },
-  {
-    "title": "Avatar",
-    "description": "A marine enters an alien world and changes sides.",
-    "output": "🌍🌿👽🏹",
-    "hints": [
-      "1. 🌍 - Human expansion beyond Earth.",
-      "2. 🌿👽 - A lush alien civilization.",
-      "3. 🏹 - Conflict over nature and survival."
-    ],
-    "breakdown": [
-      "• 🌍 - Colonial mission backdrop.",
-      "• 🌿👽 - Pandora and the Na'vi.",
-      "• 🏹 - Resistance and identity shift."
-    ]
-  },
-  {
-    "title": "E.T. the Extra-Terrestrial",
-    "description": "A boy befriends an alien and tries to get him home.",
-    "output": "👽🚲🌕🏠",
-    "hints": [
-      "1. 👽 - A stranded alien visitor.",
-      "2. 🚲🌕 - A famous moonlit bicycle moment.",
-      "3. 🏠 - The need to return home."
-    ],
-    "breakdown": [
-      "• 👽 - E.T. arrives on Earth.",
-      "• 🚲🌕 - Iconic friendship imagery.",
-      "• 🏠 - Home as the central goal."
-    ]
-  },
-  {
-    "title": "Back to the Future",
-    "description": "A teen travels through time in a modified car.",
-    "output": "🚗⚡⏰🔮",
-    "hints": [
-      "1. 🚗 - A legendary vehicle.",
-      "2. ⚡⏰ - Time travel requires power.",
-      "3. 🔮 - Past and future collide."
-    ],
-    "breakdown": [
-      "• 🚗 - The DeLorean machine.",
-      "• ⚡⏰ - Precision and energy.",
-      "• 🔮 - Consequences across timelines."
-    ]
-  },
-  {
-    "title": "Ghostbusters",
-    "description": "A team captures ghosts in New York City.",
-    "output": "👻🚫🚨🏙️",
-    "hints": [
-      "1. 👻 - Paranormal trouble begins.",
-      "2. 🚫 - A famous anti-ghost symbol.",
-      "3. 🚨🏙️ - Emergency response in the city."
-    ],
-    "breakdown": [
-      "• 👻 - Supernatural outbreak.",
-      "• 🚫 - Ghostbusting brand icon.",
-      "• 🚨🏙️ - Team action in NYC."
-    ]
-  },
-  {
-    "title": "Rocky",
-    "description": "An underdog boxer gets a shot at the title.",
-    "output": "🥊🏃🥇🗽",
-    "hints": [
-      "1. 🥊 - A fighter from Philadelphia.",
-      "2. 🏃 - Famous training montage.",
-      "3. 🥇🗽 - A quest for greatness."
-    ],
-    "breakdown": [
-      "• 🥊 - Boxing underdog story.",
-      "• 🏃 - Discipline and preparation.",
-      "• 🥇🗽 - Pride and perseverance."
-    ]
-  },
-  {
-    "title": "Home Alone",
-    "description": "A child defends his house from burglars.",
-    "output": "🏠👦🎄🛡️",
-    "hints": [
-      "1. 🏠 - A family home left empty.",
-      "2. 👦 - One kid must protect it.",
-      "3. 🎄🛡️ - Holiday traps and defense."
-    ],
-    "breakdown": [
-      "• 🏠 - Suburban setting.",
-      "• 👦 - Kevin's solo stand.",
-      "• 🎄🛡️ - Christmas chaos and creativity."
-    ]
-  },
-  {
-    "title": "Toy Story",
-    "description": "Toys come to life and navigate friendship.",
-    "output": "🤠🚀🧸🤖",
-    "hints": [
-      "1. 🤠 - A cowboy toy leader.",
-      "2. 🚀 - A space ranger rival.",
-      "3. 🧸🤖 - A hidden toy world."
-    ],
-    "breakdown": [
-      "• 🤠 - Woody's role.",
-      "• 🚀 - Buzz enters the room.",
-      "• 🧸🤖 - Toys face change together."
-    ]
-  },
-  {
-    "title": "Finding Nemo",
-    "description": "A clownfish father searches across the ocean.",
-    "output": "🐠🌊🔍🐢",
-    "hints": [
-      "1. 🐠 - A missing little fish.",
-      "2. 🌊🔍 - A long ocean search.",
-      "3. 🐢 - Helpful sea friends along the way."
-    ],
-    "breakdown": [
-      "• 🐠 - Nemo's disappearance.",
-      "• 🌊🔍 - Marlin's journey.",
-      "• 🐢 - Guidance from ocean allies."
-    ]
-  },
-  {
-    "title": "The Shawshank Redemption",
-    "description": "A wrongfully convicted banker survives prison life.",
-    "output": "⛓️🏚️🔨🌧️",
-    "hints": [
-      "1. ⛓️ - Years behind bars.",
-      "2. 🏚️ - A harsh prison environment.",
-      "3. 🔨🌧️ - Quiet planning and final freedom."
-    ],
-    "breakdown": [
-      "• ⛓️ - Imprisonment theme.",
-      "• 🏚️ - Shawshank setting.",
-      "• 🔨🌧️ - Escape and catharsis."
-    ]
-  },
-  {
-    "title": "Pulp Fiction",
-    "description": "Intersecting crime stories unfold in Los Angeles.",
-    "output": "💼🔫🍔💃",
-    "hints": [
-      "1. 💼 - A mysterious briefcase.",
-      "2. 🔫 - Hitmen and dangerous deals.",
-      "3. 🍔💃 - Iconic conversations and dance scenes."
-    ],
-    "breakdown": [
-      "• 💼 - MacGuffin at the center.",
-      "• 🔫 - Crime anthology structure.",
-      "• 🍔💃 - Pop-culture moments."
-    ]
-  },
-  {
-    "title": "The Avengers",
-    "description": "Earth's heroes unite against global threats.",
-    "output": "🦸🛡️⚡🌎",
-    "hints": [
-      "1. 🦸 - A team of superheroes.",
-      "2. 🛡️⚡ - Signature powers and symbols.",
-      "3. 🌎 - A planet-scale battle."
-    ],
-    "breakdown": [
-      "• 🦸 - Ensemble cast.",
-      "• 🛡️⚡ - Distinct hero identities.",
-      "• 🌎 - Saving the world together."
-    ]
-  },
-  {
-    "title": "Spider-Man",
-    "description": "A young hero balances responsibility and danger.",
-    "output": "🕷️🏙️🕸️🧑",
-    "hints": [
-      "1. 🕷️ - A bite changes everything.",
-      "2. 🏙️ - Heroics across the city.",
-      "3. 🕸️🧑 - Swinging action and identity struggles."
-    ],
-    "breakdown": [
-      "• 🕷️ - Spider origin.",
-      "• 🏙️ - New York setting.",
-      "• 🕸️🧑 - Responsibility-driven hero arc."
-    ]
-  },
-  {
-    "title": "Harry Potter and the Sorcerer's Stone",
-    "description": "A young wizard discovers a hidden magical world.",
-    "output": "🧙⚡🏰📚",
-    "hints": [
-      "1. 🧙 - A boy learns he is a wizard.",
-      "2. ⚡ - A famous scar.",
-      "3. 🏰📚 - School, spells, and secrets."
-    ],
-    "breakdown": [
-      "• 🧙 - Harry's awakening.",
-      "• ⚡ - Voldemort-linked past.",
-      "• 🏰📚 - Hogwarts adventure."
-    ]
-  },
-  {
-    "title": "Raiders of the Lost Ark",
-    "description": "An archaeologist races to find a biblical artifact.",
-    "output": "🤠🏺🐍🏜️",
-    "hints": [
-      "1. 🤠 - A whip-carrying adventurer.",
-      "2. 🏺 - Ancient treasure pursuit.",
-      "3. 🐍🏜️ - Dangerous tombs and deserts."
-    ],
-    "breakdown": [
-      "• 🤠 - Indiana Jones persona.",
-      "• 🏺 - The Ark as objective.",
-      "• 🐍🏜️ - High-risk exploration."
+      "• 👨‍🌾 - Reflects Luke's farm boy origin.",
+      "• ⭐️🌌 - The galaxy where the action unfolds.",
+      "• ⚔️🤖🤖 - Luke's trusty droids, C-3PO and R2-D2.",
+      "• 👴 - Obi-Wan Kenobi, Luke's mentor.",
+      "• 👸 - Princess Leia, imprisoned by the Empire.",
+      "• 🌑🏰 - Death Star, the Empire's superweapon.",
+      "• 👿⚔️🧙‍♂️ - Darth Vader, the villain Luke must face.",
+      "• 🔮 - The Force, a significant spiritual energy.",
+      "• 👽 - The diverse intergalactic beings in the galaxy.",
+      "• 🌋☠️ - Represents the final battleground, Death Star II.",
+      "• 👿👹 - Emperor Palpatine, the master puppeteer.",
+      "• ⭐️🚀 - Star Wars, the story's epic scope.",
+      "• 🏆✌️ - Triumph of the Rebellion over the Empire.",
+      "• 🦸‍♂️ - Luke Skywalker's transition to a Jedi.",
+      "• 🎉👑 - Victory celebration at the end of the movie.",
+      "• 🌌⚔️ - A symbol for the galactic civil war.",
+      "• 🦹‍♂️🌟 - Darth Vader, the iconic Star Wars antagonist."
     ]
   },
   {
     "title": "Gladiator",
-    "description": "A betrayed Roman general fights for justice.",
-    "output": "⚔️🏟️👑🛡️",
+    "description": "Gladiator revolves around Maximus Decimus Meridius, a brave general who is betrayed when the King's corrupt son, Commodus, murders his father and seizes the throne. Taken into slavery and presumed dead, Maximus rises as a gladiator to seek revenge in the gladiatorial arenas.",
+    "output": "👮‍♂️⚔️🤴👨‍👦‍👦🗡️🎭🟣🔛⛓️💔💪⚔️💀⛓️🏟️👨‍👦‍👦🏛️🦁🔥🕊️💀👑💀🗡️🌾🕊️🛡️⚔️💪🔥🏟️🟫🥀⚔️💀🤴💔👑💪⚖️💔😔🏟️🗡️💪👑⚔️💀",
     "hints": [
-      "1. ⚔️ - A warrior's path.",
-      "2. 🏟️ - Arena combat spectacle.",
-      "3. 👑🛡️ - Revenge against corrupt power."
+      "1. 👮‍♂️⚔️ - A battle-hardened general.",
+      "2. 🤴👨‍👦‍👦🗡️ - Betrayal within the royal family.",
+      "3. 🟣🔛⛓️ - Enslavement under false premises.",
+      "4. 💪⚔️💀 - Rising against all odds.",
+      "5. 🏟️👨‍👦‍👦 - Fame in the face of adversity.",
+      "6. 🏛️🦁🔥 - The danger and thrill of the arena.",
+      "7. 👑💀🗡️ - A quest for vengeance.",
+      "8. 🌾🕊️🛡️ - The promise of return.",
+      "9. ⚔️💪🔥 - The fiery spirit of a fighter.",
+      "10. 🟫🥀 - Undying love and loss.",
+      "11. 👑⚖️ - The fight for justice.",
+      "12. 🗡️💪👑 - Climbing the ladder to power."
     ],
     "breakdown": [
-      "• ⚔️ - Combat-driven story.",
-      "• 🏟️ - Colosseum setting.",
-      "• 👑🛡️ - Honor versus tyranny."
-    ]
-  },
-  {
-    "title": "Mad Max: Fury Road",
-    "description": "A high-octane escape across a desert wasteland.",
-    "output": "🚗🔥🏜️⛽",
-    "hints": [
-      "1. 🚗 - Relentless vehicle chases.",
-      "2. 🔥🏜️ - Post-apocalyptic desert world.",
-      "3. ⛽ - Fuel and survival as power."
-    ],
-    "breakdown": [
-      "• 🚗 - Road-war action core.",
-      "• 🔥🏜️ - Harsh wasteland tone.",
-      "• ⛽ - Resource conflict."
+      "• 👮‍♂️⚔️ - Represents Maximus, the protagonist and general.",
+      "• 🤴👨‍👦‍👦🗡️ - Plot point around royal betrayal, killing of the king by his son.",
+      "• 🟣🔛⛓️ - Maximus being enslaved under false identity.",
+      "• 💪⚔️💀 - Symbolizes Maximus' relentless will to fight.",
+      "• 🏟️👨‍👦‍👦 - The newfound fame as a gladiator.",
+      "• 🏛️🦁🔥 - The dangerous fights inside the Colosseum.",
+      "• 👑💀🗡️ - Represents his vengeance against the corrupt Emperor.",
+      "• 🌾🕊️🛡️ - Maximus' dream and promise of returning to his family.",
+      "• ⚔️💪🔥 - The undying spirit of Maximus in the fights.",
+      "• 🟫🥀 - His lingering love and memory of his deceased wife.",
+      "• 👑⚖️ - Seeking justice in spite of the deceitful Emperor.",
+      "• 🗡️💪👑 - His rise to power from a seemingly hopeless situation."
     ]
   },
   {
     "title": "The Silence of the Lambs",
-    "description": "An FBI trainee seeks help from a brilliant killer.",
-    "output": "🦋😷🔪🐑",
+    "description": "In The Silence of the Lambs, FBI trainee Clarice Starling seeks help from imprisoned serial killer Hannibal Lecter to catch another killer, Buffalo Bill. Dealing with her own past along the way, Clarice’s journey dives deep into the human psyche, horror, and suspense.",
+    "output": "👩‍🎓🧠👮‍♀️🔎🔪👻👨‍⚕️🦋👹🗝️🔗❤️👩🕷️🕸️🐍👮‍♀️💔🐏🤫🔪💡👮‍♀️🦴💼🛏️🔦💔🎠🔍🏚️💅👁️👄👧💞🐕🌑💃👩‍⚕️💊💓👮‍♀️🔥👪💔",
     "hints": [
-      "1. 🦋 - A recurring symbolic clue.",
-      "2. 😷 - Psychological cat-and-mouse.",
-      "3. 🔪🐑 - Horror and chilling calm."
+      "1. 👩‍🎓 - A trainee determined for success.",
+      "2. 👮‍♀️🔎🔪 - An investigation of horrific nature.",
+      "3. 👨‍⚕️🦋 - A dangerous mind with sophisticated tastes.",
+      "4. 🔗❤️👩 - A twisted relationship evolves.",
+      "5. 🐍🕷️🕸️ - A trap well dissembled.",
+      "6. 🐏🤫 - The haunting silence.",
+      "7. 🔪💡 - A horrifying revelation.",
+      "8. 👮‍♀️🦴💼 - Forensic clues lead the way.",
+      "9. 🏚️💅👁️👄 - Signs of a deranged obsession.",
+      "10. 👧💞🐕 - An innocent life at stake.",
+      "11. 🌑💃👩‍⚕️ - A dance with darkness.",
+      "12. 🔥👪💔 - Undertones of a traumatic past."
     ],
     "breakdown": [
-      "• 🦋 - Moth imagery.",
-      "• 😷 - Clinical interrogation tension.",
-      "• 🔪🐑 - Violence beneath silence."
-    ]
-  },
-  {
-    "title": "The Exorcist",
-    "description": "A possessed girl undergoes a terrifying exorcism.",
-    "output": "👧😈✝️🏠",
-    "hints": [
-      "1. 👧 - A child at the story's center.",
-      "2. 😈 - Demonic possession.",
-      "3. ✝️🏠 - Spiritual battle in a home."
-    ],
-    "breakdown": [
-      "• 👧 - Regan's transformation.",
-      "• 😈 - Supernatural horror element.",
-      "• ✝️🏠 - Priests confronting evil."
-    ]
-  },
-  {
-    "title": "Die Hard",
-    "description": "A lone cop battles terrorists in a skyscraper.",
-    "output": "🏢💥👮🔫",
-    "hints": [
-      "1. 🏢 - A building under siege.",
-      "2. 💥 - Explosive action set pieces.",
-      "3. 👮🔫 - One determined hero fights back."
-    ],
-    "breakdown": [
-      "• 🏢 - Nakatomi Plaza location.",
-      "• 💥 - High-stakes escalation.",
-      "• 👮🔫 - McClane's lone stand."
+      "• 👩‍🎓 - Represents Clarice Starling, the determined protagonist.",
+      "• 👮‍♀️🔎🔪 - The murder investigation she has been assigned to.",
+      "• 👨‍⚕️🦋 - Symbolizes the cultured and manipulative Dr. Hannibal Lecter.",
+      "• 🔗❤️👩 - The unusual bond formed between Clarice and Dr. Lecter.",
+      "• 🐍🕷️🕸️ - The dangerous web spun by the villain.",
+      "• 🐏🤫 - The symbolic silence associated with the ‘Lambs’ in the film.",
+      "• 🔪💡 - The shocking revelation of the killer’s identity.",
+      "• 👮‍♀️🦴💼 - The forensic analysis that Clarice must conduct.",
+      "• 🏚️💅👁️👄 - Represents Buffalo Bill’s grotesque fashioning of his victims.",
+      "• 👧💞🐕 - The life of a young woman hanging in balance.",
+      "• 🌑💃👩‍⚕️ - Clarice’s dance with darkness and fear.",
+      "• 🔥👪💔 - The tragic past and memories of Clarice."
     ]
   },
   {
     "title": "The Wolf of Wall Street",
-    "description": "A stockbroker rises fast through greed and excess.",
-    "output": "🐺💰📈🚗",
+    "description": "The Wolf of Wall Street is a biographical crime film about the life of Jordan Belfort, a stockbroker in Wall Street. It traces his rise to wealth and indulgence in the high life, his involvement in widespread corruption, and his eventual downfall involving crime, corruption, and the federal government.",
+    "output": "👦📈💰🚀🥂🍾🏦💵🎉🎊👩‍❤️‍💋‍👨🔥💊🎭👮‍♂️🚓⚖️🔗💔🍾💰🛥️✈️🏝️🎊💊👀🔥📉💸⏳👮‍♂️🚔⚖️🔒🥀💔",
     "hints": [
-      "1. 🐺 - A predatory nickname.",
-      "2. 💰📈 - Extreme money obsession.",
-      "3. 🚗 - Luxury and reckless excess."
+      "1. 👦 - A common man with uncommon ambition.",
+      "2. 📈💰 - Rapid rise to riches.",
+      "3. 🥂🍾🏦 - High life on Wall Street.",
+      "4. 👩‍❤️‍💋‍👨🔥 - Passionate affairs.",
+      "5. 💊🎭 - Excessive indulgence.",
+      "6. 👮‍♂️🚓⚖️ - Law enforcement comes knocking.",
+      "7. 💔🍾 - The tolls of a hedonistic lifestyle.",
+      "8. 💰🛥️✈️ - The showy luxuries of wealth.",
+      "9. 📉💸 - The peril of financial excess.",
+      "10. ⏳👮‍♂️🚔 - The ticking clock of justice.",
+      "11. ⚖️🔒 - The inevitability of retribution for corruption.",
+      "12. 🥀💔 - The end of an era, the pain of regret."
     ],
     "breakdown": [
-      "• 🐺 - Jordan Belfort persona.",
-      "• 💰📈 - Fraud-fueled wealth.",
-      "• 🚗 - Hedonistic lifestyle."
+      "• 👦 - Represents Jordan Belfort, the protagonist.",
+      "• 📈💰 - Symbolizes Belfort's meteoric rise in the stock market.",
+      "• 🥂🍾🏦 - Grand parties and lifestyle in Wall Street.",
+      "• 👩‍❤️‍💋‍👨🔥 - Love affairs and relationships.",
+      "• 💊🎭 - Depicts the drug abuse and excess of the characters.",
+      "• 👮‍♂️🚓⚖️ - The invocation of the law and the federal government.",
+      "• 💔🍾 - The emotional toll and substance abuse.",
+      "• 💰🛥️✈️ - The display of wealth.",
+      "• 📉💸 - The sudden plummet in fortune.",
+      "• ⏳👮‍♂️🚔 - The impending legal actions.",
+      "• ⚖️🔒 - The inevitable imprisonment for financial corruption.",
+      "• 🥀💔 - The ultimate decline and regret."
+    ]
+  },
+  {
+    "title": "Finding Nemo",
+    "description": "Finding Nemo is an animated adventure movie that tells the story of Marlin, a clown fish, who embarks on a journey across the ocean to find his son Nemo who has been captured by a diver and placed in a fish tank. With the help of a forgetful but lovable fish named Dory, Marlin faces various challenges and learns important lessons about love, courage, and the bond between a parent and child.",
+    "output": "🐠😢🌊🐡🧭👶🏝️👨👋🏊‍♀️🌊🐬🌪️🦈😱💔👣👈🐙🌉🐟⏳🔍🚣‍♂️💥⛵🐙🌍🦐🌊🗽🔍🚁⏰💡🐅🦈⚔️⚡🐟🗽🔍🚁🌉🧡💡🐠🤗🤝🏠",
+    "hints": [
+      "1. 🐠 - The protagonist in the underwater world.",
+      "2. 🌊🐡🧭 - The quest begins in the vast ocean.",
+      "3. 👶🏝️👨👋 - Missing child taken by a diver.",
+      "4. 🌊🐬🌪️ - A helpful, playful yet confusing guide.",
+      "5. 🦈😱 - Close encounters of the terrifying kind.",
+      "6. 👣👈 - Signs guiding the way.",
+      "7. 🐙🌉 - Unexpected alliances formed.",
+      "8. 🐟⏳🔍 - A race against time.",
+      "9. 🚣‍♂️💥⛵ - Dangerous human equipment.",
+      "10. 🐙🌍🦐 - Difficulties faced in the tank.",
+      "11. 🗽🔍🚁⏰ - The search intensifies.",
+      "12. 💡🐅🦈⚔️⚡ - Fighting back against predators.",
+      "13. 🐟🗽🔍🚁🌉 - The triumph of love and bravery.",
+      "14. 🧡💡🐠🤗 - Joy and relief.",
+      "15. 🤝🏠 - Return to safety."
+    ],
+    "breakdown": [
+      "• 🐠 - Represents Marlin, the clownfish protagonist.",
+      "• 🌊🐡🧭 - The journey across the ocean.",
+      "• 👶🏝️👨👋 - Marlin's son Nemo getting captured by a diver.",
+      "• 🌊🐬🌪️ - Dory, the loyal and forgetful fish who aids Marlin.",
+      "• 🦈😱 - The encounter with sharks.",
+      "• 👣👈 - Trail of bubbles Marlin and Dory follow.",
+      "• 🐙🌉 - Crossing the East Australian Current (EAC) with sea turtles.",
+      "• 🐟⏳🔍 - The desperate search for Nemo.",
+      "• 🚣‍♂️💥⛵ - Marlin and Dory get swallowed by a whale.",
+      "• 🐙🌍🦐 - Nemo's experiences in the fish tank.",
+      "• 🗽🔍🚁⏰ - Marlin and Dory at Sydney Harbor, looking for the dentist's office.",
+      "• 💡🐅🦈⚔️⚡ - Nemo's clever escape plan.",
+      "• 🐟🗽🔍🚁🌉 - The reunion of Marlin and Nemo.",
+      "• 🧡💡🐠🤗 - The happiness of finding Nemo.",
+      "• 🤝🏠 - Marlin and Nemo's return to their coral home."
+    ]
+  },
+  {
+    "title": "Toy Story",
+    "description": "'Toy Story' follows a group of toys that secretly come to life when humans aren't around. The story highlights the adventures of Woody, a pull-string cowboy doll, and Buzz Lightyear, a new spaceman action figure. The film depicts their rivalry, friendship, and the heartwarming bond they share with their owner, Andy.",
+    "output": "🤠🧸🚀👦🏠🤔💥👤🆕🚶‍♂️🎈🎉👬🏃‍♂️🤝💔😱🐶🚗😲💭👀🙊🏃‍♂️🚪🚀😟😤🕵🏻‍♂️🕌🌙👽💔🍕🚗📚🏡💔🌞😃📦🏡💔🛴👦🎁😲💔🤝🚚",
+    "hints": [
+      "1. 🤠 - A toy from the wild west.",
+      "2. 👦🏠 - The toys' secret life at home.",
+      "3. 🚀 - A new toy lands.",
+      "4. 👤 - Supposedly lifeless play objects.",
+      "5. 🎈🎉 - Celebrations stir some envy.",
+      "6. 👬 - Budding friendship between real and unreal.",
+      "7. 🏃‍♂️ - A daring escape.",
+      "8. 🐶 - An unexpected fast-paced chase.",
+      "9. 🚪 - Uncharted territories behind closed doors.",
+      "10. 🕌 - An alien world!",
+      "11. 🍕 - An unusual hiding place.",
+      "12. 💔 - A bond being tested.",
+      "13. 🛴 - The return journey.",
+      "14. 👦 - Yearning for the boy next door.",
+      "15. 🎁 - The circle of life goes on."
+    ],
+    "breakdown": [
+      "• 🤠 - The emoji symbolizes Woody, the cowboy doll.",
+      "• 👦🏠 - Represents the normal human world where toys are inanimate.",
+      "• 🚀 - Clearly points to Buzz Lightyear, the spaceman action figure.",
+      "• 👤 - Toy's lifelessness when humans are around.",
+      "• 🎈🎉 - Highlights the party where Buzz was introduced.",
+      "• 👬 - Friendship between Woody and Buzz.",
+      "• 🏃‍♂️ - The brave escape from Sid's house.",
+      "• 🐶 - Signifies the chase scene with Sid's dog.",
+      "• 🚪 - Unfamiliar surroundings encountered by the toys (e.g., Sid's room).",
+      "• 🕌 - Reference to the alien-themed Pizza Planet restaurant.",
+      "• 🍕 - The iconic Pizza Planet truck used for their return.",
+      "• 💔 - The temporary separation from Andy leading to heartbreak.",
+      "• 🛴 - The toys' journey back to Andy's room.",
+      "• 👦 - The overarching goal of returning to their beloved owner, Andy.",
+      "• 🎁 - Signifies the cycle of receiving new toys as presents, continuing the narrative."
+    ]
+  },
+  {
+    "title": "Back to the Future",
+    "description": "Back to the Future is about a young man named Marty McFly who mistakenly travels into the past thanks to his eccentric scientist friend Doc Brown's time-traveling Delorean. Marty must make certain his parents-to-be meet and fall in love otherwise it would change the course of history and erase his existence in the future.",
+    "output": "👨‍🔬🚗⚡🕰️🔄👦🎸🕺💏👥⌚⏳👳‍♂️💡😬🌩️🔋⚡🚗💨👴👵🔄👦⌚🙌🕰️🔙🏫📸😄",
+    "hints": [
+      "1. 👨‍🔬 - An eccentric inventor.",
+      "2. 🚗⚡ - An iconic vehicle powered by an unusual energy source.",
+      "3. 🕰️🔄👦 - A journey through time affecting a teenager.",
+      "4. 🎸🕺 - Expressions of rock and roll culture.",
+      "5. 💏👥 - Two individuals destined to fall in love.",
+      "6. ⏳👳‍♂️ - A critical meeting from the past.",
+      "7. 💡😬🌩️ - Harnessing a force of nature.",
+      "8. 🔋⚡🚗 - The science-fiction element of time-travel.",
+      "9. 👴👵 - Restoring the present-day figures.",
+      "10. ⌚🙌🕰️ - The time-sensitive nature of the plot.",
+      "11. 🏫📸 - Symbols of everyday teenage life.",
+      "12. 🔙😄- The optimistically wrapped up ending of the adventure."
+    ],
+    "breakdown": [
+      "• 👨‍🔬 - Represents Doc Brown, the eccentric inventor.",
+      "• 🚗⚡ - The DeLorean, the iconic time-travelling vehicle.",
+      "• 🕰️🔄👦 - Marty McFly's unintended journey to the past.",
+      "• 🎸🕺 - Marty's love for music and dance.",
+      "• 💏👥 - Marty's parents who are destined to fall in love.",
+      "• ⏳👳‍♂️ - The encounter with his parents in their younger years.",
+      "• 💡😬🌩️ - The eureka moment involving a lightning strike.",
+      "• 🔋⚡🚗 - The power source for the time machine, the flux capacitor.",
+      "• 👴👵 - The present-day Marty's parents in danger of fading away due to changes in the past.",
+      "• ⌚🙌🕰️ - The urgency of fixing the issues with the time machine.",
+      "• 🏫📸 - The high school setting and the fading photo that signifies Marty's dangling existence.",
+      "• 🔙😄 - The successful return to the present time with a happy resolution."
+    ]
+  },
+  {
+    "title": "The Matrix",
+    "description": "The Matrix tells the story of Thomas A. Anderson, who lives a double life as a corporate employee by day and hacker by night, known as Neo. After a series of mysterious encounters, he discovers the truth that the world he perceives is actually a simulated reality called the Matrix and he is destined to lead the rebellion against its creators.",
+    "output": "👨‍💼👨‍💻🌃🤔⏱️🔮🐇⏬🏮😲📱✨🙆‍♂️📞🔄🌍💻⛓️⚔️😎🤖🔥🤛🏙️🕶️💥🤺💻🎯🚁💥💾🔄🏞️🚊🚀🆙✨😴🔓🔄🙀👤🕴️💥🔫💔⚰️⚡✨🦅🏢🚁💔✨🙆‍♂️🌆🌍🔄",
+    "hints": [
+      "1. 👨‍💼👨‍💻 - A life in dual worlds.",
+      "2. ⏱️🔮🐇 - An unusual invitation.",
+      "3. 😲📱✨ - A surreal phone call.",
+      "4. 🔄🌍💻 - Reversal of perceived reality.",
+      "5. ⚔️😎🤖 - Combat with artificial intelligence.",
+      "6. 💥🤺💻 - Battle within the digital realm.",
+      "7. 💾🔄🏞️ - Saving the true world.",
+      "8. 🔓🔄🙀 - Freeing captive minds.",
+      "9. 👤🕴️💥🔫 - A dangerous antagonist.",
+      "10. ⚡✨🦅 - Harnessing unreal strength."
+    ],
+    "breakdown": [
+      "• 👨‍💼👨‍💻 - Represents the dual identity of main character, Neo.",
+      "• ⏱️🔮🐇 - The cryptic messages Neo encounters.",
+      "• 😲📱✨ - The mysterious phone call that guides Neo to escape agents.",
+      "• 🔄🌍💻 - The reality shift when Neo learns about the Matrix.",
+      "• ⚔️😎🤖 - The action-filled battles with the agents of the Matrix.",
+      "• 💥🤺💻 - Denotes online battles, hacking, and digital warfare.",
+      "• 💾🔄🏞️ - The struggle to save the real world from machine control.",
+      "• 🔓🔄🙀 - Reflects freeing other humans trapped in the Matrix.",
+      "• 👤🕴️💥🔫 - Represents the deadly pursuit by Agent Smith.",
+      "• ⚡✨🦅 - Signifies Neo's evolution and mastery of his powers inside the Matrix."
+    ]
+  },
+  {
+    "title": "Pulp Fiction",
+    "description": "Pulp Fiction intertwines the lives of two mob hit men, a boxer, a gangster's wife, and a pair of low-rent criminals over a few days. Comprising multiple narrative sequences with a nonlinear plot and woven with crime, murder, redemption, drugs, and comical encounters, the movie showcases Quentin Tarantino's unconventional storytelling style.",
+    "output": "🔫🕶️🕶️💼💉💃🕺🕴️🗡️👝💊📖😲🕺💃🔑🚬🎁💵🥊🥊🐶📦🍔🚗💀🚬🔫👼💔💼⏰🕵️‍♂️🔦💼🕶️💊🚽💉😲🙌🔫😲🕺💃⏰💼🚬😲⚰️🕶️🕶️👼🎬",
+    "hints": [
+      "1. 🕶️💼 - Men in suits with a mysterious briefcase.",
+      "2. 💉💃 - A dance followed by an intense scene.",
+      "3. 🗡️👝 - A hidden weapon comes to rescue.",
+      "4. 🥊🐶 - A throwaway match with unexpected results.",
+      "5. 🍔🚗 - Casual conversation proceeding chaos.",
+      "6. ⏰🕵️‍♂️ - Timely intervention by a mystery man.",
+      "7. 😲💊🚽 - An unexpected incident in a washroom.",
+      "8. 🕺💃⏰ - A nail-biting countdown at the diner.",
+      "9. ⚰️👼 - Death leading to redemption."
+    ],
+    "breakdown": [
+      "• 🕶️🕶️💼 - Represents Jules Winnfield and Vincent Vega, the mob hitmen, with their mysterious briefcase.",
+      "• 💉💃 - Mia Wallace's overdose after a dance contest and Vincent’s heroic efforts to save her.",
+      "• 🗡️👝 - Butch's use of the samurai sword to rescue Marsellus.",
+      "• 🥊🐶 - Butch’s rigged boxing match, where he was expected to lose but wins.",
+      "• 🍔🚗 - The iconic scene where Jules executes Brett after a casual chat about burgers.",
+      "• ⏰🕵️‍♂️ - Vincent and Mia narrowly escaping death, showcasing divine intervention.",
+      "• 😲💊🚽 - Vincent’s death in Butch's apartment while he was in the bathroom.",
+      "• 🕺💃⏰ - Jules and Vincent's showdown with the robbers at the diner.",
+      "• ⚰️👼 - Jules’ decision to walk the path of righteousness after witnessing miraculous events."
+    ]
+  },
+  {
+    "title": "Die Hard",
+    "description": "Die Hard is an action-packed film that follows the story of New York Police Detective John McClane. Unexpectedly, he ends up in an LA skyscraper during a Christmas party while it's overtaken by terrorists. With everyone else held hostage, McClane fights back, using his wits and resourcefulness against the gang, hoping to foil their plot and save the hostages, which include his estranged wife.",
+    "output": "👮🏻‍♂️✈️🎄🌇🏢🍾🎉💼🔫👨‍👩‍👧‍👦🚁👣🔥💥📞👱‍♀️💼⛓️💣👩🏼‍💼👥🚪🔪💦🔥👊🏻💥🩸🔫📢🚔🚁💨🌇🔥🏃🏻‍♂️💥👨‍✈️⛓️🚁💥🏢💥🔫👮🏻‍♂️💥✔️👏",
+    "hints": [
+      "1. 👮🏻‍♂️ - The tough protagonist",
+      "2. ✈️🎄 - An unexpected twist during a festive event",
+      "3. 🏢🍾🎉 - The setting of the hostage situation",
+      "4. 💼🔫 - Dressed to mislead",
+      "5. 👨‍👩‍👧‍👦🚁 - Family on the line",
+      "6. 👣🔥 - Sticking to the shadows",
+      "7. 💥📞 - Every call is a step towards resolution",
+      "8. 👱‍♀️💼⛓️ - An important link",
+      "9. 💣👩🏼‍💼 - A dangerous strategy",
+      "10. 👥🚪 🔪 - Hidden adversaries",
+      "11. 🔥👊🏻 - The heat of the battle",
+      "12. 🩸🔫 - A hero's sacrifice",
+      "13. 📢🚔 - Making noise, seeking attention",
+      "14. 🚁💨 - Soaring danger",
+      "15. 🌇🔥 - The climax at dawn",
+      "16. 🏃🏻‍♂️💥 - An explosive escape",
+      "17. 👨‍✈️⛓️ - Holding on to the last hope",
+      "18. 🏢💥🔫✔️ - Building to the final resolution",
+      "19. 👏 - The well-deserved close"
+    ],
+    "breakdown": [
+      "• 👮🏻‍♂️ - Represents Detective John McClane.",
+      "• ✈️🎄 - Depicts the Christmas setting and McClane's arrival to LA.",
+      "• 🏢🍾🎉 - Signifies the hostage situation in the skyscraper during a party.",
+      "• 💼🔫 - Represents the terrorists dressed as corporate executives.",
+      "• 👨‍👩‍👧‍👦🚁 - McClane's family and the hovering danger",
+      "• 👣🔥 - McClane's undetectable movements.",
+      "• 💥📞 - McClane's communications with law enforcement.",
+      "• 👱‍♀️💼⛓️ - Holly, McClane's wife and her important role.",
+      "• 💣👩🏼‍💼 - The dangerous plans in execution.",
+      "• 👥🚪🔪 - Threats and dangers lurking in every corner.",
+      "• 🔥👊🏻 - McClane's relentless fight against the terrorists.",
+      "• 🩸🔫 - McClane's injuries during the conflict.",
+      "• 📢🚔 - Alerting police.",
+      "• 🚁💨 - The increasing intensity led by the arrival of a helicopter.",
+      "• 🌇🔥 - The final stages of the battle that stretches until dawn.",
+      "• 🏃🏻‍♂️💥 - McClane's gritty escape from the explosion.",
+      "• 👨‍✈️⛓️ - McClane's struggle against the head terrorist.",
+      "• 🏢💥🔫✔️ - McClane's final showdown against the head terrorist and ultimate victory.",
+      "• 👏 - The recognition and appreciation for McClane's heroic actions."
+    ]
+  },
+  {
+    "title": "Raiders of the Lost Ark",
+    "description": "In Raiders of the Lost Ark, adventurer Indiana Jones is tasked to retrieve the Ark of the Covenant before it falls into the hands of the Nazis. He travels to various locations, encountering danger and revelation at every turn in this thrilling quest.",
+    "output": "🤠🌎🗺️🏜️🗝️📖👀🏺🔍🐍🏃‍♂️⚔️🛩️🔥👫🤝🔫🤬🏺🌌🚁🏛️🔐💥🔫🏋️‍♂️💪🏻🔒📦🚚🎁🔍👀👏🏻⚱️🔓🎁💀💥🏃‍♂️🌊📍🎁🔒🛳️🌍🔦💡",
+    "hints": [
+      "1. 🤠 - An archaeologist adventurer.",
+      "2. 🗺️🏜️ - Clues hidden in exotic locations.",
+      "3. 🗝️📖👀 - Seeking ancient artefacts using historical knowledge.",
+      "4. 🏺🔍 - The coveted Ark of the Covenant.",
+      "5. 🐍🏃‍♂️⚔️ - Confronting fears and enemies.",
+      "6. 👫🤝 - A partnership of trust and alliances.",
+      "7. 🛩️🔥 - Fast-paced action and danger at each turn.",
+      "8. 🔐💥🔫🏋️‍♂️ - Physical strength and wits to overcome hurdles.",
+      "9. 🔒📦🎁🔒 - The concealed power of the Ark.",
+      "10. 💀💥 - The deadly consequences of the Ark's misuse.",
+      "11. 🌊📍 - A thrilling escape and retrieval.",
+      "12. 🛳️🌍 - A global chase.",
+      "13. 🔦💡 - Uncovering the truth and accomplishing the mission."
+    ],
+    "breakdown": [
+      "• 🤠 - Represents Indiana Jones, the adventurer protagonist.",
+      "• 🗺️🏜️ - Exhibits the diverse locations of the global adventure.",
+      "• 🗝️📖👀 - Shows the use of archaeological knowledge and skills.",
+      "• 🏺🔍 - Signifies the quest for the Ark of the Covenant.",
+      "• 🐍🏃‍♂️⚔️ - Highlights overcoming fear and battles against adversaries.",
+      "• 👫🤝 - The assistance of his old flame, Marion.",
+      "• 🛩️🔥 - Denotes action, danger, and narrow escapes.",
+      "• 🔐💥🔫🏋️‍♂️ - Shows hurdles tackled with strength and intelligence.",
+      "• 🔒📦🚚🎁🔍 👀- Symbolizes the powerful Ark concealed and transported in a crate.",
+      "• 💀💥 - Represents the lethal consequences of the Ark when opened.",
+      "• 🌊📍 - Stands for the thrilling escape and recovery of the Ark.",
+      "• 🛳️🌍 - The outward journey transporting the Ark.",
+      "• 🔦💡 - Shows the discovery of the Ark's true power and completing the mission."
+    ]
+  },
+  {
+    "title": "Rocky",
+    "description": "Rocky Balboa is a small-time boxer who gets a rare chance to fight the heavyweight champion, Apollo Creed. His journey from obscurity to the big-time fight, the love story with his girlfriend Adrian, and his struggle against all odds forms the story of Rocky.",
+    "output": "🥊🏋️‍♂️🇮🇹💪🌃🚶👊💔🏢👜👫💑🏟️👑💰🥊🤕🤕🚑🔔💢🥊🥊🏋️‍♂️🏆🥈📰🗞️🎥🎉🌞💪",
+    "hints": [
+      "1. 🥊 - A boxer's life.",
+      "2. 🏋️‍♂️ - Rigorous training.",
+      "3. 🇮🇹💪 - The Italian Stallion.",
+      "4. 🌃🚶 - A man's struggle to make it in the city.",
+      "5. 💔🏢👜 - Brewing romance amid hardship.",
+      "6. 👫💑 - From friends to lovers.",
+      "7. 🏟️👑💰 - Opportunity of a lifetime.",
+      "8. 🥊🤕 - Battle in the ring.",
+      "9. 💢 - Fierce fight.",
+      "10. 🏋️‍♂️🏆 - No pain, no gain.",
+      "11. 🥈 - An unexpected outcome.",
+      "12. 📰🗞️ - Suddenly in the spotlight.",
+      "13. 🎉🌞 - Celebration of determination."
+    ],
+    "breakdown": [
+      "• 🥊 - Represents Rocky, a boxer.",
+      "• 🏋️‍♂️ - Signifies Rocky's intense training.",
+      "• 🇮🇹 - Symbolizes Rocky's nickname, 'Italian Stallion'.",
+      "• 💪 - Shows Rocky's determination and strength.",
+      "• 🌃🚶 - Illustrates Rocky's struggle in the gritty city.",
+      "• 💔🏢👜 - Conveys Rocky's developing relationship with Adrian.",
+      "• 👫💑 - The blooming romance between Rocky and Adrian.",
+      "• 🏟️👑💰 - Rocky's once-in-a-lifetime opportunity to fight the heavy-weight champion.",
+      "• 🥊🤕 - The grueling boxing match.",
+      "• 💢 - Rocky's determination in the ring.",
+      "• 🏋️‍♂️🏆 - His determination to train harder after losing.",
+      "• 🥈 - Despite not winning, Rocky becomes a hero.",
+      "• 📰🗞️ - Media attention following the match.",
+      "• 🎉🌞 - The celebration of Rocky's unlikely rise to fame.",
+      "• 💪 - The victorious spirit of Rocky."
+    ]
+  },
+  {
+    "title": "Terminator 2: Judgment Day",
+    "description": "The movie follows Sarah Connor and her son John as they are pursued by a new, more advanced Terminator, the T-1000, sent back in time to kill him. With the help of the reprogrammed T-800, they must prevent the coming of Judgment Day, a catastrophic future event when machines will rise against humans.",
+    "output": "🤖💾🕐⏪👩🣨👦🔫🏍💥⏱️💣😱🌍🔥🏃‍♂️🏃‍♀️💨🤖🔀🤝🚔🏍🚁🏢💾🌐💥⏱️🔜🚫☠️🌍🏭⏸️🕐🔒⛓️🔄👩👦🕐➡️🌍💾🤖🕐⏩👫🌅",
+    "hints": [
+      "1. 🤖 - Mechanical beings from the future.",
+      "2. 💾🕐⏪ - The use of time travel.",
+      "3. 👩👦 - A mother and son fighting for survival.",
+      "4. 🔫🏍💥 - Escapes involving high-speed chases and explosions.",
+      "5. 😱🌍🔥 - An impending global catastrophe.",
+      "6. 🤖🔀 - A robot changing its programming.",
+      "7. 🚔🏍🚁 - Different modes of pursuit.",
+      "8. 💾🌐💥 - Technology causing destruction.",
+      "9. ⛓️🔄🕐 - The struggle to break a cycle of doom.",
+      "10. 🕐➡️🌍 - The importance of time in shaping the future."
+    ],
+    "breakdown": [
+      "• 🤖 - Represents the Terminators.",
+      "• 💾🕐⏪ - Refers to the concept of time travel and reprogramming.",
+      "• 👩👦 - Represents Sarah Connor and her son, John.",
+      "• 🔫🏍💥 - Illustrates action scenes involving gunfights, chases, and explosions.",
+      "• 😱🌍🔥 - Epitomizes the Judgment Day event.",
+      "• 🤖🔀 - Refers to the reprogrammed T-800 Terminator.",
+      "• 🚔🏍🚁 - Illustrates the chases involving various vehicles.",
+      "• 💾🌐💥 - Represents the technology, Skynet, causing global destruction.",
+      "• ⛓️🔄🕐 - Represents the struggle to break the cycle of events leading to Judgment Day.",
+      "• 🕐➡️🌍 - Signifies the importance of time in shaping the future.",
+      "• 🤖🕐⏩ - Represents the Terminator sent from the future.",
+      "• 👫🌅 - Indicates the hopeful conclusion with Sarah and John's survival."
+    ]
+  },
+  {
+    "title": "Avengers: Infinity War",
+    "description": "In Avengers: Infinity War, the Avengers and the Guardians of the Galaxy come together to prevent the mad titan Thanos from collecting all six Infinity Stones. The stones would grant him the power to wipe out half of all life in the universe. The heroes engage in epic battles across different planets, but in a devastating turn of events, Thanos achieves his goal, resulting in half of all life, including many beloved heroes, turning to dust.",
+    "output": "🌍🕵️‍♀️🦸🦹👊💥☄️💎💎💎💎💎💎🧩🔮🧤🌌🏜️🏞️🏙️🌐🚀💪🔥🦸‍♂️🦸‍♀️⚔️🔨💔🎇🎆👿😱🕳️💨🌍🥀🌌😱💥🦸⚰️💫💀💙💔💭🏹⚡️✈️☹️",
+    "hints": [
+      "1. 🌍🕵️‍♀️🦸 - Heroes called into action",
+      "2. 💎💎💎💎💎💎🧩 - Six powerful objects to be collected",
+      "3. 👊💥☄️ - Epic confrontations",
+      "4. 🔮🧤 - An influence on the course of destiny",
+      "5. 🌌🏜️🏞️🏙️ - Battles taking place across the cosmos",
+      "6. 🚀💪🔥 - Heroic efforts in space",
+      "7. 🦸‍♂️🦸‍♀️⚔️ - Avengers in action",
+      "8. 🔨💔 - Loss of critical strength",
+      "9. 🎇🎆 - Explosive, dramatic events",
+      "10. 👿😱 - The ultimate villainous triumph",
+      "11. 🕳️💨🌍 - Half the universe vanishing",
+      "12. 🥀 - A world in mourning",
+      "13. 💥🦸⚰️ - Fallen heroes",
+      "14. 💫💀 - Thanos' tragic success"
+    ],
+    "breakdown": [
+      "• 🌍🕵️‍♀️🦸 - The Avengers uniting to save the world",
+      "• 💎💎💎💎💎💎🧩 - Symbols of the six Infinity Stones",
+      "• 👊💥☄️ - Represents the epic battles",
+      "• 🔮🧤 - Thanos' Infinity Gauntlet, which holds the stones",
+      "• 🌌🏜️🏞️🏙️ - Different locations (space, Titan, Wakanda, New York) where the battles happen",
+      "• 🚀💪🔥 - Space battles and sacrifice",
+      "• 🦸‍♂️🦸‍♀️⚔️🔨 - Key Avengers in battle (Thor and his hammer particularly)",
+      "• 💔 - A symbol for the devastating losses",
+      "• 😱🎇🎆 - The shocking, dramatic finale",
+      "• 👿😱 - Thanos and his victory, causing terror",
+      "• 🕳️💨🌍 - Half of all life turning to dust, affecting Earth",
+      "• 🥀 - Symbolic of mourning and loss",
+      "• 💥🦸⚰️ - Represents heroes lost in the battle",
+      "• 💫💀 - Thanos' successful snap causing death",
+      "• 💙💔 - Emotional impact on both heroes and audience",
+      "• 💭🏹⚡️ - Referencing surviving Avengers Hawkeye and Thor",
+      "• ✈️☹️ - Evoking the heroes' retreat and their sadness."
+    ]
+  },
+  {
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "description": "'The Fellowship of the Ring' is the first film in 'The Lord of the Rings' trilogy. It tells the tale of the unassuming Frodo Baggins who inherits a ring from his elderly cousin Bilbo. This is no ordinary ring, as it is revealed to be the One Ring, a powerful artifact that the Dark Lord Sauron wants to regain and use to enslave the world of Middle-earth. Frodo, along with his friends and a fellowship of races including Elves, Dwarves, and Men, embarks on a critical mission to Mount Doom to destroy the ring and crush the growing threat of shadow and despair.",
+    "output": "👤💍👑🌋👹🌐👁‍🗨⚔️👥🧙‍♂️👦🧝‍♂️🧝‍♀️⛔🌁🕷️⏱️🔥✨🌲🍃🏞️✈️🏔️⚓🌳🌙💦🧗‍♂️🧚🐉⛰️🏰🛡️🎯",
+    "hints": [
+      "1. 👤 - An unlikely hero.",
+      "2. 💍👑 - A ring with the power to rule.",
+      "3. 🌋 - Link to a place of destruction.",
+      "4. 👹 - The embodiment of pure evil.",
+      "5. 🧙‍♂️👦🧝‍♂️🧝‍♀️ - Companions from various races.",
+      "6. ⛔🌁 - Challenges and obstacles they face.",
+      "7. 🕷️⏱️ - A shadowy enemy and a race against time.",
+      "8. 🔥✨ - The power and allure of the ring.",
+      "9. 🌲🍃🏞️ - Journey through different lands.",
+      "10. ✈️🏔️ - Flight and impending dangers.",
+      "11. 🛡️🎯 - Defending the good and targeting evil."
+    ],
+    "breakdown": [
+      "• 👤 - Represents Frodo Baggins, the main character.",
+      "• 💍👑 - The Power of the One Ring.",
+      "• 🌋 - The target destination, Mount Doom.",
+      "• 👹 - The character of Sauron.",
+      "• 🧙‍♂️👦🧝‍♂️🧝‍♀️ - Gandalf, Frodo, and the rest of the Fellowship.",
+      "• ⛔🌁 - The obstacles that the Fellowship encounter.",
+      "• 🕷️⏱️ - The urgency and peril of their quest.",
+      "• 🔥✨ - The ring’s destructive power and attractive allure.",
+      "• 🌲🍃🏞️ - Signifies their journey across Middle-earth.",
+      "• ✈️🏔️ - The flight from danger and the strenuous mountain crossing.",
+      "• 🛡️🎯 - The defense against and the mission to defeat evil."
+    ]
+  },
+  {
+    "title": "The Lord of the Rings: The Two Towers",
+    "description": "The Two Towers, the second installment in The Lord of the Rings trilogy, follows the separated fellowship as they fight their battles. Frodo and Sam continue their dangerous journey towards Mount Doom, guided by the treacherous Gollum. Meanwhile, Aragorn, Legolas, and Gimli join the defense of Rohan, and Merry and Pippin have adventures of their own with the Ents of Fangorn Forest.",
+    "output": "🧝🏔️🚶‍♂️🚶‍♂️👹💍🌋👑🏹🧙🛡️⚔️🏞️🧝👨‍👦‍👦🦸‍♂️🧝‍♀️👸🐴🦅🌲🌳🍂🍄🏰⛪🌔💪👊🐘🕷️🌊💨🔥🐺👻🦉🐎🕊️⚡🌩️☔️🌈🔮📖💌💔💝🧝👼🚶‍♂️",
+    "hints": [
+      "1. 🧝 - Creatures of the Middle Earth.",
+      "2. 🏔️🚶‍♂️ - A perilous journey.",
+      "3. 👹💍 - The central object of the quest.",
+      "4. 🌋 - The final destination.",
+      "5. 👑🏹🧙 - Heroes unite.",
+      "6. 🛡️⚔️ - A major battle.",
+      "7. 🧝👨‍👦‍👦🦸‍♂️ - Differing paths of the Fellowship.",
+      "8. 🦅🌲🌳 - Residents of the forest.",
+      "9. 🐴🦉 - Assistance from nature.",
+      "10. 🐘🕷️ - Dangerous beasts encountered.",
+      "11. 👻 - Spirits of the past.",
+      "12. 🔮 - The power of prophecy.",
+      "13. 🚶‍♂️💌 - Messages and alliances."
+    ],
+    "breakdown": [
+      "• 🧝 - Represents elves, a predominant race in Middle Earth.",
+      "• 🏔️🚶‍♂️ - Frodo and Sam's treacherous journey to Mount Doom.",
+      "• 👹💍 - The One Ring and its evil influence.",
+      "• 🌋 - Mount Doom, the destination of the ring's journey.",
+      "• 👑🏹🧙 - Aragorn, Legolas, and Gandalf's respective roles.",
+      "• 🛡️⚔️ - The major battle (Battle of Helm's Deep).",
+      "• 🧝👨‍👦‍👦🦸‍♂️ - Represents the key characters like Aragorn, Frodo, and Sam.",
+      "• 🦅🌲🌳 - Represents the Ents and eagles of the Middle Earth.",
+      "• 🐴🦉 - Represents the horses of Rohan and the wisdom in their journey.",
+      "• 🐘🕷️ - Represents the Mûmakil (elephants) and Shelob the spider.",
+      "• 👻 - The Dead Men of Dunharrow, spirits called upon for aid.",
+      "• 🔮 - The glimpse of future offered by Galadriel's mirror.",
+      "• 🚶‍♂️💌 - Represents the messages and alliances formed during the journey."
+    ]
+  },
+  {
+    "title": "The Lord of the Rings: The Return of the King",
+    "description": "The epic finale of the Lord of the Rings trilogy, The Return of the King, follows the continued journey of the hobbit Frodo and his entourage as they attempt to destroy the One Ring and defeat the Dark Lord Sauron. Meanwhile, Aragorn recognizes his true destiny as king and must rally forces to fight against Sauron's army at the Battle of Gondor.",
+    "output": "👑💍🔥🗻👣🧝‍♂️⚔️👁️🌋🌐💂‍♂️👥🏹🌌💪👣🌲🌄⚔️🏞️🔥🌪️💀🧙‍♂️🧝‍♀️🌠✨👥💍💂‍♂️👑🏰🦅✊👣💪🌎🌳👁️🌄🗡️👑✨🌌🗻🔥💍⛈️🌎",
+    "hints": [
+      "1. 👑💍 - A significant ring and a destined crown.",
+      "2. 🔥🗻 - A fiery journey awaits.",
+      "3. 🧝‍♂️⚔️ - The elven battles with courage.",
+      "4. 👁️🌋 - A dark force watches over a crucial location.",
+      "5. 💂‍♂️🏹 - The fight to protect humanity.",
+      "6. 🌌👣 - The epic travels across Middle Earth.",
+      "7. 🌲🏞️🔥 - Adventures and danger in mystical forests.",
+      "8. 🧙‍♂️✨ - A wise wizard’s guiding light.",
+      "9. 💍👑 - The ring’s connection to the true king.",
+      "10. 🦅🗡️ - The symbols of freedom and bravery."
+    ],
+    "breakdown": [
+      "• 👑💍 - Represent the Ring of Power and the Crown of a rightful king, Aragorn.",
+      "• 🔥🗻 - Symbolize the fiery Mount Doom where the One Ring must be destroyed.",
+      "• 👁️ - Refers to the Eye of Sauron, the antagonist of the story.",
+      "• 🧝‍♂️⚔️ - Represent Legolas and the powerful elven warriors in the Battle of Gondor.",
+      "• 💂‍♂️🏹 - Denote the soldiers of Gondor and Rohan fighting to protect their lands.",
+      "• 👣🌲🌄 - Depict the protagonist Frodo’s perilous journey with Samwise through forests and mountains.",
+      "• 🌋🔥 - Signify the final destination to destroy the One Ring, Mount Doom.",
+      "• 🏹💪👊 - Characterize the valiant fight of the human and non-human forces against Sauron's army.",
+      "• 🧝‍♀️🌠 - Portray Arwen, and her vision of a future with her beloved, Aragorn.",
+      "• 🌎 - Illustrates the magnitude of the event - deciding the fate of Middle-earth.",
+      "• 🧙‍♂️ - Represents Gandalf and his wisdom that guides the fellowship.",
+      "• 💂‍♂️👑🏰✊ - Aragorn, his destiny to be King and the kingdom of Gondor.",
+      "• 🦅🗡️ - The eagles and Sting, Frodo's weapon both significant elements in the battle against evil.",
+      "• 🌎👁️🗻🔥💍 - A complete journey from traversing the world, evading Sauron's gaze, reaching Mount Doom and ultimately destroying the One Ring.",
+      "• ⛈️🌎 - Represents the culmination, the stormy end and eventual peace in Middle Earth."
+    ]
+  },
+  {
+    "title": "Goodfellas",
+    "description": "Goodfellas is a crime film that tells the story of mob associate Henry Hill and his partners in crime Jimmy Conway and Tommy DeVito. The film follows their rise in the mob hierarchy and the heists they pull off, while also showcasing their personal lives and relationships. Despite their successful run, the partnership begins to unravel as greed, paranoia, and drug addiction take its toll.",
+    "output": "👦👬🗽💼⬆️🔫💰🚬🍝🍷🛫💎🚔😰⚖️💊🍾🎰👨‍👩‍👧‍👦🔪🩸💥🥊🚬📞🔐⏳🚗🔥🛁💰🔫😡🚁🔍🚔🚒⚖️😨❄️🕊️☠️⏰💣🔚🎬",
+    "hints": [
+      "1. 👦👬 - Three friends embark on a perilous journey.",
+      "2. 💼⬆️🔫 - They rise through the organized crime life.",
+      "3. 🍝🍷 - A taste of Italian culture and lifestyle.",
+      "4. 💎🚔 - Pulling off heists under the nose of law enforcement.",
+      "5. ⚖️💊 - Balancing crime with personal vices.",
+      "6. 🔪🩸 - Consequences of their violent choices.",
+      "7. 🚬📞🔐 - The secrecy of their operations.",
+      "8. 🚁🔍 - Paranoia creeping into their lives.",
+      "9. ❄️🕊️ - A hint at the famous Lufthansa heist.",
+      "10. 🔚🎬 - Their downfall caught on a literal and metaphorical 'camera'."
+    ],
+    "breakdown": [
+      "• 👦👬 - Represents Henry Hill and his partners, Jimmy Conway and Tommy DeVito.",
+      "• 💼⬆️🔫 - Their rise in the mob world, with lots of weapons involved.",
+      "• 🍝🍷 - Depicts their Italian-American heritage and lifestyle.",
+      "• 💎🚔 - They commit heists, getting rich while law enforcement struggles to catch them.",
+      "• ⚖️💊 - The balance they attempt to maintain between their criminal activities and drug addiction.",
+      "• 🔪🩸 - The violence that comes with their lifestyle.",
+      "• 🚬📞🔐 - The subterfuge and clandestine nature of their operations.",
+      "• 🚁🔍 - Their increasing paranoia, visualized by a helicopter always seeming to follow them.",
+      "• ❄️🕊️ - The famous Lufthansa heist symbolized by a snowy bird (Airline's logo is a bird).",
+      "• 🔚🎬 - The eventual end of their glamorous, criminal life, ending up as a motion picture."
+    ]
+  },
+  {
+    "title": "No Country for Old Men",
+    "description": "In No Country for Old Men, Llewellyn Moss, a hunter, stumbles upon a drug deal gone wrong and takes a suitcase full of money. This makes him the target of a psychotic killer, Anton Chigurh, who uses any means necessary, including a cattle gun, to track down Moss. With Sheriff Bell attempting to protect Moss and make sense of the escalating violence, the film unfolds as a tense, merciless chase in the landscape of Texas.",
+    "output": "🦌🔭🕵️‍♂️💼💵🌵🚶‍♂️🕵️‍♂️🔫🚐💣🏃‍♂️💀☠️🔫🌏🌪️🚗🌪️📞🤐🔫💣🕵️‍♂️🚓🧓🤔🕰️⚖️🔪🕵️‍♀️👮‍♂️🛠️🧲🔥🏃‍♂️🔫👋🔪👮‍♂️🔫🧓🙏🌵🔚",
+    "hints": [
+      "1. 🦌🔭 - A hunter, and a discovery.",
+      "2. 💼💵 - The allure of easy money.",
+      "3. 🕵️‍♂️🔫 - A relentless, unpredictable killer.",
+      "4. 🚐💣🏃‍♂️ - Consequences of a botched drug deal.",
+      "5. 💀☠️ - A trail of bodies.",
+      "6. 🌏🌪️ - A world spiraling into chaos.",
+      "7. 📞🤐 - A life-altering call.",
+      "8. 🕵️‍♂️🚓🧓 - Aging lawman in a changed world.",
+      "9. ⚖️🔪 - Unforgiving justice, no matter the cost.",
+      "10. 🧲🔥 - A cat and mouse chase.",
+      "11. 👋🔪 - A merciless goodbye.",
+      "12. 🧓🙏 - Reflections on life, loss and change."
+    ],
+    "breakdown": [
+      "• 🦌🔭 - Represents Llewellyn Moss, an antelope hunter.",
+      "• 💼💵 - Signifies the suitcase of money he finds, setting the story in motion.",
+      "• 🕵️‍♂️🔫 - Depicts Anton Chigurh, a psychopathic killer.",
+      "• 🚐💣🏃‍♂️ - The aftermath of a failed drug deal which Moss stumbles upon.",
+      "• 💀☠️ - The trail of death left behind in the chaos.",
+      "• 🌏🌪️ - The world spiraling into violence, a crucial theme of the film.",
+      "• 📞🤐 - The life-altering call Moss makes to notify about the deal.",
+      "• 🕵️‍♂️🚓🧓 - Sheriff Ed Tom Bell's attempt to protect Moss.",
+      "• ⚖️🔪 - Represents brutal justice in a lawless world.",
+      "• 🧲🔥 - The cat-and-mouse chase between Moss and Chigurh.",
+      "• 👋🔪 - The ruthless nature of Chigurh's violence.",
+      "• 🧓🙏 - Sheriff Bell's introspective musings on the increasing violence, relating to the title \"No Country for Old Men.\""
+    ]
+  },
+  {
+    "title": "The Departed",
+    "description": "In The Departed, undercover cop Billy Costigan and corrupt police officer Colin Sullivan, who's working for a crime boss, navigate their double lives while trying to uncover each other's identity. It's a cat and mouse game set against the backdrop of Boston's gritty crime scene.",
+    "output": "👮‍♂️💼🌃🍀👤🎭🐭1️⃣🔍🤔⏳🚨📞☠️🕵️‍♂️👥🔄⚖️🎭💔🔫😠👤🐭2️⃣🔍🤔🚔📞💣🕵️‍♂️👥🔄⚖️💔⌛👮‍♂️🪖💥🏢🔥🔫💔⏳1️⃣⌛2️⃣💀☠️⚰️🚬💔🙀",
+    "hints": [
+      "1. 👮‍♂️💼🌃🍀 - The Irish-American law enforcement setting.",
+      "2. 👤🎭🐭1️⃣ - An undercover agent infiltrating a mob.",
+      "3. 🔍🤔⏳🚨 - Time pressure to expose corruption.",
+      "4. 📞☠️🕵️‍♂️ - Communication that leads to death.",
+      "5. 👥🔄⚖️ - The revolving roles of law and crime.",
+      "6. 🔫😠👤🐭2️⃣ - An infiltrator within the police force.",
+      "7. 📞💣🕵️‍♂️ - A tip-off that changes the game.",
+      "8. 💥🏢🔥 - Explosive and dangerous situations.",
+      "9. 1️⃣⌛2️⃣ - The dwindling lives of infiltrators.",
+      "10. 💀☠️⚰️ - The inevitable face of death."
+    ],
+    "breakdown": [
+      "• 👮‍♂️💼🌃🍀 - Represents the Irish-American police environment in Boston.",
+      "• 👤🎭🐭1️⃣ - Depicts Billy, the undercover cop in the mob.",
+      "• 🔍🤔⏳🚨 - The pressure to uncover the mole within the police.",
+      "• 📞☠️🕵️‍♂️ - The dangerous consequences of their undercover communication.",
+      "• 👥🔄⚖️ - The intertwined lives of cops and criminals.",
+      "• 🔫😠👤🐭2️⃣ - Depicts Colin, the mob's mole in the police force.",
+      "• 🚔📞💣🕵️‍♂️ - Life-threatening information being passed around.",
+      "• 💥🏢🔥 - The chaotic and hazardous situations they find themselves in.",
+      "• 👮‍♂️🪖💔⏳ - The close calls and narrow escapes.",
+      "• 1️⃣⌛2️⃣💀☠️⚰️ - The ultimate fate of our key players in the narrative."
+    ]
+  },
+  {
+    "title": "Interstellar",
+    "description": "Interstellar follows a group of explorers who utilize a newfound wormhole to surpass the limitations on human space travel and conquer the vast distances involved in interstellar voyage, in search of a new habitable planet.",
+    "output": "👨‍🚀🌽🔬🌎👋🔭🌌⏱️🚀🕳️🌀🚀🌕👋🧪👩‍🔬😴💭👧📦🔬🕰️🎶👨‍👧‍👧⏳💫🖊️📚🕰️🏞️📡📪🎶👨‍🚀🛰️🕳️⛵⭐🕰️⬆️☀️🌊⏰⚡🚀🕳️🏞️📡💫🖊️📚👩‍🔬👨‍🚀👧👩‍🔬💖⌛💥✨🌍☀️🌽👨‍👧‍👧💖",
+    "hints": [
+      "1. 👨‍🚀🌽🔬 - The struggle on Earth.",
+      "2. 🔭🌌 - Staring into the unknown.",
+      "3. ⏱️🚀🕳️ - Journey through time and space.",
+      "4. 👨‍👧‍👧⏳ - Precious fleeting moments.",
+      "5. 📦🔬🕰️ - Puzzling scientific discovery.",
+      "6. 🎶👨‍👧‍👧 - Strong connection of love.",
+      "7. 🌕 - An alien landscape.",
+      "8. ⏰⚡ - The interplay of time and gravity.",
+      "9. 🛰️🕳️ - The challenges of a voyage through a wormhole.",
+      "10. 🏞️ - Far off planets.",
+      "11. 📡💫🖊️📚 - Messages from beyond.",
+      "12. 👩‍🔬👨‍🚀👧 - Tragic separation.",
+      "13. ⌛💥✨ - The grand finale."
+    ],
+    "breakdown": [
+      "• 👨‍🚀 - Represents Joseph Cooper, the main character.",
+      "• 🌽🔬 - Represents the failing crops and science on Earth.",
+      "• 🔭🌌 - The discovery of a wormhole near Saturn.",
+      "• ⏱️🚀🕳️ - The journey through the wormhole and bending of time.",
+      "• 👨‍👧‍👧⏳ - Father-daughter relationship and time passing.",
+      "• 📦🔬🕰️ - The mysterious \"tesseract\" and focus on the concept of time.",
+      "• 🎶👨‍👧‍👧 - The theme song connects Cooper and his daughter Murph.",
+      "• 🌕 - Represents the alien planets visited.",
+      "• ⏰⚡ - The concept of relativity and how gravity affects time.",
+      "• 🛰️🕳️ - The spaceship Endurance.",
+      "• 🏞️ - The different planets they eventually discover.",
+      "• 📡💫🖊️📚 - The messages sent via gravitational anomalies.",
+      "• 👩‍🔬👨‍🚀👧 - Represents Murph, Cooper and Amelia Brand’s journey.",
+      "• ⌛💥✨ - The climactic scene of the movie.",
+      "• 🌍☀️🌽👨‍👧‍👧💖 - The eventual salvation of Earth and reunification of the family."
+    ]
+  },
+  {
+    "title": "The Shining",
+    "description": "The Shining is about a family that moves into an isolated hotel for the winter where an evil spiritual presence influences the father into violence while his psychic son sees horrific forebodings from both past and future. The movie tells the chilling story of their fight against this evil force, symbolizing internal and external pressures that influence human behavior.",
+    "output": "👨‍👩‍👦🚗🏔️🌨️🏨👨‍💼🖋️🍺👻😱🔮👦✍️🔑🚪👩‍🦰😨🛁👰🔪🚪📣👦🔑🏍️😱👨‍💼🔨🚪😰👩‍🦰👦🔑🚪⛄🏍️🚪❄️🚗‍🏃‍♂️👮‍♂️🥶🏨",
+    "hints": [
+      "1. 👨‍👩‍👦 - A family unit.",
+      "2. 🚗🏔️ - A journey to an isolated location.",
+      "3. 🏨 - A ominous hotel.",
+      "4. 👨‍💼🖋️ - A writer consumed by pressure.",
+      "5. 🍺👻 - Darkened by past demons.",
+      "6. 😱🔮👦 - Premonitions eliciting fear.",
+      "7. ✍️🔑 - Chilling messages written by unseen hands.",
+      "8. 🚪👩‍🦰😨 - A mother's growing fear.",
+      "9. 🛁👰 - Horrors behind closed doors.",
+      "10. 🔪🚪📣 - A call for help too late.",
+      "11. 👦🔑 - A child unlocking terrifying secrets.",
+      "12. 🏍️😱 - A terrifying chase.",
+      "13. 👨‍💼🔨 - A father's violent rampage.",
+      "14. 🚪😰🔑 - A frantic escape blocked.",
+      "15. 🏍️🚪 - Racing against time on a small vehicle.",
+      "16. ❄️🚗🏃‍♂️ - A desperate escape from freezing cold.",
+      "17. 👮‍♂️🥶🏨 - The chilling end unfolds against the ominous hotel."
+    ],
+    "breakdown": [
+      "• 👨‍👩‍👦 - Represents the Torrance family, the main characters.",
+      "• 🚗🏔️ - Signifies their journey to the isolated Overlook Hotel.",
+      "• 🏨 - The Overlook Hotel, the central location.",
+      "• 👨‍💼🖋️ - Jack Torrance, the aspiring writer and father.",
+      "• 🍺👻 - Parallels Jack's alcoholism with the evil spirits of the hotel.",
+      "• 😱🔮👦 - Represents Danny, the psychic boy who 'shines'.",
+      "• ✍️🔑 - The creepy messages \"REDRUM\" appearing on the mirror indicating danger.",
+      "• 🚪👩‍🦰😨 - Wendy Torrance sensing the harmful change in her family dynamics.",
+      "• 🛁👰 - The ghostly woman in the hotel's room where Danny was drawn.",
+      "• 🔪🚪📣 - Wendy desperately communicating for help out of the hotel.",
+      "• 👦🔑 - Danny's ability to tap into the supernatural.",
+      "• 🏍️😱 - Danny's tricycle adventures through the eerie hotel corridors.",
+      "• 👨‍💼🔨 - Jack's violent breakdown.",
+      "• 🚪😰🔑 - Wendy and Danny's escape attempt impeded.",
+      "• 🏍️🚪 - Danny's clever escape using his tricycle.",
+      "• ❄️🚗🏃‍♂️ - Wendy and Danny's frigid escape from the snow-stranded hotel.",
+      "• 👮‍♂️🥶🏨 - The unsettling end with Jack freezing to death in the hotel's labyrinth, leaving viewers chilled to the bone."
+    ]
+  },
+  {
+    "title": "Se7en",
+    "description": "Se7en is a thriller about two detectives, a soon-to-be-retired veteran and a headstrong newcomer, investigating a serial killer using the seven deadly sins as his modus operandi. Each crime reveals a sin mercilessly punished, leading to a chilling and unexpected climax.",
+    "output": "👮‍♂️👮‍♂️🏙️📅⚖️🔍🩸🐷😡1️⃣🕵️‍♂️💔😢2️⃣🕵️‍♂️📋💼😴3️⃣🕵️‍♂️🤵🚬🍔4️⃣🕵️‍♂️🤬💰💸5️⃣🕵️‍♂️💃⚖️💀6️⃣🕵️‍♂️🎁📦😱7️⃣🕵️‍♂️👿🔚",
+    "hints": [
+      "1. 👮‍♂️👮‍♂️ - A team on the hunt.",
+      "2. 📅⚖️ - A week-long investigation of justice.",
+      "3. 🩸🐷😡 - The first sin punished.",
+      "4. 💔😢 - Heartbreaking revelations.",
+      "5. 📋💼😴 - The sin that falls under sloth.",
+      "6. 🤵🚬🍔 - Gluttony takes a heavy toll.",
+      "7. 🤬💰💸 - The high cost of Greed.",
+      "8. 💃⚖️💀 - A harsh judgment on Lust.",
+      "9. 🎁📦😱 - The final Sin's shocking reveal.",
+      "10. 👿🔚 - The finale with the devilish killer."
+    ],
+    "breakdown": [
+      "• 👮‍♂️👮‍♂️ - Represents detectives Mills and Somerset.",
+      "• 🏙️ - Sets the grim city scene.",
+      "• 📅⚖️ - Represents the seven days and the quest for justice.",
+      "• 🔍🩸🐷😡1️⃣🕵️‍♂️ - Represents the first sin, Gluttony, investigated by detectives.",
+      "• 💔😢2️⃣🕵️‍♂️ - The heartbreaking investigation into the second sin, Greed.",
+      "• 📋💼😴3️⃣🕵️‍♂️ - Embodies the third sin, Sloth, punished by lethargy.",
+      "• 🤵🚬🍔4️⃣🕵️‍♂️ - Unveils the fourth sin, Pride, appearing as overindulgence.",
+      "• 🤬💰💸5️⃣🕵️‍♂️ - Showcases the fifth sin, Envy, in relation to money.",
+      "• 💃⚖️💀6️⃣🕵️‍♂️ - Depicts the investigation into the sixth sin, Lust, leading to death.",
+      "• 🎁📦😱7️⃣🕵️‍♂️ - Unboxing the shock of the seventh sin, Wrath.",
+      "• 👿🔚 - The devilish end, facing the cunning killer."
+    ]
+  },
+  {
+    "title": "Fight Club",
+    "description": "Fight Club is a psychological drama revolving around a disillusioned and insomniac office worker, known as the Narrator, who forms an underground fight club with a soap salesman, Tyler Durden. The fight club evolves into a chaotic anarchistic group called Project Mayhem aiming to break down societal order.",
+    "output": "😐🏢✈️🥊🧼👬🌙👊🤼🌃🔥🏠🐀🗣️🚫📝🌪️🎥💭😈🔥📚🧨💣🏢🔥🦷💔🛏️😐🧼👤💔🎆😐",
+    "hints": [
+      "1. 😐🏢 - Discontented protagonist.",
+      "2. ✈️🥊🧼 - Unusual encounters shape a new reality.",
+      "3. 👬🌙👊 - Brotherhood birthed in clandestine combats.",
+      "4. 🌃🔥🏠🐀 - Destruction as an initiation.",
+      "5. 🗣️🚫📝 - First rule of the club?",
+      "6. 🌪️🎥💭😈 - The chaotic mind that orchestrates havoc.",
+      "7. 🔥📚🧨💣 - Project Mayhem: Chaos birthed from knowledge.",
+      "8. 🏢🔥🦷 - Symbols of destruction and transformation.",
+      "9. 💔🛏️ - Deep seated insecurities.",
+      "10. 😐🧼👤 - Duality and hidden truths of an alter-ego.",
+      "11. 💔🎆😐 - The self-destruction and revelation."
+    ],
+    "breakdown": [
+      "• 😐🏢 - Depicts the Narrator's insipid life and dissatisfaction with consumer society.",
+      "• ✈️🥊🧼 - Represents the chance meeting with Tyler on a plane, fighting, and the unique profession of soap making.",
+      "• 👬🌙👊 - Signifies the formation of Fight Club, denoted by the moon indicating its nocturnal fights.",
+      "• 🌃🔥🏠🐀 - Depicts the arson of the Narrator's apartment and the initiation into Tyler's chaotic world.",
+      "• 🗣️🚫📝 - Denotes the first rule of Fight Club: You do not talk about Fight Club.",
+      "• 🌪️🎥💭😈 - Shows the intertwined reality and hallucinations of the Narrator, hinting at his chaotic mind and dual personality.",
+      "• 🔥📚🧨💣 - Illustrates Project Mayhem's actions, using knowledge to create anarchic outbreaks.",
+      "• 🏢🔥🦷 - Represents the damaging actions of Project Mayhem, like bombing of buildings and the Narrator losing a tooth.",
+      "• 💔🛏️ - Stands for the Narrator's emotional troubles, depicted by his frequent trips to support groups.",
+      "• 😐🧼👤 - Symbolizes the realization of the Narrator's split personality: himself and Tyler Durden.",
+      "• 💔🎆😐 - Illustrates the climax where the Narrator 'destroys' his alter ego and confesses his mental condition."
+    ]
+  },
+  {
+    "title": "The Prestige",
+    "description": "The Prestige revolves around two magicians in London at the end of the 19th century: Robert Angier and Alfred Borden. They share an intense rivalry, with each competing to perform the ultimate magic trick: \"the Transported Man\". The deeper they delve into the world of magic, the more dangerous their rivalry becomes, ultimately leading to deadly consequences.",
+    "output": "🎩🧪🔮🎲🔥💀🎩🎤❔💡⚡🎩📔👐🎩🕳️🎁🐱💀🃏🎩☕🔍📝🤔🎩🔬⚙️⚡🎩💔⏳🦅💀🎩🕳️🎩👤📚💡🚂🎩⬛️🎩✨💥💀🎩🥀",
+    "hints": [
+      "1. 🎩 - Symbol of a magician.",
+      "2. 💀 - The deadly cost of magic.",
+      "3. 🎤❔ - The mystery of the ultimate trick.",
+      "4. ⚡ - Dangerous power harnessed.",
+      "5. 📔👐 - Keeping a secret journal.",
+      "6. 🕳️ - Through darkness comes light.",
+      "7. ☕🔍📝 - Scrutinizing for secrets.",
+      "8. 🔬⚙️ - Science behind the illusion.",
+      "9. 💔 - Private lives torn apart.",
+      "10. 🦅 - Symbol for ultimate freedom.",
+      "11. 👤📚 - Unveiling a hidden identity.",
+      "12. ⬛️🎩 - A trick beyond imagination.",
+      "13. 🥀 - The withering of innocence."
+    ],
+    "breakdown": [
+      "• 🎩 - Represents the profession of Angier and Borden who are both magicians.",
+      "• 🔮 - The fascination and mystery of magic.",
+      "• 💀 - The ultimate price of their rivalry in magic.",
+      "• 🔥 - The trick that went wrong, leading to the rivalry.",
+      "• 🎤❔ - Signifies the puzzling suspense about the ultimate magic trick.",
+      "• ⚡ - Tesla's machine that became key to achieving \"the Transported Man\".",
+      "• 📔👐 - Angier and Borden's diary filled with secrets.",
+      "• 🕳️ - The final trick of being transported through a door.",
+      "• 🐱 - The duplicated cat, indicating the consequences of Tesla's machine.",
+      "• ☕🔍📝 - The constant probing into each other's tricks.",
+      "• 🔬⚙️ - The interplay of magic and science.",
+      "• 💔 - Their personal lives shattered due to their obsession.",
+      "• 🦅 - Borden's bird trick, a metaphor for the character's fate.",
+      "• 👤📚 - The revelation of Borden's secret identity.",
+      "• ⬛️🎩 - The baffling climax of the Transported Man.",
+      "• 🥀 - The loss of innocence amidst the hazardous pursuit of the perfect trick."
+    ]
+  },
+  {
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "description": "Captain Jack Sparrow arrives in Port Royal and quickly lands himself in jail. Meanwhile, the cursed crew of the Black Pearl attack the city and kidnap Elizabeth Swann, mistress of Governor Swann and secret possessor of a pirate medallion. Jack plots an audacious escape, teams up with Will Turner and sets off on a mission to rescue her and reclaim his ship while confronting his cursed former first mate along the way.",
+    "output": "🏝️🏴‍☠️🍻⚔️👑🔒🌜⚓👻🏚️🔥👸🏽💰⛓️🧑‍🔬🚣‍♂️💣⚓👻💔🗡️💥💀🏴‍☠️👮🔒🗝️🏃👬⚔️💘👸🏽🏞️⚔️🤝👑🦜🏝️🏴‍☠️⚓👻🆚⚔️💗👸🏽💣🔓💀⏳🔄👨‍👩‍👧👫💍💞💎⚓🚀🏴‍☠️🎉🌅",
+    "hints": [
+      "1. 🏝️🏴‍☠️ - Caribbean Pirates.",
+      "2. 👑🔒 - Locked-up pirate leader.",
+      "3. 👸🏽💰⛓️ - Kidnapped damsel with a pirate medallion.",
+      "4. 🚣‍♂️💣⚓ - Dangerous rescue mission on a ship.",
+      "5. 🏴‍☠️👮🔒🗝️ - A jailbreak by a charismatic pirate.",
+      "6. 👬⚔️💘 - Unexpected alliances for love.",
+      "7. ⚓👻🗡️ - Confrontation with cursed ghost crew.",
+      "8. 💀⏳🔄 - Reverting a deadly curse.",
+      "9. 💎⚓🚀 - An adventure for a treasured ship."
+    ],
+    "breakdown": [
+      "• 🏝️🏴‍☠️ - Representing the pirates in the Caribbean.",
+      "• 🍻⚔️👑🔒 - Signifying Jack Sparrow's altercation and subsequent arrest.",
+      "• 👸🏽💰⛓️ - Symbolizing Elizabeth's kidnap and her pirate medallion.",
+      "• 🚣‍♂️💣⚓ - Embarking on a dangerous mission on a boat.",
+      "• 👮🔒🗝️🏃 - Jack breaking out of prison.",
+      "• 👬⚔️💘 - Alliance formed between Jack and Will for Elizabeth's love.",
+      "• ⚓👻🗡️ - The showdown with Barbossa and his ghostly crew.",
+      "• 💀⏳🔄 - The curse being lifted and the pirates becoming mortal again.",
+      "• 💎⚓🚀 - The quest to reclaim the Black Pearl, Jack's treasured ship."
     ]
   }
 ]
