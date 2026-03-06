@@ -4,6 +4,7 @@ import EmojiGrid from "./EmojiGrid";
 import HintButton from "./HintButton";
 import EmojiIcon from "../utils/EmojiIcon";
 import { getRenderableEmojiTokens } from "../utils/emojiPolicy";
+import embeddedMoviesData from "./moviesEmbedded.json";
 import "./Game.css";
 
 const { splitGraphemes } = require("../utils/graphemes");
@@ -101,6 +102,8 @@ const normalizeMovies = (data) => {
   if (Array.isArray(data)) return data.filter(Boolean);
   return Object.values(data || {}).filter(Boolean);
 };
+
+const normalizeAndTokenizeMovies = (data) => normalizeMovies(data).map(ensureMovieTokens);
 
 const TONE_REGEX = /[\u{1F3FB}-\u{1F3FF}]/u;
 const stripToneFromHex = (hex) =>
@@ -287,7 +290,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
           moviesData = await loadMovies(FALLBACK_DATA_URL);
         }
 
-        const normalized = normalizeMovies(moviesData).map(ensureMovieTokens);
+        const normalized = normalizeAndTokenizeMovies(moviesData);
         if (!normalized.length) {
           throw new Error("No movies available after loading puzzle data");
         }
@@ -295,6 +298,12 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
         startNewGame(normalized);
       } catch (error) {
         console.error("Error fetching movies:", error);
+        const embedded = normalizeAndTokenizeMovies(embeddedMoviesData);
+        if (!embedded.length) {
+          return;
+        }
+        setMoviesList(embedded);
+        startNewGame(embedded);
       }
     };
 

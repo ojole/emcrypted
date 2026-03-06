@@ -205,7 +205,7 @@ body,
 }
 
 .top-right-toggles {
-  right: calc(max(12px, env(safe-area-inset-right)) + 34px);
+  right: calc(max(12px, env(safe-area-inset-right)) + 52px);
 }
 
 .top-left-overlay {

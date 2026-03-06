@@ -29,7 +29,7 @@ const EmojiGrid = forwardRef(({ tokens = [], highlightedEmojis = [], dimmedEmoji
               hexFull={token.hexFull}
               hasTone={token.hasTone}
               size={40}
-              style={{ width: "calc(var(--cell-size) * 0.82)", height: "calc(var(--cell-size) * 0.82)" }}
+              style={{ width: "100%", height: "100%" }}
             />
           </div>
         );

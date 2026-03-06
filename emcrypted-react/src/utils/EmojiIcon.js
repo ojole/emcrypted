@@ -1,7 +1,5 @@
 import React, { forwardRef, useMemo, useState, useEffect, useCallback } from "react";
 
-const QUESTION_MARK_ASSET = "/vendor/fluent-emoji/2753.svg";
-
 const stripVS16 = (hex) => String(hex || "").toLowerCase().replace(/-fe0f/g, "");
 
 const unique = (items) => Array.from(new Set(items.filter(Boolean)));
@@ -43,7 +41,6 @@ const buildSourceCandidates = ({ asset, hex, hexFull }) => {
   return unique([
     ...assetCandidates,
     ...hexCandidates.map(toAssetPath),
-    QUESTION_MARK_ASSET,
   ]);
 };
 
