@@ -404,6 +404,14 @@ body.theme-dark .result-arrow {
   gap: 0;
 }
 
+.hintPillToggleStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  pointer-events: auto;
+}
+
 .hintPill {
   display: flex;
   align-items: center;
@@ -423,17 +431,32 @@ body.theme-dark .result-arrow {
   border-style: solid;
 }
 
-.hintPillToggleContent {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-  line-height: 1;
-}
-
 .hintPillToggleIcon {
   filter: saturate(1.2) hue-rotate(-12deg) brightness(1.05);
+}
+
+.hintDrawerHandle {
+  width: calc(var(--hud-size) * 0.78);
+  min-height: 14px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hintDrawerHandle::before {
+  content: "";
+  position: absolute;
+  width: calc(var(--hud-size) * 0.62);
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(211, 51, 51, 0.66);
+  opacity: 0.7;
 }
 
 .hintPillChevron {
@@ -441,12 +464,14 @@ body.theme-dark .result-arrow {
   font-weight: 700;
   line-height: 1;
   color: var(--hint-red);
-  transform: translateY(-1px);
+  transform: translateY(3px) rotate(0deg);
   transition: transform 0.15s ease;
+  position: relative;
+  z-index: 1;
 }
 
-.hintPillChevron-open {
-  transform: translateY(-1px) rotate(180deg);
+.hintDrawerHandle-open .hintPillChevron {
+  transform: translateY(3px) rotate(180deg);
 }
 
 .hintPill:hover {
@@ -464,6 +489,10 @@ body.theme-dark .hintPill {
   border-color: rgba(255, 255, 255, 0.2);
   background: #101f3a;
   box-shadow: 0 6px 18px rgba(5, 11, 25, 0.45);
+}
+
+body.theme-dark .hintDrawerHandle::before {
+  background: rgba(232, 71, 117, 0.72);
 }
 
 body.theme-dark .hintPill-active {

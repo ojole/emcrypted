@@ -187,6 +187,7 @@ const FLAG_NAME_OVERRIDES = {
 
 const REQUIRED_CLUSTERS = new Set([
   "❎",
+  "❗",
   "🎬",
   "🎥",
   "🎞️",

@@ -205,7 +205,7 @@ body,
 }
 
 .top-right-toggles {
-  right: calc(max(12px, env(safe-area-inset-right)) + 52px);
+  right: calc(max(12px, env(safe-area-inset-right)) + var(--scrollbar-size, 9px) + 18px);
 }
 
 .top-left-overlay {

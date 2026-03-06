@@ -444,6 +444,29 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     }, HINT_DURATION * 1000);
   }, [policyTokens, closeHint, highlightHintTokens]);
 
+  const previewHint = useCallback((hintObj) => {
+    if (!hintObj?.emojiText) {
+      setHighlightedEmojis([]);
+      setDimmedEmojis([]);
+      return;
+    }
+    highlightHintTokens(splitGraphemes(hintObj.emojiText), policyTokens);
+  }, [highlightHintTokens, policyTokens]);
+
+  const restoreHintPreview = useCallback(() => {
+    if (activeHint?.emojiText) {
+      highlightHintTokens(splitGraphemes(activeHint.emojiText), policyTokens);
+      return;
+    }
+    setHighlightedEmojis([]);
+    setDimmedEmojis([]);
+  }, [activeHint, highlightHintTokens, policyTokens]);
+
+  const toggleHintRail = useCallback(() => {
+    if (isHintActive) return;
+    setIsHintRailExpanded((prev) => !prev);
+  }, [isHintActive]);
+
   const handleHintClick = useCallback(() => {
     if (isHintActive || hintExhausted || !currentMovie) return;
     const rawHint = currentMovie.hints?.[hintIndex];
@@ -557,6 +580,13 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     hasTone: false,
   };
 
+  // UI emoji for revealed hint pills (exclamation mark)
+  const exclamationToken = {
+    asset: "/vendor/fluent-emoji/2757.svg",
+    hex: "2757",
+    hasTone: false,
+  };
+
   // UI emoji for close button (cross mark)
   const crossMarkToken = {
     asset: "/vendor/fluent-emoji/274c.svg",
@@ -573,16 +603,13 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
           <div
             className={`hintHistoryRail ${isHintRailExpanded ? "hintHistoryRail-expanded" : "hintHistoryRail-collapsed"}`}
           >
-            <button
-              className="hintPill hintPill-toggle"
-              type="button"
-              aria-label={isHintRailExpanded ? "Hide previous hints" : "Show previous hints"}
-              onClick={() => {
-                if (isHintActive) return;
-                setIsHintRailExpanded((prev) => !prev);
-              }}
-            >
-              <span className="hintPillToggleContent">
+            <div className="hintPillToggleStack">
+              <button
+                className="hintPill hintPill-toggle"
+                type="button"
+                aria-label={isHintRailExpanded ? "Hide previous hints" : "Show previous hints"}
+                onClick={toggleHintRail}
+              >
                 <EmojiIcon
                   className="hintPillToggleIcon"
                   asset={questionMarkToken.asset}
@@ -590,21 +617,28 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                   hasTone={questionMarkToken.hasTone}
                   size={22}
                 />
+              </button>
+              <button
+                className={`hintDrawerHandle ${isHintRailExpanded ? "hintDrawerHandle-open" : ""}`}
+                type="button"
+                aria-label={isHintRailExpanded ? "Collapse hint drawer" : "Expand hint drawer"}
+                onClick={toggleHintRail}
+              >
                 <span
-                  className={`hintPillChevron ${isHintRailExpanded ? "hintPillChevron-open" : ""}`}
+                  className="hintPillChevron"
                   aria-hidden="true"
                 >
                   ▾
                 </span>
-              </span>
-            </button>
+              </button>
+            </div>
 
             {isHintRailExpanded && hintHistory.map((hint) => {
               const isThisActive = activeHint && activeHint.id === hint.id;
 
               const pillIcon = isThisActive
                 ? crossMarkToken   // active state -> show ❌
-                : questionMarkToken; // inactive state -> show ?
+                : exclamationToken; // inactive state -> show ❗
 
               return (
                 <button
@@ -628,6 +662,10 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                       }
                     }
                   }}
+                  onMouseEnter={() => previewHint(hint)}
+                  onMouseLeave={restoreHintPreview}
+                  onFocus={() => previewHint(hint)}
+                  onBlur={restoreHintPreview}
                 >
                   <EmojiIcon
                     asset={pillIcon.asset}
