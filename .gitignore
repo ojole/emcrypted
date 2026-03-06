@@ -42,6 +42,11 @@ emcrypted-react/reports/
 emcrypted-react/jol3.html
 emcrypted-react/.dependency-cruiser.cjs
 emcrypted-react/CLAUDE.md
+emcrypted-react/public/data/movie_list.csv
+emcrypted-react/public/fonts/8-bit Arcade.png
+emcrypted-react/public/fonts/8-bit Arcade.txt
+emcrypted-react/public/fonts/8_bit_arcade.zip
+emcrypted-react/src/data/unicode-emoji-json-main/script/fetch-tmdb.js
 
 # Applications
 *.app

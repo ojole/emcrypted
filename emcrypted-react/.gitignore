@@ -14,3 +14,8 @@ reports/
 jol3.html
 .dependency-cruiser.cjs
 CLAUDE.md
+public/data/movie_list.csv
+public/fonts/8-bit Arcade.png
+public/fonts/8-bit Arcade.txt
+public/fonts/8_bit_arcade.zip
+src/data/unicode-emoji-json-main/script/fetch-tmdb.js
