@@ -1,271 +1,552 @@
-/* Game.css */
-
-.emoji-item {
-  font-size: 2.5rem;
-  margin: 2px;
-  line-height: 1.5;
-  width: 3rem;
-  height: 3rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.highlighted {
-  opacity: 1;
-}
-
-.dimmed {
-  opacity: 0.2;
-}
-
-.result-screen, .victory-screen, .better-luck-next-time-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 90%;
-}
-
-.result-title {
-  font-family: "Dankosaurus", sans-serif;
-}
-
-@media (min-height: 800px) {
-  .result-screen, .victory-screen, .better-luck-next-time-screen {
-    padding: 20px;
-  }
-}
-
-#countdown-timer {
-  font-size: inherit; /* Match font size with hint */
-  padding-left: 10px; /* Add smooth padding */
-  transition: all 0.3s ease-in-out; /* Smooth transition for countdown */
-  color: #c08497;
-}
-.wrong-guess {
-  background-color: red;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.correct-guess {
-  background-color: green;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.hint-btn {
-  width: 150px;
-  height: 50px;
-  background-color: #ffde34;
-  color: #333333;
-  padding: 15px 30px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1.2rem;
-  cursor: pointer;
-  text-align: center;
-}
-
-.hint-btn:hover {
-  background-color: #c08497;
-  color: #ffffff;
-}
-
-.hint-btn:active {
-  transform: scale(0.95);
-}
-
-#movie-guess {
-  background-color: rgba(255, 222, 52, 0.8);
-  color: #333333;
-  text-align: center;
-  width: 80%;
-  max-width: 300px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-}
-
-.search-results {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 60px;
-  width: 80%;
-  max-width: 300px;
-  z-index: 1000;
-  background-color: transparent;
-  border-radius: 5px;
-  padding: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.result-item {
-  background-color: #ffde34;
-  color: #333333;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
+.game-screen {
   width: 100%;
-  text-align: left;
+  min-height: 100%;
   display: flex;
-  justify-content: space-between;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.result-item button {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #333333;
-}
-
-.result-item button:hover {
-  color: #c08497;
-}
-
-.victory-message,
-.results-message {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1.5rem;
-  color: #333333;
-  margin: 20px 0;
-}
-
-.breakdown-container {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1rem;
-  color: #333333;
-  margin: 20px;
-  text-align: left;
-}
-
-@media (max-width: 768px) {
-  .emoji-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  #movie-guess {
-    width: 90%;
-  }
-  .search-results {
-    max-width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  .emoji-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  #movie-guess {
-    width: 100%;
-  }
-  .search-results {
-    max-width: 100%;
-  }
-}
-
-.hint-btn {
-  width: 60%;
-  max-width: 300px;
-  margin-bottom: 10px;
-}
-
-@media (max-width: 768px) {
-  .hint-btn {
-    width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hint-btn {
-    width: 90%;
-  }
-}
-
-#hint-text-container {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: calc(1rem + 0.5vw); /* Dynamic font size based on screen size */
-  color: #333333;
-  padding: 5px 0;
-  max-width: 80%;
-  word-wrap: break-word;
-  line-height: 1.5rem;
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: clamp(12px, 2vh, 18px);
+  color: var(--color-ink);
   position: relative;
 }
 
+.game-board {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.2vw, 16px);
+  overflow-y: auto;
+  padding-bottom: clamp(20px, 4vh, 32px);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.game-board::-webkit-scrollbar {
+  display: none;
+}
+
+.emojiGridWrap {
+  width: 100%;
+  max-width: min(var(--card-max-w, 820px), 100%);
+  margin: clamp(12px, 3vw, 24px) auto;
+  padding: 0 clamp(16px, 5vw, 28px);
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.emoji-grid {
+  --grid-cols: 6;
+  --cell-gap: clamp(8px, 2vw, 14px);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  gap: var(--cell-gap);
+  width: min(100%, max-content);
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.emoji-item {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s ease;
+}
+
+.emoji-item img,
+.emoji-item svg {
+  width: clamp(30px, 8vw, 56px);
+  height: clamp(30px, 8vw, 56px);
+}
+
+.emoji-item.highlighted {
+  animation: emojiPulse 1.6s ease-in-out infinite;
+}
+
+.emoji-grid.dim-others .emoji-item {
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.emoji-grid.dim-others .emoji-item.dimmed {
+  opacity: 0.18;
+  filter: grayscale(0.4);
+  pointer-events: none;
+}
+
+.emoji-grid.dim-others .emoji-item.highlighted {
+  opacity: 1;
+  filter: none;
+}
+
+@keyframes emojiPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.hintZone {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+/* --- Hint bar layout --- */
+.hintBar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.125rem 0.25rem;
+}
+
+/* Baseline-align everything in the row:
+   text, bullet, countdown, and close X all share one line visually */
+.hintBarRow {
+  display: inline-flex;
+  align-items: baseline;   /* important: baseline instead of center */
+  gap: 0.5rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.4;
+  color: var(--color-ink);
+  font-weight: 400;
+  white-space: nowrap;     /* prevent wrapping of the hint line */
+}
+
+.hintBarRow .copy {
+  font: inherit;
+  line-height: 1.4;
+}
+
+.countCluster {
+  display: inline-flex;
+  align-items: baseline;   /* bullet + number share baseline */
+  gap: 0.35rem;
+  font: inherit;
+  line-height: 1.4;
+}
+
+.countCluster .separator {
+  opacity: 0.6;
+  font: inherit;
+  line-height: 1.4;
+}
+
+.countCluster .count {
+  color: var(--hint-red);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Inline close button now behaves like punctuation, not a giant pill */
+.hintCloseInlineBare {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: baseline;
+  flex-shrink: 0;
+}
+
+/* Nudge the ❌ emoji down ~2px so it optically sits on the same baseline as the text */
+.hintCloseGlyph {
+  display: inline-block;
+  line-height: 1;
+  transform: translateY(2px);
+}
+
+.hintCloseInlineBare:focus-visible {
+  outline: 2px solid var(--hint-red);
+  border-radius: 4px;
+  outline-offset: 2px;
+}
+
+.hintCooldown {
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background: rgba(17, 17, 17, 0.15);
+  overflow: hidden;
+}
+
+body.theme-dark .hintCooldown {
+  background: rgba(241, 245, 249, 0.35);
+}
+
+.hintCooldownFill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--hint-red);
+  transition: width 0.2s ease;
+}
+
+.game-input {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: clamp(18px, 4vw, 28px) 1.25rem clamp(24px, 6vw, 34px);
+  background: var(--panel-bg);
+  border-bottom-left-radius: var(--card-radius);
+  border-bottom-right-radius: var(--card-radius);
+  box-shadow: 0 -14px 34px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+body.theme-dark .game-input {
+  box-shadow: 0 -20px 40px rgba(5, 11, 25, 0.65);
+}
+
+.search-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.guessWrap {
+  position: relative;
+  width: 100%;
+}
+
+.guessDropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + 0.6rem);
+  max-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--panel-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: 18px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2), 0 6px 0 rgba(0, 0, 0, 0.6);
+  padding: 0.65rem 0.85rem 0.75rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  z-index: 3000;
+}
+
+.guessDropdown::-webkit-scrollbar {
+  display: none;
+}
+
+body.theme-dark .guessDropdown {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 32px rgba(5, 11, 25, 0.55), 0 6px 0 rgba(255, 255, 255, 0.18);
+}
+
+.text-input {
+  height: clamp(44px, 10vw, 56px);
+  padding: 0 20px;
+  border-radius: 18px;
+  border: none;
+  background-color: rgba(168, 201, 255, 0.35);
+  color: var(--color-ink);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.text-input:focus {
+  outline: 2px solid rgba(168, 201, 255, 0.75);
+}
+
+.result-item {
+  background-color: var(--panel-bg);
+  color: var(--color-ink);
+  padding: 14px 16px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--btn-border);
+}
+
+.result-item:hover {
+  background-color: rgba(168, 201, 255, 0.35);
+}
+
+.result-item.correct-guess {
+  background-color: #1f8f4b;
+  color: #ffffff;
+}
+
+.result-item.wrong-guess {
+  background-color: #d64545;
+  color: #ffffff;
+}
+
+.result-item .result-title {
+  flex: 1;
+  text-align: left;
+}
+
+.result-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+body.theme-dark .result-arrow {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: #101f3a;
+  box-shadow: 0 4px 10px rgba(5, 11, 25, 0.45);
+}
+
+.result-item .result-title {
+  flex: 1;
+  text-align: left;
+}
+
+.result-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+body.theme-dark .result-arrow {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: #101f3a;
+  box-shadow: 0 4px 10px rgba(5, 11, 25, 0.45);
+}
+
+.hint-button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hint-button .btn {
+  width: clamp(200px, 60%, 260px);
+}
+
+
+@media (min-width: 768px) {
+  .emoji-grid { --grid-cols: 8; }
+}
+@media (max-width: 425px) {
+  .emoji-grid { --grid-cols: 5; }
+}
+
+@media (max-width: 480px) {
+  .emoji-grid {
+    /* a touch smaller default on very small phones */
+    --cell-size: clamp(16px, 8.5vw, 32px);
+    --cell-gap: clamp(3px, 2.2vw, 8px);
+    width: 100%;
+  }
+}
+
+/* --- Hint pill rail --- */
+.hintHistoryRail {
+  position: fixed;
+  top: calc(max(12px, env(safe-area-inset-top)) + var(--hud-size) + clamp(10px, 3vw, 20px));
+  left: max(12px, env(safe-area-inset-left));
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 2.6vw, 14px);
+  z-index: 1000;
+  pointer-events: none;
+  align-items: center;
+}
+
+.hintHistoryRail-collapsed {
+  gap: 0;
+}
+
+.hintPill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--hud-size);
+  height: var(--hud-size);
+  border-radius: calc(var(--hud-size) / 3);
+  border: 1px solid var(--btn-border);
+  background: var(--panel-bg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  pointer-events: auto;
+}
+
+.hintPill-toggle {
+  border-style: solid;
+}
+
+.hintPill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.hintPill-active {
+  border-color: var(--hint-red, rgba(255, 0, 80, 0.5));
+  box-shadow: 0 0 12px rgba(255, 0, 80, 0.35);
+  background: var(--panel-bg);
+}
+
+body.theme-dark .hintPill {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: #101f3a;
+  box-shadow: 0 6px 18px rgba(5, 11, 25, 0.45);
+}
+
+body.theme-dark .hintPill-active {
+  background: radial-gradient(circle at 50% 40%, rgba(255, 0, 80, 0.35) 0%, #101f3a 70%);
+}
+
+/* Hint Overlay Modal */
+.hintOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.hintCard {
+  position: relative;
+  background: var(--panel-bg);
+  border-radius: 20px;
+  border: 1px solid var(--btn-border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  padding: 28px 32px;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+body.theme-dark .hintCard {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px rgba(5, 11, 25, 0.65);
+}
+
+
+.hintCloseBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hintCloseBtn:hover {
+  transform: scale(1.08);
+  background-color: rgba(168, 201, 255, 0.35);
+}
+
+body.theme-dark .hintCloseBtn {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: #101f3a;
+}
+
+.hintMessage {
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 500;
+  color: var(--color-ink);
+  text-align: center;
+  line-height: 1.5;
+  padding-right: 24px;
+}
+
+.hintCountdownBar {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(17, 17, 17, 0.15);
+  overflow: hidden;
+}
+
+body.theme-dark .hintCountdownBar {
+  background: rgba(241, 245, 249, 0.35);
+}
+
+.hintCountdownFill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--hint-red);
+  transition: width 0.3s linear;
+}
+
 @media (max-width: 768px) {
-  #hint-text-container {
-    font-size: 1rem;
+  /* Keep pills visible on mobile instead of hiding them */
+  .hintHistoryRail {
+    top: calc(max(12px, env(safe-area-inset-top)) + var(--hud-size) + clamp(12px, 4vw, 18px));
+    left: max(12px, env(safe-area-inset-left));
+    gap: clamp(6px, 3vw, 12px);
+  }
+  .hintPill {
+    width: var(--hud-size);
+    height: var(--hud-size);
+    border-radius: calc(var(--hud-size) / 3);
   }
 }
 
 @media (max-width: 480px) {
-  #hint-text-container {
-    font-size: 0.9rem;
+  .text-input {
+    font-size: clamp(1rem, 4.2vw, 1.15rem);
+  }
+
+  .btn {
+    border-radius: 12px;
   }
 }
 
-/* Ensure victory and better-luck screens scale properly */
-.victory-screen, .better-luck-next-time-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  width: 100%;
-  max-width: 90%;
-  box-sizing: border-box;
-  overflow: hidden; /* Prevent overflow */
-}
-
-@media (max-width: 768px) {
-  .victory-screen, .better-luck-next-time-screen {
-    font-size: 0.9rem;
-  }
-}
-
-@media (min-height: 800px) {
-  .victory-screen, .better-luck-next-time-screen {
-    padding: 40px;
-  }
-}
-
-#exit-container {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-}
-
-.exit-game {
-  font-size: 2rem;
-  cursor: pointer;
-  background-color: transparent;
-  border: none; /* Remove border */
-  padding: 5px;
-}
-
-.exit-game:before {
-  content: '';
-  display: none; /* Hide extra emoji */
+@media (min-width: 900px) {
+  .emoji-grid { --grid-cols: 7; }
 }

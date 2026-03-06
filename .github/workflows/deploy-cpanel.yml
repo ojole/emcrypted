@@ -1,0 +1,63 @@
+name: Deploy emcrypted to cPanel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: emcrypted-cpanel-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      FTP_HOST: ${{ secrets.CPANEL_FTP_HOST || 'ftp.emcrypted.com' }}
+      FTP_PORT: ${{ secrets.CPANEL_FTP_PORT || '21' }}
+      FTP_USER: ${{ secrets.CPANEL_FTP_USER }}
+      FTP_PASSWORD: ${{ secrets.CPANEL_FTP_PASSWORD }}
+      PUBLIC_DIR: ${{ secrets.CPANEL_PUBLIC_DIR || 'public_html' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: emcrypted-react/package-lock.json
+
+      - name: Install deps
+        run: npm ci --prefix emcrypted-react
+
+      - name: Build React app
+        run: npm run build --prefix emcrypted-react
+
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Validate deploy secrets
+        run: |
+          set -euo pipefail
+          : "${FTP_HOST:?Missing CPANEL_FTP_HOST}"
+          : "${FTP_PORT:?Missing CPANEL_FTP_PORT}"
+          : "${FTP_USER:?Missing CPANEL_FTP_USER}"
+          : "${FTP_PASSWORD:?Missing CPANEL_FTP_PASSWORD}"
+
+      - name: Deploy build/ to cPanel
+        run: |
+          set -euo pipefail
+          lftp -e "
+            set net:max-retries 2;
+            set net:timeout 20;
+            set ssl:verify-certificate no;
+            set xfer:clobber yes;
+            open -u $FTP_USER,$FTP_PASSWORD -p $FTP_PORT ftp://$FTP_HOST;
+            mirror -R --delete --verbose=1 emcrypted-react/build $PUBLIC_DIR;
+            bye
+          "

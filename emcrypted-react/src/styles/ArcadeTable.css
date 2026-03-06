@@ -1,0 +1,185 @@
+/* Shared arcade/8-bit table styling for Leaderboards and Profile */
+
+.arcadeTableWrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--panel-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+body.theme-dark .arcadeTableWrapper {
+  box-shadow: 0 8px 32px rgba(5, 11, 25, 0.5), 0 0 40px rgba(13, 148, 255, 0.08);
+}
+
+/* Scrollable table container */
+.arcadeTableScroll {
+  max-height: 360px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Header row (sticky) */
+.arcadeHeaderRow {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: var(--arcade-grid-columns);
+  gap: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #2a4359 0%, #1e3447 100%);
+  border-bottom: 2px solid rgba(13, 148, 255, 0.3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #e0f0ff;
+}
+
+body.theme-dark .arcadeHeaderRow {
+  background: linear-gradient(135deg, #1a2b3d 0%, #0f1a28 100%);
+  color: #b8d8ff;
+}
+
+.arcadeHeaderCell {
+  text-align: left;
+}
+
+.arcadeHeaderCell:first-child {
+  text-align: center;
+}
+
+/* Body rows */
+.arcadeRow {
+  display: grid;
+  grid-template-columns: var(--arcade-grid-columns);
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--btn-border);
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  transition: background 0.15s ease;
+}
+
+.arcadeRow:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+body.theme-dark .arcadeRow:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.arcadeRow:hover {
+  background: rgba(13, 148, 255, 0.08);
+  cursor: pointer;
+}
+
+.arcadeRow:last-child {
+  border-bottom: none;
+}
+
+.arcadeCell {
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.arcadeCell:first-child {
+  justify-content: center;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.arcadeCell.player-name {
+  font-weight: 600;
+}
+
+.arcadeCell.movie-title {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Expanded row details (for collapsible rows in profile) */
+.arcadeRowExpanded {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(13, 148, 255, 0.05);
+  border-top: 1px solid rgba(13, 148, 255, 0.2);
+  font-size: 0.85rem;
+}
+
+body.theme-dark .arcadeRowExpanded {
+  background: rgba(13, 148, 255, 0.08);
+}
+
+.arcadeRowExpanded > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.arcadeRowExpanded span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  opacity: 0.7;
+}
+
+.arcadeRowExpanded strong {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Custom scrollbar styling */
+.arcadeTableScroll.scrollArea {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13, 148, 255, 0.3) transparent;
+}
+
+.arcadeTableScroll.scrollArea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.arcadeTableScroll.scrollArea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.arcadeTableScroll.scrollArea::-webkit-scrollbar-thumb {
+  background: rgba(13, 148, 255, 0.3);
+  border-radius: 4px;
+}
+
+.arcadeTableScroll.scrollArea::-webkit-scrollbar-thumb:hover {
+  background: rgba(13, 148, 255, 0.5);
+}
+
+body.theme-dark .arcadeTableScroll.scrollArea {
+  scrollbar-color: rgba(13, 148, 255, 0.5) transparent;
+}
+
+body.theme-dark .arcadeTableScroll.scrollArea::-webkit-scrollbar-thumb {
+  background: rgba(13, 148, 255, 0.5);
+}
+
+/* Responsive: hide movie column on mobile */
+@media (max-width: 768px) {
+  .arcadeHeaderRow {
+    grid-template-columns: 50px 1fr 70px 70px 80px;
+  }
+
+  .arcadeRow {
+    grid-template-columns: 50px 1fr 70px 70px 80px;
+  }
+
+  .arcadeCell.movie-title,
+  .arcadeHeaderCell.movie-title {
+    display: none;
+  }
+}

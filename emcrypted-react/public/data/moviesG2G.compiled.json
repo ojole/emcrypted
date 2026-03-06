@@ -1,0 +1,1812 @@
+[
+  {
+    "title": "The Godfather",
+    "description": "A crime saga about power, loyalty, and family succession.",
+    "output": "🤵💼👨🍝🔫",
+    "hints": [
+      "1. 🤵💼 - A powerful family business.",
+      "2. 👨🍝 - Family tradition and Italian roots.",
+      "3. 🔫 - Violence and betrayal shape the legacy."
+    ],
+    "breakdown": [
+      "• 🤵💼 - Organized power and leadership.",
+      "• 👨🍝 - Family loyalty at the center.",
+      "• 🔫 - The cost of control and succession."
+    ],
+    "emojiString": "🤵💼👨🍝🔫",
+    "tokens": [
+      {
+        "cluster": "🤵",
+        "hex": "1f935",
+        "hexFull": "1f935",
+        "hexBase": "1f935",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f935.svg",
+        "originalHex": "1f935"
+      },
+      {
+        "cluster": "💼",
+        "hex": "1f4bc",
+        "hexFull": "1f4bc",
+        "hexBase": "1f4bc",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f4bc.svg",
+        "originalHex": "1f4bc"
+      },
+      {
+        "cluster": "👨",
+        "hex": "1f468",
+        "hexFull": "1f468",
+        "hexBase": "1f468",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f468.svg",
+        "originalHex": "1f468"
+      },
+      {
+        "cluster": "🍝",
+        "hex": "1f35d",
+        "hexFull": "1f35d",
+        "hexBase": "1f35d",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f35d.svg",
+        "originalHex": "1f35d"
+      },
+      {
+        "cluster": "🔫",
+        "hex": "1f52b",
+        "hexFull": "1f52b",
+        "hexBase": "1f52b",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f52b.svg",
+        "originalHex": "1f52b"
+      }
+    ],
+    "tokenHex": [
+      "1f935",
+      "1f4bc",
+      "1f468",
+      "1f35d",
+      "1f52b"
+    ]
+  },
+  {
+    "title": "Titanic",
+    "description": "A romance unfolds aboard a doomed ocean liner.",
+    "output": "🚢🧊💔🌊",
+    "hints": [
+      "1. 🚢 - A famous ship voyage.",
+      "2. 🧊 - Disaster in the North Atlantic.",
+      "3. 💔🌊 - Tragic love and loss at sea."
+    ],
+    "breakdown": [
+      "• 🚢 - The massive passenger liner.",
+      "• 🧊 - Collision with an iceberg.",
+      "• 💔🌊 - Love story ending in tragedy."
+    ],
+    "emojiString": "🚢🧊💔🌊",
+    "tokens": [
+      {
+        "cluster": "🚢",
+        "hex": "1f6a2",
+        "hexFull": "1f6a2",
+        "hexBase": "1f6a2",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f6a2.svg",
+        "originalHex": "1f6a2"
+      },
+      {
+        "cluster": "🧊",
+        "hex": "1f9ca",
+        "hexFull": "1f9ca",
+        "hexBase": "1f9ca",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f9ca.svg",
+        "originalHex": "1f9ca"
+      },
+      {
+        "cluster": "💔",
+        "hex": "1f494",
+        "hexFull": "1f494",
+        "hexBase": "1f494",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f494.svg",
+        "originalHex": "1f494"
+      },
+      {
+        "cluster": "🌊",
+        "hex": "1f30a",
+        "hexFull": "1f30a",
+        "hexBase": "1f30a",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f30a.svg",
+        "originalHex": "1f30a"
+      }
+    ],
+    "tokenHex": [
+      "1f6a2",
+      "1f9ca",
+      "1f494",
+      "1f30a"
+    ]
+  },
+  {
+    "title": "Jurassic Park",
+    "description": "Scientists bring dinosaurs back, and chaos follows.",
+    "output": "🦖🦕🏝️🚙",
+    "hints": [
+      "1. 🦖🦕 - Prehistoric creatures return.",
+      "2. 🏝️ - A remote island attraction.",
+      "3. 🚙 - A park tour gone wrong."
+    ],
+    "breakdown": [
+      "• 🦖🦕 - Cloned dinosaurs.",
+      "• 🏝️ - Isolated theme park setting.",
+      "• 🚙 - Visitors trying to survive."
+    ],
+    "emojiString": "🦖🦕🏝️🚙",
+    "tokens": [
+      {
+        "cluster": "🦖",
+        "hex": "1f996",
+        "hexFull": "1f996",
+        "hexBase": "1f996",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f996.svg",
+        "originalHex": "1f996"
+      },
+      {
+        "cluster": "🦕",
+        "hex": "1f995",
+        "hexFull": "1f995",
+        "hexBase": "1f995",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f995.svg",
+        "originalHex": "1f995"
+      },
+      {
+        "cluster": "🏝️",
+        "hex": "1f3dd-fe0f",
+        "hexFull": "1f3dd-fe0f",
+        "hexBase": "1f3dd",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3dd-fe0f.svg",
+        "originalHex": "1f3dd-fe0f"
+      },
+      {
+        "cluster": "🚙",
+        "hex": "1f699",
+        "hexFull": "1f699",
+        "hexBase": "1f699",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f699.svg",
+        "originalHex": "1f699"
+      }
+    ],
+    "tokenHex": [
+      "1f996",
+      "1f995",
+      "1f3dd-fe0f",
+      "1f699"
+    ]
+  },
+  {
+    "title": "The Matrix",
+    "description": "A hacker discovers reality is a machine-controlled simulation.",
+    "output": "💊🕶️💻🔫",
+    "hints": [
+      "1. 💊 - A world-changing choice.",
+      "2. 🕶️💻 - Hackers and hidden truth.",
+      "3. 🔫 - Stylized action in virtual reality."
+    ],
+    "breakdown": [
+      "• 💊 - The red pill decision.",
+      "• 🕶️💻 - Digital illusion and rebellion.",
+      "• 🔫 - Combat against machine control."
+    ],
+    "emojiString": "💊🕶️💻🔫",
+    "tokens": [
+      {
+        "cluster": "💊",
+        "hex": "1f48a",
+        "hexFull": "1f48a",
+        "hexBase": "1f48a",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f48a.svg",
+        "originalHex": "1f48a"
+      },
+      {
+        "cluster": "🕶️",
+        "hex": "1f576-fe0f",
+        "hexFull": "1f576-fe0f",
+        "hexBase": "1f576",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f576-fe0f.svg",
+        "originalHex": "1f576-fe0f"
+      },
+      {
+        "cluster": "💻",
+        "hex": "1f4bb",
+        "hexFull": "1f4bb",
+        "hexBase": "1f4bb",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f4bb.svg",
+        "originalHex": "1f4bb"
+      },
+      {
+        "cluster": "🔫",
+        "hex": "1f52b",
+        "hexFull": "1f52b",
+        "hexBase": "1f52b",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f52b.svg",
+        "originalHex": "1f52b"
+      }
+    ],
+    "tokenHex": [
+      "1f48a",
+      "1f576-fe0f",
+      "1f4bb",
+      "1f52b"
+    ]
+  },
+  {
+    "title": "Star Wars",
+    "description": "A galactic struggle between rebellion and empire.",
+    "output": "⭐🚀⚔️👑",
+    "hints": [
+      "1. ⭐🚀 - Adventure in space.",
+      "2. ⚔️ - Epic battles between forces.",
+      "3. 👑 - Destiny and leadership."
+    ],
+    "breakdown": [
+      "• ⭐🚀 - Interstellar setting.",
+      "• ⚔️ - Conflict between light and dark.",
+      "• 👑 - Lineage and power."
+    ],
+    "emojiString": "⭐🚀⚔️👑",
+    "tokens": [
+      {
+        "cluster": "⭐",
+        "hex": "2b50",
+        "hexFull": "2b50",
+        "hexBase": "2b50",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/2b50.svg",
+        "originalHex": "2b50"
+      },
+      {
+        "cluster": "🚀",
+        "hex": "1f680",
+        "hexFull": "1f680",
+        "hexBase": "1f680",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f680.svg",
+        "originalHex": "1f680"
+      },
+      {
+        "cluster": "⚔️",
+        "hex": "2694-fe0f",
+        "hexFull": "2694-fe0f",
+        "hexBase": "2694",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/2694-fe0f.svg",
+        "originalHex": "2694-fe0f"
+      },
+      {
+        "cluster": "👑",
+        "hex": "1f451",
+        "hexFull": "1f451",
+        "hexBase": "1f451",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f451.svg",
+        "originalHex": "1f451"
+      }
+    ],
+    "tokenHex": [
+      "2b50",
+      "1f680",
+      "2694-fe0f",
+      "1f451"
+    ]
+  },
+  {
+    "title": "The Dark Knight",
+    "description": "Batman faces a chaotic criminal mastermind.",
+    "output": "🦇🌃🃏🚓",
+    "hints": [
+      "1. 🦇 - Gotham's vigilante.",
+      "2. 🌃🃏 - A city terrorized by chaos.",
+      "3. 🚓 - Crime, justice, and moral pressure."
+    ],
+    "breakdown": [
+      "• 🦇 - Batman's symbol.",
+      "• 🌃🃏 - The Joker's campaign of fear.",
+      "• 🚓 - Law enforcement caught in the middle."
+    ],
+    "emojiString": "🦇🌃🃏🚓",
+    "tokens": [
+      {
+        "cluster": "🦇",
+        "hex": "1f987",
+        "hexFull": "1f987",
+        "hexBase": "1f987",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f987.svg",
+        "originalHex": "1f987"
+      },
+      {
+        "cluster": "🌃",
+        "hex": "1f303",
+        "hexFull": "1f303",
+        "hexBase": "1f303",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f303.svg",
+        "originalHex": "1f303"
+      },
+      {
+        "cluster": "🃏",
+        "hex": "1f0cf",
+        "hexFull": "1f0cf",
+        "hexBase": "1f0cf",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f0cf.svg",
+        "originalHex": "1f0cf"
+      },
+      {
+        "cluster": "🚓",
+        "hex": "1f693",
+        "hexFull": "1f693",
+        "hexBase": "1f693",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f693.svg",
+        "originalHex": "1f693"
+      }
+    ],
+    "tokenHex": [
+      "1f987",
+      "1f303",
+      "1f0cf",
+      "1f693"
+    ]
+  },
+  {
+    "title": "Inception",
+    "description": "A team performs high-stakes heists inside dreams.",
+    "output": "💤🧠🏙️🔄",
+    "hints": [
+      "1. 💤🧠 - Entering layered dreams.",
+      "2. 🏙️ - Reality bends in cityscapes.",
+      "3. 🔄 - Time and memory loops."
+    ],
+    "breakdown": [
+      "• 💤🧠 - Shared dream technology.",
+      "• 🏙️ - Altered environments.",
+      "• 🔄 - Nested levels and ambiguity."
+    ],
+    "emojiString": "💤🧠🏙️🔄",
+    "tokens": [
+      {
+        "cluster": "💤",
+        "hex": "1f4a4",
+        "hexFull": "1f4a4",
+        "hexBase": "1f4a4",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f4a4.svg",
+        "originalHex": "1f4a4"
+      },
+      {
+        "cluster": "🧠",
+        "hex": "1f9e0",
+        "hexFull": "1f9e0",
+        "hexBase": "1f9e0",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f9e0.svg",
+        "originalHex": "1f9e0"
+      },
+      {
+        "cluster": "🏙️",
+        "hex": "1f3d9-fe0f",
+        "hexFull": "1f3d9-fe0f",
+        "hexBase": "1f3d9",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3d9-fe0f.svg",
+        "originalHex": "1f3d9-fe0f"
+      },
+      {
+        "cluster": "🔄",
+        "hex": "1f504",
+        "hexFull": "1f504",
+        "hexBase": "1f504",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f504.svg",
+        "originalHex": "1f504"
+      }
+    ],
+    "tokenHex": [
+      "1f4a4",
+      "1f9e0",
+      "1f3d9-fe0f",
+      "1f504"
+    ]
+  },
+  {
+    "title": "Forrest Gump",
+    "description": "A kind-hearted man unknowingly intersects with major events.",
+    "output": "🏃🍫🪶🚌",
+    "hints": [
+      "1. 🏃 - A life defined by running.",
+      "2. 🍫 - An iconic line about life.",
+      "3. 🪶🚌 - Fate and a long journey."
+    ],
+    "breakdown": [
+      "• 🏃 - Forrest's persistence.",
+      "• 🍫 - Unexpected life outcomes.",
+      "• 🪶🚌 - Chance and movement through history."
+    ],
+    "emojiString": "🏃🍫🪶🚌",
+    "tokens": [
+      {
+        "cluster": "🏃",
+        "hex": "1f3c3",
+        "hexFull": "1f3c3",
+        "hexBase": "1f3c3",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3c3.svg",
+        "originalHex": "1f3c3"
+      },
+      {
+        "cluster": "🍫",
+        "hex": "1f36b",
+        "hexFull": "1f36b",
+        "hexBase": "1f36b",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f36b.svg",
+        "originalHex": "1f36b"
+      },
+      {
+        "cluster": "🪶",
+        "hex": "1fab6",
+        "hexFull": "1fab6",
+        "hexBase": "1fab6",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1fab6.svg",
+        "originalHex": "1fab6"
+      },
+      {
+        "cluster": "🚌",
+        "hex": "1f68c",
+        "hexFull": "1f68c",
+        "hexBase": "1f68c",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f68c.svg",
+        "originalHex": "1f68c"
+      }
+    ],
+    "tokenHex": [
+      "1f3c3",
+      "1f36b",
+      "1fab6",
+      "1f68c"
+    ]
+  },
+  {
+    "title": "The Lion King",
+    "description": "A young lion prince must reclaim his place.",
+    "output": "🦁👑🌅🐗",
+    "hints": [
+      "1. 🦁 - A royal lion cub.",
+      "2. 👑 - The circle of kingship.",
+      "3. 🌅🐗 - Exile, growth, and return."
+    ],
+    "breakdown": [
+      "• 🦁 - Simba's journey.",
+      "• 👑 - Legacy and responsibility.",
+      "• 🌅🐗 - Life away from home before redemption."
+    ],
+    "emojiString": "🦁👑🌅🐗",
+    "tokens": [
+      {
+        "cluster": "🦁",
+        "hex": "1f981",
+        "hexFull": "1f981",
+        "hexBase": "1f981",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f981.svg",
+        "originalHex": "1f981"
+      },
+      {
+        "cluster": "👑",
+        "hex": "1f451",
+        "hexFull": "1f451",
+        "hexBase": "1f451",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f451.svg",
+        "originalHex": "1f451"
+      },
+      {
+        "cluster": "🌅",
+        "hex": "1f305",
+        "hexFull": "1f305",
+        "hexBase": "1f305",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f305.svg",
+        "originalHex": "1f305"
+      },
+      {
+        "cluster": "🐗",
+        "hex": "1f417",
+        "hexFull": "1f417",
+        "hexBase": "1f417",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f417.svg",
+        "originalHex": "1f417"
+      }
+    ],
+    "tokenHex": [
+      "1f981",
+      "1f451",
+      "1f305",
+      "1f417"
+    ]
+  },
+  {
+    "title": "Jaws",
+    "description": "A seaside town is hunted by a giant shark.",
+    "output": "🦈🏖️🚤😱",
+    "hints": [
+      "1. 🦈 - A terrifying predator.",
+      "2. 🏖️ - A beach community in danger.",
+      "3. 🚤😱 - A tense hunt on the water."
+    ],
+    "breakdown": [
+      "• 🦈 - The great white threat.",
+      "• 🏖️ - Tourism versus safety.",
+      "• 🚤😱 - Final confrontation at sea."
+    ],
+    "emojiString": "🦈🏖️🚤😱",
+    "tokens": [
+      {
+        "cluster": "🦈",
+        "hex": "1f988",
+        "hexFull": "1f988",
+        "hexBase": "1f988",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f988.svg",
+        "originalHex": "1f988"
+      },
+      {
+        "cluster": "🏖️",
+        "hex": "1f3d6-fe0f",
+        "hexFull": "1f3d6-fe0f",
+        "hexBase": "1f3d6",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3d6-fe0f.svg",
+        "originalHex": "1f3d6-fe0f"
+      },
+      {
+        "cluster": "🚤",
+        "hex": "1f6a4",
+        "hexFull": "1f6a4",
+        "hexBase": "1f6a4",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f6a4.svg",
+        "originalHex": "1f6a4"
+      },
+      {
+        "cluster": "😱",
+        "hex": "1f631",
+        "hexFull": "1f631",
+        "hexBase": "1f631",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f631.svg",
+        "originalHex": "1f631"
+      }
+    ],
+    "tokenHex": [
+      "1f988",
+      "1f3d6-fe0f",
+      "1f6a4",
+      "1f631"
+    ]
+  },
+  {
+    "title": "Avatar",
+    "description": "A marine enters an alien world and changes sides.",
+    "output": "🌍🌿👽🏹",
+    "hints": [
+      "1. 🌍 - Human expansion beyond Earth.",
+      "2. 🌿👽 - A lush alien civilization.",
+      "3. 🏹 - Conflict over nature and survival."
+    ],
+    "breakdown": [
+      "• 🌍 - Colonial mission backdrop.",
+      "• 🌿👽 - Pandora and the Na'vi.",
+      "• 🏹 - Resistance and identity shift."
+    ],
+    "emojiString": "🌍🌿👽🏹",
+    "tokens": [
+      {
+        "cluster": "🌍",
+        "hex": "1f30d",
+        "hexFull": "1f30d",
+        "hexBase": "1f30d",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f30d.svg",
+        "originalHex": "1f30d"
+      },
+      {
+        "cluster": "🌿",
+        "hex": "1f33f",
+        "hexFull": "1f33f",
+        "hexBase": "1f33f",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f33f.svg",
+        "originalHex": "1f33f"
+      },
+      {
+        "cluster": "👽",
+        "hex": "1f47d",
+        "hexFull": "1f47d",
+        "hexBase": "1f47d",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f47d.svg",
+        "originalHex": "1f47d"
+      },
+      {
+        "cluster": "🏹",
+        "hex": "1f3f9",
+        "hexFull": "1f3f9",
+        "hexBase": "1f3f9",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3f9.svg",
+        "originalHex": "1f3f9"
+      }
+    ],
+    "tokenHex": [
+      "1f30d",
+      "1f33f",
+      "1f47d",
+      "1f3f9"
+    ]
+  },
+  {
+    "title": "E.T. the Extra-Terrestrial",
+    "description": "A boy befriends an alien and tries to get him home.",
+    "output": "👽🚲🌕🏠",
+    "hints": [
+      "1. 👽 - A stranded alien visitor.",
+      "2. 🚲🌕 - A famous moonlit bicycle moment.",
+      "3. 🏠 - The need to return home."
+    ],
+    "breakdown": [
+      "• 👽 - E.T. arrives on Earth.",
+      "• 🚲🌕 - Iconic friendship imagery.",
+      "• 🏠 - Home as the central goal."
+    ],
+    "emojiString": "👽🚲🌕🏠",
+    "tokens": [
+      {
+        "cluster": "👽",
+        "hex": "1f47d",
+        "hexFull": "1f47d",
+        "hexBase": "1f47d",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f47d.svg",
+        "originalHex": "1f47d"
+      },
+      {
+        "cluster": "🚲",
+        "hex": "1f6b2",
+        "hexFull": "1f6b2",
+        "hexBase": "1f6b2",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f6b2.svg",
+        "originalHex": "1f6b2"
+      },
+      {
+        "cluster": "🌕",
+        "hex": "1f315",
+        "hexFull": "1f315",
+        "hexBase": "1f315",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f315.svg",
+        "originalHex": "1f315"
+      },
+      {
+        "cluster": "🏠",
+        "hex": "1f3e0",
+        "hexFull": "1f3e0",
+        "hexBase": "1f3e0",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3e0.svg",
+        "originalHex": "1f3e0"
+      }
+    ],
+    "tokenHex": [
+      "1f47d",
+      "1f6b2",
+      "1f315",
+      "1f3e0"
+    ]
+  },
+  {
+    "title": "Back to the Future",
+    "description": "A teen travels through time in a modified car.",
+    "output": "🚗⚡⏰🔮",
+    "hints": [
+      "1. 🚗 - A legendary vehicle.",
+      "2. ⚡⏰ - Time travel requires power.",
+      "3. 🔮 - Past and future collide."
+    ],
+    "breakdown": [
+      "• 🚗 - The DeLorean machine.",
+      "• ⚡⏰ - Precision and energy.",
+      "• 🔮 - Consequences across timelines."
+    ],
+    "emojiString": "🚗⚡⏰🔮",
+    "tokens": [
+      {
+        "cluster": "🚗",
+        "hex": "1f697",
+        "hexFull": "1f697",
+        "hexBase": "1f697",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f697.svg",
+        "originalHex": "1f697"
+      },
+      {
+        "cluster": "⚡",
+        "hex": "26a1",
+        "hexFull": "26a1",
+        "hexBase": "26a1",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/26a1.svg",
+        "originalHex": "26a1"
+      },
+      {
+        "cluster": "⏰",
+        "hex": "23f0",
+        "hexFull": "23f0",
+        "hexBase": "23f0",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/23f0.svg",
+        "originalHex": "23f0"
+      },
+      {
+        "cluster": "🔮",
+        "hex": "1f52e",
+        "hexFull": "1f52e",
+        "hexBase": "1f52e",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f52e.svg",
+        "originalHex": "1f52e"
+      }
+    ],
+    "tokenHex": [
+      "1f697",
+      "26a1",
+      "23f0",
+      "1f52e"
+    ]
+  },
+  {
+    "title": "Ghostbusters",
+    "description": "A team captures ghosts in New York City.",
+    "output": "👻🚫🚨🏙️",
+    "hints": [
+      "1. 👻 - Paranormal trouble begins.",
+      "2. 🚫 - A famous anti-ghost symbol.",
+      "3. 🚨🏙️ - Emergency response in the city."
+    ],
+    "breakdown": [
+      "• 👻 - Supernatural outbreak.",
+      "• 🚫 - Ghostbusting brand icon.",
+      "• 🚨🏙️ - Team action in NYC."
+    ],
+    "emojiString": "👻🚫🚨🏙️",
+    "tokens": [
+      {
+        "cluster": "👻",
+        "hex": "1f47b",
+        "hexFull": "1f47b",
+        "hexBase": "1f47b",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f47b.svg",
+        "originalHex": "1f47b"
+      },
+      {
+        "cluster": "🚫",
+        "hex": "1f6ab",
+        "hexFull": "1f6ab",
+        "hexBase": "1f6ab",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f6ab.svg",
+        "originalHex": "1f6ab"
+      },
+      {
+        "cluster": "🚨",
+        "hex": "1f6a8",
+        "hexFull": "1f6a8",
+        "hexBase": "1f6a8",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f6a8.svg",
+        "originalHex": "1f6a8"
+      },
+      {
+        "cluster": "🏙️",
+        "hex": "1f3d9-fe0f",
+        "hexFull": "1f3d9-fe0f",
+        "hexBase": "1f3d9",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3d9-fe0f.svg",
+        "originalHex": "1f3d9-fe0f"
+      }
+    ],
+    "tokenHex": [
+      "1f47b",
+      "1f6ab",
+      "1f6a8",
+      "1f3d9-fe0f"
+    ]
+  },
+  {
+    "title": "Rocky",
+    "description": "An underdog boxer gets a shot at the title.",
+    "output": "🥊🏃🥇🗽",
+    "hints": [
+      "1. 🥊 - A fighter from Philadelphia.",
+      "2. 🏃 - Famous training montage.",
+      "3. 🥇🗽 - A quest for greatness."
+    ],
+    "breakdown": [
+      "• 🥊 - Boxing underdog story.",
+      "• 🏃 - Discipline and preparation.",
+      "• 🥇🗽 - Pride and perseverance."
+    ],
+    "emojiString": "🥊🏃🥇🗽",
+    "tokens": [
+      {
+        "cluster": "🥊",
+        "hex": "1f94a",
+        "hexFull": "1f94a",
+        "hexBase": "1f94a",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f94a.svg",
+        "originalHex": "1f94a"
+      },
+      {
+        "cluster": "🏃",
+        "hex": "1f3c3",
+        "hexFull": "1f3c3",
+        "hexBase": "1f3c3",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3c3.svg",
+        "originalHex": "1f3c3"
+      },
+      {
+        "cluster": "🥇",
+        "hex": "1f947",
+        "hexFull": "1f947",
+        "hexBase": "1f947",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f947.svg",
+        "originalHex": "1f947"
+      },
+      {
+        "cluster": "🗽",
+        "hex": "1f5fd",
+        "hexFull": "1f5fd",
+        "hexBase": "1f5fd",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f5fd.svg",
+        "originalHex": "1f5fd"
+      }
+    ],
+    "tokenHex": [
+      "1f94a",
+      "1f3c3",
+      "1f947",
+      "1f5fd"
+    ]
+  },
+  {
+    "title": "Home Alone",
+    "description": "A child defends his house from burglars.",
+    "output": "🏠👦🎄🛡️",
+    "hints": [
+      "1. 🏠 - A family home left empty.",
+      "2. 👦 - One kid must protect it.",
+      "3. 🎄🛡️ - Holiday traps and defense."
+    ],
+    "breakdown": [
+      "• 🏠 - Suburban setting.",
+      "• 👦 - Kevin's solo stand.",
+      "• 🎄🛡️ - Christmas chaos and creativity."
+    ],
+    "emojiString": "🏠👦🎄🛡️",
+    "tokens": [
+      {
+        "cluster": "🏠",
+        "hex": "1f3e0",
+        "hexFull": "1f3e0",
+        "hexBase": "1f3e0",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3e0.svg",
+        "originalHex": "1f3e0"
+      },
+      {
+        "cluster": "👦",
+        "hex": "1f466",
+        "hexFull": "1f466",
+        "hexBase": "1f466",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f466.svg",
+        "originalHex": "1f466"
+      },
+      {
+        "cluster": "🎄",
+        "hex": "1f384",
+        "hexFull": "1f384",
+        "hexBase": "1f384",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f384.svg",
+        "originalHex": "1f384"
+      },
+      {
+        "cluster": "🛡️",
+        "hex": "1f6e1-fe0f",
+        "hexFull": "1f6e1-fe0f",
+        "hexBase": "1f6e1",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f6e1-fe0f.svg",
+        "originalHex": "1f6e1-fe0f"
+      }
+    ],
+    "tokenHex": [
+      "1f3e0",
+      "1f466",
+      "1f384",
+      "1f6e1-fe0f"
+    ]
+  },
+  {
+    "title": "Toy Story",
+    "description": "Toys come to life and navigate friendship.",
+    "output": "🤠🚀🧸🤖",
+    "hints": [
+      "1. 🤠 - A cowboy toy leader.",
+      "2. 🚀 - A space ranger rival.",
+      "3. 🧸🤖 - A hidden toy world."
+    ],
+    "breakdown": [
+      "• 🤠 - Woody's role.",
+      "• 🚀 - Buzz enters the room.",
+      "• 🧸🤖 - Toys face change together."
+    ],
+    "emojiString": "🤠🚀🧸🤖",
+    "tokens": [
+      {
+        "cluster": "🤠",
+        "hex": "1f920",
+        "hexFull": "1f920",
+        "hexBase": "1f920",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f920.svg",
+        "originalHex": "1f920"
+      },
+      {
+        "cluster": "🚀",
+        "hex": "1f680",
+        "hexFull": "1f680",
+        "hexBase": "1f680",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f680.svg",
+        "originalHex": "1f680"
+      },
+      {
+        "cluster": "🧸",
+        "hex": "1f9f8",
+        "hexFull": "1f9f8",
+        "hexBase": "1f9f8",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f9f8.svg",
+        "originalHex": "1f9f8"
+      },
+      {
+        "cluster": "🤖",
+        "hex": "1f916",
+        "hexFull": "1f916",
+        "hexBase": "1f916",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f916.svg",
+        "originalHex": "1f916"
+      }
+    ],
+    "tokenHex": [
+      "1f920",
+      "1f680",
+      "1f9f8",
+      "1f916"
+    ]
+  },
+  {
+    "title": "Finding Nemo",
+    "description": "A clownfish father searches across the ocean.",
+    "output": "🐠🌊🔍🐢",
+    "hints": [
+      "1. 🐠 - A missing little fish.",
+      "2. 🌊🔍 - A long ocean search.",
+      "3. 🐢 - Helpful sea friends along the way."
+    ],
+    "breakdown": [
+      "• 🐠 - Nemo's disappearance.",
+      "• 🌊🔍 - Marlin's journey.",
+      "• 🐢 - Guidance from ocean allies."
+    ],
+    "emojiString": "🐠🌊🔍🐢",
+    "tokens": [
+      {
+        "cluster": "🐠",
+        "hex": "1f420",
+        "hexFull": "1f420",
+        "hexBase": "1f420",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f420.svg",
+        "originalHex": "1f420"
+      },
+      {
+        "cluster": "🌊",
+        "hex": "1f30a",
+        "hexFull": "1f30a",
+        "hexBase": "1f30a",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f30a.svg",
+        "originalHex": "1f30a"
+      },
+      {
+        "cluster": "🔍",
+        "hex": "1f50d",
+        "hexFull": "1f50d",
+        "hexBase": "1f50d",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f50d.svg",
+        "originalHex": "1f50d"
+      },
+      {
+        "cluster": "🐢",
+        "hex": "1f422",
+        "hexFull": "1f422",
+        "hexBase": "1f422",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f422.svg",
+        "originalHex": "1f422"
+      }
+    ],
+    "tokenHex": [
+      "1f420",
+      "1f30a",
+      "1f50d",
+      "1f422"
+    ]
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "description": "A wrongfully convicted banker survives prison life.",
+    "output": "⛓️🏚️🔨🌧️",
+    "hints": [
+      "1. ⛓️ - Years behind bars.",
+      "2. 🏚️ - A harsh prison environment.",
+      "3. 🔨🌧️ - Quiet planning and final freedom."
+    ],
+    "breakdown": [
+      "• ⛓️ - Imprisonment theme.",
+      "• 🏚️ - Shawshank setting.",
+      "• 🔨🌧️ - Escape and catharsis."
+    ],
+    "emojiString": "⛓️🏚️🔨🌧️",
+    "tokens": [
+      {
+        "cluster": "⛓️",
+        "hex": "26d3-fe0f",
+        "hexFull": "26d3-fe0f",
+        "hexBase": "26d3",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/26d3-fe0f.svg",
+        "originalHex": "26d3-fe0f"
+      },
+      {
+        "cluster": "🏚️",
+        "hex": "1f3da-fe0f",
+        "hexFull": "1f3da-fe0f",
+        "hexBase": "1f3da",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3da-fe0f.svg",
+        "originalHex": "1f3da-fe0f"
+      },
+      {
+        "cluster": "🔨",
+        "hex": "1f528",
+        "hexFull": "1f528",
+        "hexBase": "1f528",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f528.svg",
+        "originalHex": "1f528"
+      },
+      {
+        "cluster": "🌧️",
+        "hex": "1f327-fe0f",
+        "hexFull": "1f327-fe0f",
+        "hexBase": "1f327",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f327-fe0f.svg",
+        "originalHex": "1f327-fe0f"
+      }
+    ],
+    "tokenHex": [
+      "26d3-fe0f",
+      "1f3da-fe0f",
+      "1f528",
+      "1f327-fe0f"
+    ]
+  },
+  {
+    "title": "Pulp Fiction",
+    "description": "Intersecting crime stories unfold in Los Angeles.",
+    "output": "💼🔫🍔💃",
+    "hints": [
+      "1. 💼 - A mysterious briefcase.",
+      "2. 🔫 - Hitmen and dangerous deals.",
+      "3. 🍔💃 - Iconic conversations and dance scenes."
+    ],
+    "breakdown": [
+      "• 💼 - MacGuffin at the center.",
+      "• 🔫 - Crime anthology structure.",
+      "• 🍔💃 - Pop-culture moments."
+    ],
+    "emojiString": "💼🔫🍔💃",
+    "tokens": [
+      {
+        "cluster": "💼",
+        "hex": "1f4bc",
+        "hexFull": "1f4bc",
+        "hexBase": "1f4bc",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f4bc.svg",
+        "originalHex": "1f4bc"
+      },
+      {
+        "cluster": "🔫",
+        "hex": "1f52b",
+        "hexFull": "1f52b",
+        "hexBase": "1f52b",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f52b.svg",
+        "originalHex": "1f52b"
+      },
+      {
+        "cluster": "🍔",
+        "hex": "1f354",
+        "hexFull": "1f354",
+        "hexBase": "1f354",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f354.svg",
+        "originalHex": "1f354"
+      },
+      {
+        "cluster": "💃",
+        "hex": "1f483",
+        "hexFull": "1f483",
+        "hexBase": "1f483",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f483.svg",
+        "originalHex": "1f483"
+      }
+    ],
+    "tokenHex": [
+      "1f4bc",
+      "1f52b",
+      "1f354",
+      "1f483"
+    ]
+  },
+  {
+    "title": "The Avengers",
+    "description": "Earth's heroes unite against global threats.",
+    "output": "🦸🛡️⚡🌎",
+    "hints": [
+      "1. 🦸 - A team of superheroes.",
+      "2. 🛡️⚡ - Signature powers and symbols.",
+      "3. 🌎 - A planet-scale battle."
+    ],
+    "breakdown": [
+      "• 🦸 - Ensemble cast.",
+      "• 🛡️⚡ - Distinct hero identities.",
+      "• 🌎 - Saving the world together."
+    ],
+    "emojiString": "🦸🛡️⚡🌎",
+    "tokens": [
+      {
+        "cluster": "🦸",
+        "hex": "1f9b8",
+        "hexFull": "1f9b8",
+        "hexBase": "1f9b8",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f9b8.svg",
+        "originalHex": "1f9b8"
+      },
+      {
+        "cluster": "🛡️",
+        "hex": "1f6e1-fe0f",
+        "hexFull": "1f6e1-fe0f",
+        "hexBase": "1f6e1",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f6e1-fe0f.svg",
+        "originalHex": "1f6e1-fe0f"
+      },
+      {
+        "cluster": "⚡",
+        "hex": "26a1",
+        "hexFull": "26a1",
+        "hexBase": "26a1",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/26a1.svg",
+        "originalHex": "26a1"
+      },
+      {
+        "cluster": "🌎",
+        "hex": "1f30e",
+        "hexFull": "1f30e",
+        "hexBase": "1f30e",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f30e.svg",
+        "originalHex": "1f30e"
+      }
+    ],
+    "tokenHex": [
+      "1f9b8",
+      "1f6e1-fe0f",
+      "26a1",
+      "1f30e"
+    ]
+  },
+  {
+    "title": "Spider-Man",
+    "description": "A young hero balances responsibility and danger.",
+    "output": "🕷️🏙️🕸️🧑",
+    "hints": [
+      "1. 🕷️ - A bite changes everything.",
+      "2. 🏙️ - Heroics across the city.",
+      "3. 🕸️🧑 - Swinging action and identity struggles."
+    ],
+    "breakdown": [
+      "• 🕷️ - Spider origin.",
+      "• 🏙️ - New York setting.",
+      "• 🕸️🧑 - Responsibility-driven hero arc."
+    ],
+    "emojiString": "🕷️🏙️🕸️🧑",
+    "tokens": [
+      {
+        "cluster": "🕷️",
+        "hex": "1f577-fe0f",
+        "hexFull": "1f577-fe0f",
+        "hexBase": "1f577",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f577-fe0f.svg",
+        "originalHex": "1f577-fe0f"
+      },
+      {
+        "cluster": "🏙️",
+        "hex": "1f3d9-fe0f",
+        "hexFull": "1f3d9-fe0f",
+        "hexBase": "1f3d9",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3d9-fe0f.svg",
+        "originalHex": "1f3d9-fe0f"
+      },
+      {
+        "cluster": "🕸️",
+        "hex": "1f578-fe0f",
+        "hexFull": "1f578-fe0f",
+        "hexBase": "1f578",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f578-fe0f.svg",
+        "originalHex": "1f578-fe0f"
+      },
+      {
+        "cluster": "🧑",
+        "hex": "1f9d1",
+        "hexFull": "1f9d1",
+        "hexBase": "1f9d1",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f9d1.svg",
+        "originalHex": "1f9d1"
+      }
+    ],
+    "tokenHex": [
+      "1f577-fe0f",
+      "1f3d9-fe0f",
+      "1f578-fe0f",
+      "1f9d1"
+    ]
+  },
+  {
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "description": "A young wizard discovers a hidden magical world.",
+    "output": "🧙⚡🏰📚",
+    "hints": [
+      "1. 🧙 - A boy learns he is a wizard.",
+      "2. ⚡ - A famous scar.",
+      "3. 🏰📚 - School, spells, and secrets."
+    ],
+    "breakdown": [
+      "• 🧙 - Harry's awakening.",
+      "• ⚡ - Voldemort-linked past.",
+      "• 🏰📚 - Hogwarts adventure."
+    ],
+    "emojiString": "🧙⚡🏰📚",
+    "tokens": [
+      {
+        "cluster": "🧙",
+        "hex": "1f9d9",
+        "hexFull": "1f9d9",
+        "hexBase": "1f9d9",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f9d9.svg",
+        "originalHex": "1f9d9"
+      },
+      {
+        "cluster": "⚡",
+        "hex": "26a1",
+        "hexFull": "26a1",
+        "hexBase": "26a1",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/26a1.svg",
+        "originalHex": "26a1"
+      },
+      {
+        "cluster": "🏰",
+        "hex": "1f3f0",
+        "hexFull": "1f3f0",
+        "hexBase": "1f3f0",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3f0.svg",
+        "originalHex": "1f3f0"
+      },
+      {
+        "cluster": "📚",
+        "hex": "1f4da",
+        "hexFull": "1f4da",
+        "hexBase": "1f4da",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f4da.svg",
+        "originalHex": "1f4da"
+      }
+    ],
+    "tokenHex": [
+      "1f9d9",
+      "26a1",
+      "1f3f0",
+      "1f4da"
+    ]
+  },
+  {
+    "title": "Raiders of the Lost Ark",
+    "description": "An archaeologist races to find a biblical artifact.",
+    "output": "🤠🏺🐍🏜️",
+    "hints": [
+      "1. 🤠 - A whip-carrying adventurer.",
+      "2. 🏺 - Ancient treasure pursuit.",
+      "3. 🐍🏜️ - Dangerous tombs and deserts."
+    ],
+    "breakdown": [
+      "• 🤠 - Indiana Jones persona.",
+      "• 🏺 - The Ark as objective.",
+      "• 🐍🏜️ - High-risk exploration."
+    ],
+    "emojiString": "🤠🏺🐍🏜️",
+    "tokens": [
+      {
+        "cluster": "🤠",
+        "hex": "1f920",
+        "hexFull": "1f920",
+        "hexBase": "1f920",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f920.svg",
+        "originalHex": "1f920"
+      },
+      {
+        "cluster": "🏺",
+        "hex": "1f3fa",
+        "hexFull": "1f3fa",
+        "hexBase": "1f3fa",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3fa.svg",
+        "originalHex": "1f3fa"
+      },
+      {
+        "cluster": "🐍",
+        "hex": "1f40d",
+        "hexFull": "1f40d",
+        "hexBase": "1f40d",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f40d.svg",
+        "originalHex": "1f40d"
+      },
+      {
+        "cluster": "🏜️",
+        "hex": "1f3dc-fe0f",
+        "hexFull": "1f3dc-fe0f",
+        "hexBase": "1f3dc",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3dc-fe0f.svg",
+        "originalHex": "1f3dc-fe0f"
+      }
+    ],
+    "tokenHex": [
+      "1f920",
+      "1f3fa",
+      "1f40d",
+      "1f3dc-fe0f"
+    ]
+  },
+  {
+    "title": "Gladiator",
+    "description": "A betrayed Roman general fights for justice.",
+    "output": "⚔️🏟️👑🛡️",
+    "hints": [
+      "1. ⚔️ - A warrior's path.",
+      "2. 🏟️ - Arena combat spectacle.",
+      "3. 👑🛡️ - Revenge against corrupt power."
+    ],
+    "breakdown": [
+      "• ⚔️ - Combat-driven story.",
+      "• 🏟️ - Colosseum setting.",
+      "• 👑🛡️ - Honor versus tyranny."
+    ],
+    "emojiString": "⚔️🏟️👑🛡️",
+    "tokens": [
+      {
+        "cluster": "⚔️",
+        "hex": "2694-fe0f",
+        "hexFull": "2694-fe0f",
+        "hexBase": "2694",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/2694-fe0f.svg",
+        "originalHex": "2694-fe0f"
+      },
+      {
+        "cluster": "🏟️",
+        "hex": "1f3df-fe0f",
+        "hexFull": "1f3df-fe0f",
+        "hexBase": "1f3df",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3df-fe0f.svg",
+        "originalHex": "1f3df-fe0f"
+      },
+      {
+        "cluster": "👑",
+        "hex": "1f451",
+        "hexFull": "1f451",
+        "hexBase": "1f451",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f451.svg",
+        "originalHex": "1f451"
+      },
+      {
+        "cluster": "🛡️",
+        "hex": "1f6e1-fe0f",
+        "hexFull": "1f6e1-fe0f",
+        "hexBase": "1f6e1",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f6e1-fe0f.svg",
+        "originalHex": "1f6e1-fe0f"
+      }
+    ],
+    "tokenHex": [
+      "2694-fe0f",
+      "1f3df-fe0f",
+      "1f451",
+      "1f6e1-fe0f"
+    ]
+  },
+  {
+    "title": "Mad Max: Fury Road",
+    "description": "A high-octane escape across a desert wasteland.",
+    "output": "🚗🔥🏜️⛽",
+    "hints": [
+      "1. 🚗 - Relentless vehicle chases.",
+      "2. 🔥🏜️ - Post-apocalyptic desert world.",
+      "3. ⛽ - Fuel and survival as power."
+    ],
+    "breakdown": [
+      "• 🚗 - Road-war action core.",
+      "• 🔥🏜️ - Harsh wasteland tone.",
+      "• ⛽ - Resource conflict."
+    ],
+    "emojiString": "🚗🔥🏜️⛽",
+    "tokens": [
+      {
+        "cluster": "🚗",
+        "hex": "1f697",
+        "hexFull": "1f697",
+        "hexBase": "1f697",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f697.svg",
+        "originalHex": "1f697"
+      },
+      {
+        "cluster": "🔥",
+        "hex": "1f525",
+        "hexFull": "1f525",
+        "hexBase": "1f525",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f525.svg",
+        "originalHex": "1f525"
+      },
+      {
+        "cluster": "🏜️",
+        "hex": "1f3dc-fe0f",
+        "hexFull": "1f3dc-fe0f",
+        "hexBase": "1f3dc",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3dc-fe0f.svg",
+        "originalHex": "1f3dc-fe0f"
+      },
+      {
+        "cluster": "⛽",
+        "hex": "26fd",
+        "hexFull": "26fd",
+        "hexBase": "26fd",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/26fd.svg",
+        "originalHex": "26fd"
+      }
+    ],
+    "tokenHex": [
+      "1f697",
+      "1f525",
+      "1f3dc-fe0f",
+      "26fd"
+    ]
+  },
+  {
+    "title": "The Silence of the Lambs",
+    "description": "An FBI trainee seeks help from a brilliant killer.",
+    "output": "🦋😷🔪🐑",
+    "hints": [
+      "1. 🦋 - A recurring symbolic clue.",
+      "2. 😷 - Psychological cat-and-mouse.",
+      "3. 🔪🐑 - Horror and chilling calm."
+    ],
+    "breakdown": [
+      "• 🦋 - Moth imagery.",
+      "• 😷 - Clinical interrogation tension.",
+      "• 🔪🐑 - Violence beneath silence."
+    ],
+    "emojiString": "🦋😷🔪🐑",
+    "tokens": [
+      {
+        "cluster": "🦋",
+        "hex": "1f98b",
+        "hexFull": "1f98b",
+        "hexBase": "1f98b",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f98b.svg",
+        "originalHex": "1f98b"
+      },
+      {
+        "cluster": "😷",
+        "hex": "1f637",
+        "hexFull": "1f637",
+        "hexBase": "1f637",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f637.svg",
+        "originalHex": "1f637"
+      },
+      {
+        "cluster": "🔪",
+        "hex": "1f52a",
+        "hexFull": "1f52a",
+        "hexBase": "1f52a",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f52a.svg",
+        "originalHex": "1f52a"
+      },
+      {
+        "cluster": "🐑",
+        "hex": "1f411",
+        "hexFull": "1f411",
+        "hexBase": "1f411",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f411.svg",
+        "originalHex": "1f411"
+      }
+    ],
+    "tokenHex": [
+      "1f98b",
+      "1f637",
+      "1f52a",
+      "1f411"
+    ]
+  },
+  {
+    "title": "The Exorcist",
+    "description": "A possessed girl undergoes a terrifying exorcism.",
+    "output": "👧😈✝️🏠",
+    "hints": [
+      "1. 👧 - A child at the story's center.",
+      "2. 😈 - Demonic possession.",
+      "3. ✝️🏠 - Spiritual battle in a home."
+    ],
+    "breakdown": [
+      "• 👧 - Regan's transformation.",
+      "• 😈 - Supernatural horror element.",
+      "• ✝️🏠 - Priests confronting evil."
+    ],
+    "emojiString": "👧😈✝️🏠",
+    "tokens": [
+      {
+        "cluster": "👧",
+        "hex": "1f467",
+        "hexFull": "1f467",
+        "hexBase": "1f467",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f467.svg",
+        "originalHex": "1f467"
+      },
+      {
+        "cluster": "😈",
+        "hex": "1f608",
+        "hexFull": "1f608",
+        "hexBase": "1f608",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f608.svg",
+        "originalHex": "1f608"
+      },
+      {
+        "cluster": "✝️",
+        "hex": "271d-fe0f",
+        "hexFull": "271d-fe0f",
+        "hexBase": "271d",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/271d-fe0f.svg",
+        "originalHex": "271d-fe0f"
+      },
+      {
+        "cluster": "🏠",
+        "hex": "1f3e0",
+        "hexFull": "1f3e0",
+        "hexBase": "1f3e0",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3e0.svg",
+        "originalHex": "1f3e0"
+      }
+    ],
+    "tokenHex": [
+      "1f467",
+      "1f608",
+      "271d-fe0f",
+      "1f3e0"
+    ]
+  },
+  {
+    "title": "Die Hard",
+    "description": "A lone cop battles terrorists in a skyscraper.",
+    "output": "🏢💥👮🔫",
+    "hints": [
+      "1. 🏢 - A building under siege.",
+      "2. 💥 - Explosive action set pieces.",
+      "3. 👮🔫 - One determined hero fights back."
+    ],
+    "breakdown": [
+      "• 🏢 - Nakatomi Plaza location.",
+      "• 💥 - High-stakes escalation.",
+      "• 👮🔫 - McClane's lone stand."
+    ],
+    "emojiString": "🏢💥👮🔫",
+    "tokens": [
+      {
+        "cluster": "🏢",
+        "hex": "1f3e2",
+        "hexFull": "1f3e2",
+        "hexBase": "1f3e2",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f3e2.svg",
+        "originalHex": "1f3e2"
+      },
+      {
+        "cluster": "💥",
+        "hex": "1f4a5",
+        "hexFull": "1f4a5",
+        "hexBase": "1f4a5",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f4a5.svg",
+        "originalHex": "1f4a5"
+      },
+      {
+        "cluster": "👮",
+        "hex": "1f46e",
+        "hexFull": "1f46e",
+        "hexBase": "1f46e",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f46e.svg",
+        "originalHex": "1f46e"
+      },
+      {
+        "cluster": "🔫",
+        "hex": "1f52b",
+        "hexFull": "1f52b",
+        "hexBase": "1f52b",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f52b.svg",
+        "originalHex": "1f52b"
+      }
+    ],
+    "tokenHex": [
+      "1f3e2",
+      "1f4a5",
+      "1f46e",
+      "1f52b"
+    ]
+  },
+  {
+    "title": "The Wolf of Wall Street",
+    "description": "A stockbroker rises fast through greed and excess.",
+    "output": "🐺💰📈🚗",
+    "hints": [
+      "1. 🐺 - A predatory nickname.",
+      "2. 💰📈 - Extreme money obsession.",
+      "3. 🚗 - Luxury and reckless excess."
+    ],
+    "breakdown": [
+      "• 🐺 - Jordan Belfort persona.",
+      "• 💰📈 - Fraud-fueled wealth.",
+      "• 🚗 - Hedonistic lifestyle."
+    ],
+    "emojiString": "🐺💰📈🚗",
+    "tokens": [
+      {
+        "cluster": "🐺",
+        "hex": "1f43a",
+        "hexFull": "1f43a",
+        "hexBase": "1f43a",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f43a.svg",
+        "originalHex": "1f43a"
+      },
+      {
+        "cluster": "💰",
+        "hex": "1f4b0",
+        "hexFull": "1f4b0",
+        "hexBase": "1f4b0",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f4b0.svg",
+        "originalHex": "1f4b0"
+      },
+      {
+        "cluster": "📈",
+        "hex": "1f4c8",
+        "hexFull": "1f4c8",
+        "hexBase": "1f4c8",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f4c8.svg",
+        "originalHex": "1f4c8"
+      },
+      {
+        "cluster": "🚗",
+        "hex": "1f697",
+        "hexFull": "1f697",
+        "hexBase": "1f697",
+        "hasTone": false,
+        "asset": "/vendor/fluent-emoji/1f697.svg",
+        "originalHex": "1f697"
+      }
+    ],
+    "tokenHex": [
+      "1f43a",
+      "1f4b0",
+      "1f4c8",
+      "1f697"
+    ]
+  }
+]

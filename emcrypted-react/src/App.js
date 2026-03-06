@@ -1,73 +1,49 @@
-import React, { useState } from "react";
-import Game from "./data/Game";
-import Home from "./components/Home";
-import VictoryScreen from "./components/VictoryScreen";
-import BetterLuckNextTimeScreen from "./components/BetterLuckNextTimeScreen";
-import ResultScreen from "./components/ResultScreen";
-import Referee from "./components/Referee"; 
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import Home from './components/Home';
+import LoginScreen from './components/LoginScreen';
+import SignupScreen from './components/SignupScreen';
+import HighScoresScreen from './components/HighScoresScreen';
+import ProfileScreen from './components/ProfileScreen';
+import GameFlow from './components/GameFlow';
+import LogoutButtonFloating from './components/LogoutButtonFloating';
 import './App.css';
 
+const RequireAuth = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+};
+
 const App = () => {
-  const [currentScreen, setCurrentScreen] = useState("home");
-  const [lastGameData, setLastGameData] = useState(null);
-  const [refereeData, setRefereeData] = useState({
-    time: 0,
-    guesses: 0,
-    hintsUsed: 0,
-  });
-
-  const startGame = () => {
-    setRefereeData({ time: 0, guesses: 0, hintsUsed: 0 });
-    setCurrentScreen("game");
-  };
-
-  const showVictoryScreen = (gameData) => {
-    setLastGameData(gameData);
-    setCurrentScreen("victory");
-  };
-
-  const showBetterLuckNextTimeScreen = (gameData) => {
-    setLastGameData(gameData);
-    setCurrentScreen("betterLuckNextTime");
-  };
-
-  const showResultScreen = () => {
-    if (lastGameData) {
-      setCurrentScreen("result");
-    } else {
-      console.error("No game data available.");
-      setCurrentScreen("home");
-    }
-  };
-
-  const goHome = () => {
-    setCurrentScreen("home");
-  };
-
   return (
-    <div className="App">
-      <Referee refereeData={refereeData} setRefereeData={setRefereeData} />
-      {currentScreen === "home" && <Home onStart={startGame} />}
-      {currentScreen === "game" && (
-        <Game 
-          onVictory={showVictoryScreen} 
-          onExit={showBetterLuckNextTimeScreen} 
-          refereeData={refereeData} 
-          setRefereeData={setRefereeData}
-        />
-      )}
-      {currentScreen === "victory" && lastGameData && (
-        <VictoryScreen gameData={lastGameData} onNextGame={startGame} onResult={showResultScreen} />
-      )}
-      {currentScreen === "betterLuckNextTime" && lastGameData && (
-        <BetterLuckNextTimeScreen gameData={lastGameData} onNextGame={startGame} />
-      )}
-      {currentScreen === "result" && lastGameData && (
-        <ResultScreen gameData={lastGameData} refereeData={refereeData} onHome={goHome} onNextGame={startGame} />
-      )}
-    </div>
+    <AuthProvider>
+      <div className="App">
+        <LogoutButtonFloating />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/start" element={<GameFlow />} />
+          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/signup" element={<SignupScreen />} />
+          <Route path="/high-scores" element={<HighScoresScreen />} />
+          <Route
+            path="/profile"
+            element={
+              <RequireAuth>
+                <ProfileScreen />
+              </RequireAuth>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </AuthProvider>
   );
 };
 
 export default App;
-

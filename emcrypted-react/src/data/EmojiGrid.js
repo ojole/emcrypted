@@ -1,49 +1,41 @@
-import React from 'react';
-import emojiData from "../data/data-by-emoji.json";
-import emojiComponents from "../data/data-emoji-components.json";
-import orderedEmoji from "../data/data-ordered-emoji.json";
+import React, { forwardRef } from "react";
+import EmojiIcon from "../utils/EmojiIcon";
 
-// Analyze the emoji sequence
-export const analyzeEmojiSequence = (emojiSequence) => {
-  const emojiRegex = /(\p{Emoji_Modifier_Base}(?:\p{Emoji_Modifier})?|\p{Emoji}\u200D(?:\p{Emoji}|\p{Emoji_Modifier_Base}(?:\p{Emoji_Modifier})?)|\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\p{Emoji}\u200D[\p{Emoji}\u200D]*\p{Emoji})/gu;
+const DEFAULT_COLS = 7;
 
-  // Handle skin tone variations and components
-  return [...emojiSequence.matchAll(emojiRegex)].map((match) => {
-    const emoji = match[0];
-    if (emojiData[emoji]) {
-      return emoji;
-    } else if (emojiComponents[emoji]) {
-      return emojiComponents[emoji];
-    } else {
-      const variant = orderedEmoji.find(e => e === emoji || e.startsWith(emoji));
-      return variant || emoji;
-    }
-  });
-};
-
-// EmojiGrid Component
-const EmojiGrid = ({ emojiSequence, highlightedEmojis, dimmedEmojis }) => {
-  const analyzedEmojis = analyzeEmojiSequence(emojiSequence);
+const EmojiGrid = forwardRef(({ tokens = [], highlightedEmojis = [], dimmedEmojis = [] }, ref) => {
+  const highlightSet = new Set(highlightedEmojis);
+  const dimSet = new Set(dimmedEmojis);
+  const isDimming = dimSet.size > 0;
+  const columns = tokens.length
+    ? Math.min(DEFAULT_COLS, Math.max(3, Math.ceil(Math.sqrt(tokens.length))))
+    : DEFAULT_COLS;
+  const gridClass = ["emoji-grid", isDimming ? "dim-others" : ""].filter(Boolean).join(" ");
 
   return (
-    <div className="emoji-grid">
-      {analyzedEmojis.map((emoji, index) => (
-        <span
-          key={index}
-          className={`emoji-item ${
-            highlightedEmojis.includes(index)
-              ? "highlighted"
-              : dimmedEmojis.includes(index)
-              ? "dimmed"
-              : ""
-          }`}
-          data-index={index}
-        >
-          {emoji}
-        </span>
-      ))}
+    <div ref={ref} className={gridClass} style={{ "--grid-cols": columns }}>
+      {tokens.map((token, index) => {
+        const highlighted = highlightSet.has(index);
+        const dimmed = !highlighted && dimSet.has(index);
+        const classes = ["emoji-item"];
+        if (highlighted) classes.push("highlighted");
+        if (dimmed) classes.push("dimmed");
+        return (
+          <div key={`${token.hex || token.cluster || index}-${index}`} className={classes.join(" ")}>
+            <EmojiIcon
+              asset={token.asset}
+              cluster={token.cluster}
+              hex={token.hex}
+              hexFull={token.hexFull}
+              hasTone={token.hasTone}
+              size={40}
+              style={{ width: "calc(var(--cell-size) * 0.82)", height: "calc(var(--cell-size) * 0.82)" }}
+            />
+          </div>
+        );
+      })}
     </div>
   );
-};
+});
 
 export default EmojiGrid;

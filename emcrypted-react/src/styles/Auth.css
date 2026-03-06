@@ -1,0 +1,67 @@
+/* ---------- Auth screens inside .phoneCard (match Home card width/feel) ---------- */
+
+/* If any legacy wrappers exist, neutralize them (don't re-center or resize the card) */
+.authScreenOuter, .authCard { display: contents !important; }
+
+/* Header wordmark: EXACT same visual height as Home's logo (.brandLogo is 72px in App.css) */
+.panelHeader { display:flex; align-items:center; justify-content:center; margin:6px 0 10px; }
+.phoneCard .authHeaderGif {
+  height: 72px;           /* match Home logo height */
+  width: auto;            /* preserve aspect */
+  max-width: 90%;
+  display: block;
+  image-rendering: pixelated;
+}
+
+/* Form stack sits comfortably inside the card; inputs don't edge-to-edge stretch */
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 540px;       /* tighter column so fields feel balanced */
+  margin-inline: auto;    /* center within .phoneCard */
+}
+
+.authForm label { display:flex; flex-direction:column; gap:6px; font-size:13px; }
+.authForm label > span { opacity: .7; }
+
+/* Inputs: same look, constrained by the .authForm column */
+.text-input {
+  width: 100%;
+  height: 56px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 16px;
+  background: rgba(168,201,255,.35);
+  color: var(--color-ink);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,.12);
+}
+.text-input:focus { outline: 2px solid rgba(168,201,255,.75); }
+
+/* Primary/secondary CTAs: same centered column as fields */
+.authActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 540px;
+  margin: 10px auto 0;
+}
+.authActions > * { flex: 1 1 240px; max-width: 320px; }
+
+.forgotPasswordLink {
+  appearance: none; background: none; border: 0; padding: 0; margin-top: 6px;
+  color: inherit; opacity: .75; text-align: center; cursor: pointer; font-size: 13px;
+}
+.authError { color: var(--hint-red, #d33); font-size: 13px; text-align: center; }
+
+/* Hard-remove any stray legacy ghosts that might re-introduce the tall pill illusion */
+.centerPanel.authPanel, .centerPanel.authPanel::before,
+.phoneCardGhost, .offsetCard, .authCardGhost { display: none !important; content: none !important; }
+
+/* High Scores helpers (unchanged behavior) */
+.highScoresSection { width: 100%; display: flex; flex-direction: column; gap: 16px; }
+.highScoresTableBlock { width: 100%; overflow-x: auto; }

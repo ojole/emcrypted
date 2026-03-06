@@ -6,8 +6,12 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "csv-parse": "^6.1.0",
+    "dotenv": "^17.2.3",
+    "openai": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.9.5",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -15,7 +19,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sync:emoji": "node scripts/sync-fluent-emoji.cjs",
+    "verify:skin": "node scripts/audit-tones.cjs",
+    "compile:puzzles": "node scripts/compile-puzzles.cjs",
+    "prestart": "npm run compile:puzzles && npm run sync:emoji",
+    "prebuild": "npm run compile:puzzles && npm run sync:emoji",
+    "postinstall": "npm run compile:puzzles && npm run sync:emoji"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +44,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "dependency-cruiser": "^17.2.0",
+    "fs-extra": "^11.3.2",
+    "glob": "^11.0.3",
+    "graphemer": "^1.4.0",
+    "is-weakref": "^1.1.1",
+    "madge": "^8.0.0",
+    "picocolors": "^1.1.1"
   }
 }

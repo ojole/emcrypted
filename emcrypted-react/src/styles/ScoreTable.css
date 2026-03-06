@@ -1,0 +1,226 @@
+/* Shared table styling (High Scores + Profile history) */
+
+.scoreTableWrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scoreTableHeaderRow,
+.scoreTableBodyRow {
+  display: grid;
+  grid-template-columns: var(--score-grid-columns, 40px 1fr 70px 60px 60px 1fr);
+  column-gap: var(--score-column-gap, 8px);
+  padding: 6px 8px;
+  background: transparent;
+  font-family: inherit;
+  color: var(--color-ink, #000);
+}
+
+.scoreTableHeaderRow {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.scoreTableHeaderRow.dark {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scoreTableBodyRow {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.scoreTableBodyRow.dark {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.scoreTableBodyScroll {
+  max-height: 260px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.scoreTableBodyScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scoreTableBodyScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scoreTableBodyScroll::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #999;
+}
+
+body.theme-dark .scoreTableBodyScroll::-webkit-scrollbar-thumb {
+  background: rgba(30, 40, 70, 0.9);
+}
+
+.scoreTableBodyScroll {
+  scrollbar-color: rgba(153, 153, 153, 0.7) transparent;
+}
+
+body.theme-dark .scoreTableBodyScroll {
+  scrollbar-color: rgba(30, 40, 70, 0.9) transparent;
+}
+
+.scoreTableBodyRow.clickable {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.scoreTableBodyRow.clickable:hover {
+  background: rgba(13, 148, 255, 0.05);
+}
+
+body.theme-dark .scoreTableBodyRow.clickable:hover {
+  background: rgba(13, 148, 255, 0.08);
+}
+
+.scoreTableBodyRow > div:first-child {
+  justify-content: center;
+  font-weight: 700;
+}
+
+.scoreTableBodyRow > div {
+  display: flex;
+  align-items: center;
+}
+
+.scoreTableBodyCell {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.scoreTableBodyCell:first-child {
+  justify-content: center;
+  font-weight: 700;
+}
+
+.scoreTableBodyCell.player-name {
+  font-weight: 600;
+}
+
+.scoreTableNoData {
+  padding: 24px 8px;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: inherit;
+  color: var(--color-ink, #000);
+}
+
+.scoreTableNoData.dark {
+  color: #fff;
+}
+
+.scoreTableScroll {
+  max-height: 360px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.scoreTableExpandedRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(13, 148, 255, 0.05);
+  border-top: 1px solid rgba(13, 148, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.75rem;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.scoreTableExpandedRow.dark {
+  background: rgba(13, 148, 255, 0.08);
+  border-top-color: rgba(13, 148, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.scoreTableExpandedRow > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scoreTableExpandedRow span {
+  font-size: 0.6rem;
+  opacity: 0.7;
+}
+
+body.theme-dark .scoreTableHeaderRow.dark,
+body.theme-dark .scoreTableBodyRow.dark,
+body.theme-dark .scoreTableNoData.dark,
+body.theme-dark .scoreTableExpandedRow.dark {
+  text-shadow: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ===== Themed scrollbars for table-style scroll areas ===== */
+.scoreTableScroll,
+.scoreTableBodyScroll {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.35) transparent;
+}
+
+/* WebKit / Chrome / Safari */
+.scoreTableScroll::-webkit-scrollbar,
+.scoreTableBodyScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scoreTableScroll::-webkit-scrollbar-track,
+.scoreTableBodyScroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 9999px;
+}
+
+/* LIGHT MODE thumb */
+.scoreTableScroll::-webkit-scrollbar-thumb,
+.scoreTableBodyScroll::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.25);
+  border-radius: 9999px;
+}
+
+/* DARK MODE overrides */
+body.theme-dark .scoreTableScroll,
+body.theme-dark .scoreTableBodyScroll {
+  scrollbar-color: rgba(241, 245, 249, 0.28) transparent;
+}
+
+body.theme-dark .scoreTableScroll::-webkit-scrollbar-thumb,
+body.theme-dark .scoreTableBodyScroll::-webkit-scrollbar-thumb {
+  background: rgba(241, 245, 249, 0.28);
+}
+
+@media (max-width: 480px) {
+  .scoreTableHeaderRow,
+  .scoreTableBodyRow {
+    font-size: 0.9rem;
+  }
+}

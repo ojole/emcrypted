@@ -1,13 +1,27 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../data/Header";
 
-const Home = ({ onStart }) => {
+const Home = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="home-screen">
-      <h1 className="emcrypted-title">EMCRYPTED</h1>
-      <button className="hint-btn" onClick={onStart}> Start </button>
-      <button className="hint-btn">Login</button>
-      <button className="hint-btn">Signup</button>
-      <button className="hint-btn">Leaderboards</button>
+    <div className="phoneCard">
+      <div className="home-screen">
+        <Header />
+        <button className="btn btn-lg" type="button" onClick={() => navigate('/start')}>
+          Start
+        </button>
+        <button className="btn btn-lg" type="button" onClick={() => navigate('/login')}>
+          Login
+        </button>
+        <button className="btn btn-lg" type="button" onClick={() => navigate('/signup')}>
+          Signup
+        </button>
+        <button className="btn btn-lg" type="button" onClick={() => navigate('/high-scores')}>
+          High Scores
+        </button>
+      </div>
     </div>
   );
 };

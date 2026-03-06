@@ -1,0 +1,29 @@
+/* 8-bit Arcade Fonts for Score Tables */
+
+@font-face {
+  font-family: 'ArcadeIn';
+  src: url('../../public/fonts/8-bit Arcade In.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ArcadeOut';
+  src: url('../../public/fonts/8-bit Arcade Out.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Light mode arcade text (filled) */
+.arcadeTextLight {
+  font-family: 'ArcadeIn', monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Dark mode arcade text (outlined) */
+.arcadeTextDark {
+  font-family: 'ArcadeOut', monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

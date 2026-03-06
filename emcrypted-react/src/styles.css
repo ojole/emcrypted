@@ -1,243 +1,332 @@
-@font-face {
-    font-family: "Dankosaurus";
-    src: url("../public/fonts/Dankosaurus.ttf") format("truetype");
-  }
-  @font-face {
-    font-family: "Tasty Birds Bold Sans";
-    src: url("../public/fonts/Tasty_Birds_Bold_Sans.otf") format("opentype");
-  }
-  
-  body {
-    font-family: sans-serif;
-    background-color: #FFFFFF;
-    color: #333333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .emcrypted-title {
-    font-family: 'Dankosaurus', sans-serif;
-    font-size: 3rem;
-    margin: 20px 0;
-  }
-  
-  .hint-btn {
-    width: 150px;
-    height: 50px;
-    background-color: #FFDE34;
-    color: #333333;
-    padding: 15px 30px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    font-family: 'Tasty Birds Bold Sans', sans-serif;
-    font-size: 1.2rem;
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  .hint-btn:hover {
-    background-color: #C08497;
-    color: #FFFFFF;
-  }
-  
-  .hint-btn:active {
-    transform: scale(0.95);
-  }
-  
-  #home-screen, #game-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  #exit-container {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1000; /* Ensure the exit button is always on top */
-  }
-  
-  .exit-game {
-    font-size: 2.5rem;
-    cursor: pointer;
-    background-color: transparent;
-    padding: 5px;
-  }
-  
-  .emoji-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 500px;
-    margin-bottom: 20px;
-  }
-  
-  .emoji-grid span {
-    font-size: 2.5rem;
-    margin: 2px;
-    line-height: 1.5;
-    transition: opacity 0.5s ease-in-out;
-    width: 3rem;
-    height: 3rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .search-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: relative;
-  }
-  
-  #movie-guess {
-    background-color: rgba(255, 222, 52, 0.8);
-    color: #333333;
-    text-align: center;
-    width: 80%;
-    max-width: 300px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-    font-family: 'Tasty Birds Bold Sans', sans-serif;
-  }
-  
-  .search-results {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 60px;
-    width: 80%;
-    max-width: 300px;
-    z-index: 1000;
-    background-color: transparent;
-    border-radius: 5px;
-    padding: 10px;
-    transform: translateX(-53%);
-    left: 50%;
-  }
-  
-  .result-item {
-    background-color: #FFDE34;
-    color: #333333;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    width: 100%;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Tasty Birds Bold Sans', sans-serif;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .result-item button {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: #333333;
-  }
-  
-  .result-item button:hover {
-    color: #C08497;
-  }
-  
-  .highlighted {
-    opacity: 1;
-  }
-  
-  .dimmed {
-    opacity: 0.2;
-  }
-  
-  #hint-text-container {
-    font-family: 'Tasty Birds Bold Sans', sans-serif;
-    font-size: 1.2rem;
-    color: #333333;
-    margin-top: 10px;
-    padding: 5px 0;
-    max-width: 80%;
-    word-wrap: break-word;
-    line-height: 1.5rem;
-    text-align: center;
-  }
-  
-  #countdown-timer {
-    font-size: 1rem;
-    color: #C08497;
-  }
-  
-  .victory-message {
-    font-family: 'Tasty Birds Bold Sans', sans-serif;
-    font-size: 1.5rem;
-    color: #333333;
-    margin: 20px 0;
-  }
-  
-  .breakdown-container {
-    font-family: 'Tasty Birds Bold Sans', sans-serif;
-    font-size: 1rem;
-    color: #333333;
-    margin: 20px;
-    text-align: left;
-  }
-  
-  .results-message {
-    font-family: 'Tasty Birds Bold Sans', sans-serif;
-    font-size: 1.5rem;
-    color: #333333;
-    margin: 20px;
-  }
-  
-  #home-icon {
-    font-size: 2rem;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .emoji-grid {
-        grid-template-columns: repeat(5, 1fr);
-    }
-  
-    #movie-guess {
-        width: 90%;
-    }
-  
-    .search-results {
-        max-width: 90%;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .emoji-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-  
-    #movie-guess {
-        width: 100%;
-    }
-  
-    .search-results {
-        max-width: 100%;
-    }
-  }
+.victory-screen,
+.result-screen,
+.blnt-screen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  text-align: center;
+  color: var(--color-ink);
+}
+
+.victory-message,
+.results-message {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.blnt-heading {
+  font-size: clamp(2.75rem, 7vw, 4.25rem);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.result-title,
+.blnt-title {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+.breakdown-container {
+  width: 100%;
+  background-color: var(--panel-bg);
+  border-radius: 18px;
+  padding: 16px;
+  text-align: left;
+  box-shadow: inset 0 0 0 1px var(--btn-border), 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.breakdown-container p {
+  margin: 4px 0;
+  font-size: 1.35rem;
+  color: var(--color-ink);
+}
+
+.victory-screen .btn,
+.result-screen .btn {
+  width: 100%;
+  max-width: 280px;
+}
+
+.blnt-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blnt-stat {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  min-width: 120px;
+  background-color: var(--panel-bg);
+  border: 1px solid var(--btn-border);
+}
+
+.blnt-stat .label {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--color-ink);
+  opacity: 0.72;
+}
+
+.blnt-stat .value {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.hint-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.blnt-scroll {
+  width: 100%;
+  max-height: min(42vh, 380px);
+  padding: 20px 16px;
+  border-radius: 20px;
+  background: var(--panel-bg);
+  box-shadow: inset 0 0 0 1px var(--btn-border), 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.blnt-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.blnt-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 10px;
+  border-radius: 16px;
+  border: 1px solid var(--btn-border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background: var(--panel-bg);
+  text-align: left;
+}
+
+.blnt-row + .blnt-row {
+  margin-top: 10px;
+}
+
+.blnt-row-emoji {
+  display: inline-flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.blnt-row-text {
+  flex: 1;
+  font-size: 1.15rem;
+  color: var(--color-ink);
+}
+
+.blnt-footer {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.blnt-footer .btn {
+  flex: 1 1 220px;
+  max-width: 260px;
+}
+
+/* Summary Screen Styles (shared by Victory and Better Luck Next Time screens) */
+
+/* ASCII header GIF banner */
+.summaryAsciiHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.summaryAsciiImg {
+  max-width: 260px;
+  width: 80%;
+  height: auto;
+  display: block;
+}
+
+/* Outer tablet card wrapper */
+.resultCardOuter {
+  width: 100%;
+  max-width: var(--card-max-w, 820px);
+  margin: 0 auto;
+  background: var(--panel-bg);
+  border-radius: 1.25rem;
+  box-shadow: none;
+  padding: clamp(20px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Inner scrollable panel with subtle border/glow */
+.resultCardInner {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--panel-bg);
+  border-radius: 1rem;
+  border: 1px solid var(--btn-border);
+  box-shadow: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 480px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+}
+
+/* Fixed top section (headline + movie title) */
+.summaryFixedTop {
+  flex-shrink: 0;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Scrollable middle section (breakdown rows only) */
+.summaryScrollable {
+  flex: 1 1 auto;
+  min-height: 0;               /* 🔑 lets flexbox shrink this area instead of forcing overflow past the card */
+  overflow-y: auto;
+
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  /* default to dark-style values, we'll override below with .light */
+  scrollbar-color: rgba(30,40,70,0.9) rgba(255,255,255,0.06);
+}
+
+/* Light theme override for Firefox */
+.summaryScrollable.light {
+  scrollbar-color: #999 rgba(0,0,0,0.06);
+}
+
+/* WebKit scrollbar styling */
+.summaryScrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.summaryScrollable::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.summaryScrollable.dark::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.06);
+}
+
+.summaryScrollable.light::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.06);
+}
+
+.summaryScrollable::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+}
+
+.summaryScrollable.dark::-webkit-scrollbar-thumb {
+  background: rgba(30,40,70,0.9);  /* deep navy that matches Hint/primary buttons in dark */
+}
+
+.summaryScrollable.light::-webkit-scrollbar-thumb {
+  background: #999;               /* subtle gray for light mode */
+}
+
+/* Fixed bottom section (stats) */
+.summaryFixedBottom {
+  flex-shrink: 0;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Typography inside scroll area */
+.summaryHeadline {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.summaryMovieTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-ink);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.summaryBreakdownRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  color: var(--color-ink);
+  font-size: 13px;
+}
+
+.summaryBreakdownRow .emoji-col {
+  min-width: 48px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.summaryBreakdownRow .text-col {
+  flex: 1;
+}
+
+.summaryStats {
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-ink);
+  width: 100%;
+}
+
+.summaryStats > div {
+  margin: 4px 0;
+}
+
+/* Button container under the scroll panel */
+.summaryActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.summaryActions .btn {
+  width: 100%;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}

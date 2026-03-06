@@ -1,268 +1,326 @@
-@font-face {
-  font-family: "Dankosaurus";
-  src: url("../public/fonts/Dankosaurus.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Tasty Birds Bold Sans";
-  src: url("../public/fonts/Tasty_Birds_Bold_Sans.otf") format("opentype");
+/* --- App frame & overflow guards --- */
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-body {
-  font-family: sans-serif;
-  background-color: #ffffff;
-  color: #333333;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+#appShell,
+#appFrame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  width: 100%;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--color-ink);
+  box-sizing: border-box;
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+.app-header {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+  padding: 16px 0 8px;
+}
+
+.brandLogo {
+  /* Responsive logo height */
+  height: clamp(44px, 8vw, 72px);
+  width: clamp(220px, 65%, 620px);
+  max-width: calc(100% - 2rem);
+  display: block;
+  margin: 0 auto 0.5rem;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
 }
 
 .emcrypted-title {
-  font-family: "Dankosaurus", sans-serif;
-  font-size: 3rem;
-  margin: 20px 0;
+  font-size: clamp(2.75rem, 6vw, 4rem);
+  margin: 24px 0 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--color-ink);
+  text-align: center;
 }
 
-.hint-btn {
-  width: 150px;
-  height: 50px;
-  background-color: #ffde34;
-  color: #333333;
-  padding: 15px 30px;
-  margin: 10px;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.25rem;
+  border-radius: 14px;
   border: none;
-  border-radius: 5px;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1.2rem;
+  background-color: var(--btn-bg);
+  color: var(--btn-ink);
+  font: inherit;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  line-height: 1;
   cursor: pointer;
-  text-align: center;
-}
-
-.hint-btn:hover {
-  background-color: #c08497;
-  color: #ffffff;
-}
-
-.hint-btn:active {
-  transform: scale(0.95);
-}
-
-#home-screen,
-#game-screen,
-#victory-screen,
-#result-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-#exit-container {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-}
-
-.exit-game {
-  font-size: 1.5rem;
-  cursor: pointer;
-  background-color: transparent;
-  padding: 5px;
-}
-
-.emoji-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 500px;
-  margin-bottom: 20px;
-}
-
-.emoji-item {
-  font-size: 2rem;
-  margin: 2px;
-  line-height: 1.5;
-  width: 3rem;
-  height: 3rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.search-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.12),
+    0 1px 0 rgba(0, 0, 0, 0.35);
+  transition: transform 0.08s ease, box-shadow 0.15s ease, filter 0.15s ease;
   position: relative;
+  overflow: visible;
 }
 
-#movie-guess {
-  background-color: rgba(255, 222, 52, 0.8);
-  color: #333333;
-  text-align: center;
-  width: 80%;
-  max-width: 300px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
+.btn:hover {
+  filter: brightness(1.03);
 }
 
-.search-results {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 1), 0 8px 16px rgba(0, 0, 0, 0.18);
+}
+
+.theme-dark .btn {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 10px 26px rgba(5, 11, 25, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.theme-dark .btn:active {
+  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.35), 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+.btn::before {
+  content: "";
   position: absolute;
-  bottom: 60px;
-  width: 80%;
-  max-width: 300px;
-  z-index: 1000;
-  background-color: transparent;
-  border-radius: 5px;
-  padding: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.12) 0,
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.08) 0,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  animation: btnNoise 9s linear infinite;
 }
 
-.result-item {
-  background-color: #ffde34;
-  color: #333333;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  width: 100%;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  cursor: pointer;
-  font-size: 1rem;
+.theme-dark .btn::before {
+  opacity: 0.22;
 }
 
-.result-item button {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #333333;
-}
-
-.result-item button:hover {
-  color: #c08497;
-}
-
-.highlighted {
-  opacity: 1;
-}
-
-.dimmed {
-  opacity: 0.2;
-}
-
-#hint-text-container {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: calc(1rem + 0.5vw); /* Dynamic font size based on screen size */
-  color: #333333;
-  padding: 5px 0;
-  max-width: 80%;
-  word-wrap: break-word;
-  line-height: 1.5rem;
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-#countdown-timer {
-  font-size: 1rem;
-  color: #c08497;
-}
-
-.victory-message,
-.results-message {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1.5rem;
-  color: #333333;
-  margin: 20px 0;
-}
-
-.breakdown-container {
-  font-family: "Tasty Birds Bold Sans", sans-serif;
-  font-size: 1rem;
-  color: #333333;
-  margin: 20px;
-  text-align: left;
-}
-
-#home-icon {
-  font-size: 2rem;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-  .emoji-grid {
-    grid-template-columns: repeat(5, 1fr);
+@keyframes btnNoise {
+  0% {
+    background-position: 0 0, 0 0;
   }
-  #movie-guess {
-    width: 90%;
-  }
-  .search-results {
-    max-width: 90%;
+  100% {
+    background-position: 140px 70px, -100px 60px;
   }
 }
 
-@media (max-width: 480px) {
-  .emoji-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  #movie-guess {
-    width: 100%;
-  }
-  .search-results {
-    max-width: 100%;
-  }
+.btn-lg {
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  padding: 1.1rem 1.35rem;
 }
 
 .home-screen {
+  width: 100%;
+  padding: clamp(20px, 4vh, 36px) 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.home-screen .btn {
+  width: 100%;
+}
+
+.emoji-icon img,
+.emoji-icon .emoji-fallback {
+  width: 100%;
+  height: 100%;
+}
+
+.emoji-icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.toggle-btn {
+  display: inline-flex;
   align-items: center;
-  height: 100vh;
-  text-align: center;
+  justify-content: center;
+  /* Scale fixed toggles down on smaller screens */
+  width: var(--hud-size);
+  height: var(--hud-size);
+  border-radius: calc(var(--hud-size) / 3);
+  border: 1px solid var(--btn-border);
+  background-color: var(--panel-bg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.09s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+.toggle-btn:hover {
+  filter: brightness(1.05);
+}
+.toggle-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12), inset 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+.toggle-btn:focus-visible {
+  outline: 2px solid var(--btn-border);
+  outline-offset: 2px;
 }
 
-.hint-btn {
-  width: 60%;
-  max-width: 300px;
-  margin-bottom: 10px;
+.top-right-toggles,
+.top-left-overlay {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  z-index: 1000;
+  pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .hint-btn {
-    width: 80%;
+.top-right-toggles {
+  right: calc(max(12px, env(safe-area-inset-right)) + 10px);
+}
+
+.top-left-overlay {
+  left: max(12px, env(safe-area-inset-left));
+}
+
+.top-right-toggles .toggle-btn,
+.top-left-overlay .toggle-btn {
+  pointer-events: auto;
+}
+
+.top-left-username {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  pointer-events: auto;
+}
+
+body.theme-dark .top-left-username {
+  color: #fff;
+  opacity: 0.85;
+}
+
+.floating-left-button__icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phoneCard {
+  container-type: inline-size;
+  width: min(100%, 460px);
+  max-width: var(--card-max-w, 820px);
+  margin: clamp(20px, 5vh, 48px) auto;
+  min-height: min(96vh, 760px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.4vw, 18px);
+  padding: clamp(20px, 5vw, 34px) clamp(20px, 6vw, 34px) clamp(56px, 10vh, 86px);
+  background: var(--panel-bg);
+  border-radius: var(--card-radius);
+  box-shadow: none;
+  overflow: visible;
+  isolation: isolate;
+  position: relative;
+}
+
+/* Phone tweaks */
+@media (max-width: 480px) {
+  .phoneCard {
+    border-radius: var(--card-radius);
+    padding: clamp(22px, 6.8vw, 32px) clamp(22px, 9vw, 34px) clamp(60px, 12vh, 82px);
   }
 }
 
+.phoneCard--game {
+  gap: clamp(10px, 1.2vw, 16px);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 10px;
+}
+
+.panelHeader img,
+.phoneCard .authHeaderGif {
+  /* keep the wordmark/GIF inside the card and centered on all phones */
+  display: block;
+  width: clamp(200px, 85%, 520px);
+  max-width: calc(100% - 2rem);
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin-inline: auto;
+}
+
+.overlay-exit-btn {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  left: max(12px, env(safe-area-inset-left));
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.overlay-exit-btn .exit-game {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--hud-size);
+  height: var(--hud-size);
+  border-radius: calc(var(--hud-size) / 3);
+  border: 1px solid var(--btn-border);
+  background: var(--panel-bg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.overlay-exit-btn .exit-game:hover {
+  filter: brightness(1.05);
+}
+
+.overlay-exit-btn .exit-game:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
 @media (max-width: 480px) {
-  .hint-btn {
-    width: 90%;
+  .phoneCard {
+    margin: clamp(24px, 7vh, 48px) auto;
   }
 }

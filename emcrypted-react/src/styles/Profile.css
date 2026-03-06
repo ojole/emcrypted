@@ -1,0 +1,89 @@
+/* ---------- Profile: match the simplified phoneCard layout ---------- */
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileWelcome {
+  width: min(100%, 700px);
+  margin: 6px auto 12px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+@media (max-width: 560px) {
+  .profileWelcome {
+    display: none;
+  }
+}
+
+.historySection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profileTableBlock .scoreTableHeaderRow,
+.profileTableBlock .scoreTableBodyRow {
+  font-size: 0.72rem;
+}
+
+.profilePlaySection {
+  display: flex;
+  justify-content: center;
+  margin: 18px auto 0;
+  padding-bottom: 6px;
+}
+
+/* Profile card can be a bit wider than the default phoneCard */
+.profileCard {
+  /* base: keep mobile safe, but give desktop extra space */
+  width: min(100%, clamp(420px, 96vw, 940px));
+}
+
+/* on really wide screens, center it a bit nicer */
+@media (min-width: 1280px) {
+  .profileCard {
+    width: min(100%, 920px);
+  }
+}
+
+/* Keep the 3 key stats (guesses, hints, time) on a single horizontal line */
+.profileCard .historyDetailRow,
+.profileCard .historyExpanded,
+.profileCard .historyStatsRow {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.75rem;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 52px;
+}
+
+/* Each stat gets stable width so numbers don’t jitter */
+.profileCard .historyStatItem {
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* If your GameHistoryRow uses .scoreTableBodyRow for the selected state, keep it from wrapping too */
+.profileCard .scoreTableBodyRow.selected .historyExpanded {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* mobile fallback: allow wrap */
+@media (max-width: 640px) {
+  .profileCard .historyDetailRow,
+  .profileCard .historyExpanded,
+  .profileCard .historyStatsRow {
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+  }
+}
