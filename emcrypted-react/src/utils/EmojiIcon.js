@@ -64,6 +64,8 @@ const EmojiIcon = forwardRef(function EmojiIcon(
     hexFull,
     hasTone,
     onError,
+    loading = "eager",
+    decoding = "sync",
     ...rest
   },
   ref
@@ -142,13 +144,14 @@ const EmojiIcon = forwardRef(function EmojiIcon(
         maxWidth: "100%",
         maxHeight: "100%",
         objectFit: "contain",
+        imageRendering: "auto",
         ...style,
       }}
       draggable={false}
       data-hex={hexFull || hex || ""}
       data-has-tone={hasTone ? "true" : "false"}
-      loading="lazy"
-      decoding="async"
+      loading={loading}
+      decoding={decoding}
       onError={handleError}
       {...rest}
     />

@@ -19,14 +19,25 @@ const EmojiGrid = forwardRef(({ tokens = [], highlightedEmojis = [], dimmedEmoji
   const dimSet = new Set(dimmedEmojis);
   const isDimming = dimSet.size > 0;
   const maxCols = viewportWidth <= 430 ? 5 : viewportWidth <= 640 ? 6 : DEFAULT_COLS;
-  const iconSize = viewportWidth <= 430 ? 30 : viewportWidth <= 640 ? 34 : 40;
+  const iconSize = viewportWidth <= 640 ? 32 : 36;
+  const cellSize = viewportWidth <= 430 ? 34 : viewportWidth <= 640 ? 35 : 38;
+  const cellGap = viewportWidth <= 430 ? 4 : viewportWidth <= 640 ? 5 : 8;
   const columns = tokens.length
     ? Math.min(maxCols, Math.max(3, Math.ceil(Math.sqrt(tokens.length))))
     : maxCols;
   const gridClass = ["emoji-grid", isDimming ? "dim-others" : ""].filter(Boolean).join(" ");
 
   return (
-    <div ref={ref} className={gridClass} style={{ "--grid-cols": columns }}>
+    <div
+      ref={ref}
+      className={gridClass}
+      style={{
+        "--grid-cols": columns,
+        "--emoji-render-size": `${iconSize}px`,
+        "--emoji-cell-size": `${cellSize}px`,
+        "--cell-gap": `${cellGap}px`,
+      }}
+    >
       {tokens.map((token, index) => {
         const highlighted = highlightSet.has(index);
         const dimmed = !highlighted && dimSet.has(index);

@@ -165,6 +165,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
   const [isHintRailExpanded, setIsHintRailExpanded] = useState(false);
   const exitTimerRef = useRef(null);
   const exitOverlayRef = useRef(null);
+  const hintRailOverlayRef = useRef(null);
   const hintTimeoutRef = useRef(null);
 
   const isHintActive = showHintBar && countdown > 0;
@@ -562,6 +563,20 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (typeof document === "undefined") return undefined;
+    const node = document.createElement("div");
+    node.className = "overlay-hint-rail";
+    document.body.appendChild(node);
+    hintRailOverlayRef.current = node;
+    return () => {
+      hintRailOverlayRef.current = null;
+      if (node.parentNode) {
+        node.parentNode.removeChild(node);
+      }
+    };
+  }, []);
+
   const exitButtonPortal =
     exitOverlayRef.current && typeof document !== "undefined"
       ? createPortal(
@@ -593,12 +608,9 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     hasTone: false,
   };
 
-  return (
-    <>
-      {exitButtonPortal}
-      <div className={`game-screen ${hintHistory.length ? "has-hint-rail" : ""}`}>
-        {/* Hint History Pills Rail */}
-        {hintHistory.length > 0 && (
+  const hintRailPortal =
+    hintRailOverlayRef.current && hintHistory.length > 0 && typeof document !== "undefined"
+      ? createPortal(
           <div
             className={`hintHistoryRail ${isHintRailExpanded ? "hintHistoryRail-expanded" : "hintHistoryRail-collapsed"}`}
           >
@@ -675,9 +687,16 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                 </button>
               );
             })}
-          </div>
-        )}
+          </div>,
+          hintRailOverlayRef.current
+        )
+      : null;
 
+  return (
+    <>
+      {exitButtonPortal}
+      {hintRailPortal}
+      <div className={`game-screen ${hintHistory.length ? "has-hint-rail" : ""}`}>
         <div className="game-board">
           {currentMovie && (
             <div className="emojiGridWrap">
