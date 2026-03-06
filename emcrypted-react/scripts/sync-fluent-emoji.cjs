@@ -12,8 +12,9 @@ const ROOT = path.resolve(__dirname, "..");
 const COMPILED_DATA_FILE = path.join(ROOT, "public", "data", "moviesG2G.compiled.json");
 const RAW_DATA_FILE = path.join(ROOT, "public", "data", "moviesG2G.json");
 const DEST_DIR = path.join(ROOT, "public", "vendor", "fluent-emoji");
-const FLUENT_ROOT = path.join(ROOT, "vendor", "fluent-emoji");
-const ASSETS_DIR = FLUENT_ROOT; // Flat structure now
+const FLUENT_ROOT = path.join(ROOT, "vendor", "fluent-emoji"); // legacy flat source (optional)
+const FLUENT_UI_ASSETS_DIR = path.join(ROOT, "vendor", "fluentui-emoji", "assets");
+const ASSETS_DIR = FLUENT_UI_ASSETS_DIR;
 
 const OBJECT_FOLDERS = new Map([
   ["📽️", "Film projector"],
@@ -394,29 +395,40 @@ const addHexValue = (target, value) => {
   }
 };
 
-const findPreferredSvg = (folder) => {
-  for (const style of STYLE_PREFERENCE) {
-    const directMatches = glob.sync(path.join(folder, style, "*.svg"));
-    if (directMatches.length) {
-      directMatches.sort();
-      return directMatches[0];
-    }
-    const nestedMatches = glob.sync(path.join(folder, "*", style, "*.svg"));
-    if (nestedMatches.length) {
-      nestedMatches.sort();
-      return nestedMatches[0];
-    }
-  }
-  const matches = glob.sync(path.join(folder, "*.svg"));
-  if (matches.length) {
+const findPreferredSvg = (folder, toneFolder = null) => {
+  if (!folder) return null;
+
+  const tryPattern = (pattern) => {
+    const matches = glob.sync(pattern);
+    if (!matches.length) return null;
     matches.sort();
     return matches[0];
+  };
+
+  for (const style of STYLE_PREFERENCE) {
+    if (toneFolder) {
+      const toneStyle = tryPattern(path.join(folder, toneFolder, style, "*.svg"));
+      if (toneStyle) return toneStyle;
+    }
+
+    const directStyle = tryPattern(path.join(folder, style, "*.svg"));
+    if (directStyle) return directStyle;
+
+    const defaultStyle = tryPattern(path.join(folder, "Default", style, "*.svg"));
+    if (defaultStyle) return defaultStyle;
   }
-  const nestedFallback = glob.sync(path.join(folder, "*", "*.svg"));
-  if (nestedFallback.length) {
-    nestedFallback.sort();
-    return nestedFallback[0];
+
+  if (toneFolder) {
+    const toneFallback = tryPattern(path.join(folder, toneFolder, "*", "*.svg"));
+    if (toneFallback) return toneFallback;
   }
+
+  const directFallback = tryPattern(path.join(folder, "*.svg"));
+  if (directFallback) return directFallback;
+
+  const nestedFallback = tryPattern(path.join(folder, "*", "*.svg"));
+  if (nestedFallback) return nestedFallback;
+
   return null;
 };
 
@@ -428,60 +440,122 @@ const SKIN_TONE_FOLDERS = {
   "Medium-Dark": "1f3fe",
   "Dark": "1f3ff",
 };
+const HEX_TO_SKIN_TONE_FOLDER = Object.fromEntries(
+  Object.entries(SKIN_TONE_FOLDERS).map(([folder, hex]) => [hex, folder])
+);
 
-const buildAssetIndex = async () => {
-  const indexDirCandidates = [ASSETS_DIR, DEST_DIR];
-  let indexDir = null;
-  let svgFiles = [];
+const normalizeUnicodeHex = (unicodeValue) => {
+  if (!unicodeValue || typeof unicodeValue !== "string") return "";
+  const parts = unicodeValue
+    .toLowerCase()
+    .replace(/u\+/g, "")
+    .replace(/[^0-9a-f\s-]+/g, " ")
+    .trim()
+    .split(/[\s,]+/)
+    .map((part) => part.replace(/[^0-9a-f]/g, ""))
+    .filter(Boolean);
+  return parts.join("-");
+};
 
-  for (const candidate of indexDirCandidates) {
-    if (!fs.existsSync(candidate)) continue;
-    const files = glob.sync("*.svg", { cwd: candidate, absolute: false });
-    if (files.length > 0) {
-      indexDir = candidate;
-      svgFiles = files;
-      break;
+const toneFolderForHex = (hex) => {
+  const parts = String(hex || "").toLowerCase().split("-").filter(Boolean);
+  for (const part of parts) {
+    if (HEX_TO_SKIN_TONE_FOLDER[part]) {
+      return HEX_TO_SKIN_TONE_FOLDER[part];
     }
   }
+  return null;
+};
 
-  if (!indexDir) {
-    console.warn(
-      "[sync-fluent-emoji] Fluent emoji assets not found in expected index dirs:",
-      indexDirCandidates.join(", ")
-    );
-    return { glyph: new Map(), hex: new Map(), name: new Map() };
-  }
-
+const buildAssetIndex = async () => {
   const glyphMap = new Map();
   const hexMap = new Map();
   const nameMap = new Map();
 
-  for (const svgFilename of svgFiles) {
-    const svgPath = path.join(indexDir, svgFilename);
-    const hexStr = svgFilename.replace(".svg", "");
+  const registerEntry = (hexStr, svgPath, folderName, preferredGlyph = "") => {
+    if (!hexStr || !svgPath || !fs.existsSync(svgPath)) return;
+    const glyph = preferredGlyph || fromHex(hexStr) || "";
+    const entry = { svgPath, name: folderName || path.basename(svgPath), hex: hexStr, glyph };
 
-    // Create a glyph from the hex code
-    const glyph = fromHex(hexStr);
-    if (!glyph) continue;
+    if (!hexMap.has(hexStr)) {
+      hexMap.set(hexStr, entry);
+    }
 
-    const entry = { svgPath, name: svgFilename, hex: hexStr, glyph };
-
-    // Add to hex map
-    hexMap.set(hexStr, entry);
-
-    // Also add variant without fe0f for compatibility
     const hexNoVs = hexStr.replace(/-fe0f/g, "");
-    if (hexNoVs !== hexStr && !hexMap.has(hexNoVs)) {
+    if (hexNoVs && !hexMap.has(hexNoVs)) {
       hexMap.set(hexNoVs, entry);
     }
 
-    // Add to glyph map
-    const normalized = normalizeCluster(glyph);
-    if (!glyphMap.has(normalized)) glyphMap.set(normalized, entry);
-    if (!glyphMap.has(glyph)) glyphMap.set(glyph, entry);
+    const glyphCandidates = [glyph, preferredGlyph].filter(Boolean);
+    for (const glyphCandidate of glyphCandidates) {
+      const normalized = normalizeCluster(glyphCandidate);
+      if (normalized && !glyphMap.has(normalized)) glyphMap.set(normalized, entry);
+      if (glyphCandidate && !glyphMap.has(glyphCandidate)) glyphMap.set(glyphCandidate, entry);
+      const stripped = stripVS16(normalized || glyphCandidate);
+      if (stripped && !glyphMap.has(stripped)) glyphMap.set(stripped, entry);
+    }
+  };
 
-    const stripped = stripVS16(normalized);
-    if (stripped && !glyphMap.has(stripped)) glyphMap.set(stripped, entry);
+  if (fs.existsSync(ASSETS_DIR)) {
+    const metadataFiles = glob.sync(path.join(ASSETS_DIR, "*", "metadata.json"));
+    for (const metadataPath of metadataFiles) {
+      try {
+        const metadataRaw = await fsp.readFile(metadataPath, "utf8");
+        const metadata = JSON.parse(metadataRaw);
+        const folder = path.dirname(metadataPath);
+        const folderName = path.basename(folder);
+        const glyph = typeof metadata.glyph === "string" ? metadata.glyph : "";
+        const hexSet = new Set();
+
+        const addUnicodeHex = (value) => {
+          const normalized = normalizeUnicodeHex(value);
+          if (normalized) hexSet.add(normalized);
+        };
+
+        addUnicodeHex(metadata.unicode);
+        if (Array.isArray(metadata.unicodeSkintones)) {
+          metadata.unicodeSkintones.forEach(addUnicodeHex);
+        }
+        if (!hexSet.size && glyph) {
+          const glyphHex = toHex(glyph);
+          if (glyphHex) hexSet.add(glyphHex);
+        }
+
+        for (const hexStr of hexSet) {
+          const toneFolder = toneFolderForHex(hexStr);
+          const svgPath = findPreferredSvg(folder, toneFolder) || findPreferredSvg(folder);
+          if (!svgPath) continue;
+          registerEntry(hexStr, svgPath, folderName, glyph || fromHex(hexStr) || "");
+        }
+
+        if (glyph) {
+          const metaKey = normalizeCluster(glyph);
+          if (metaKey && !nameMap.has(metaKey)) {
+            nameMap.set(metaKey, folderName);
+          }
+        }
+      } catch (error) {
+        console.warn(`[sync-fluent-emoji] Failed metadata parse: ${metadataPath}`, error.message);
+      }
+    }
+  }
+
+  const flatDirs = [FLUENT_ROOT];
+  for (const dir of flatDirs) {
+    if (!fs.existsSync(dir)) continue;
+    const svgFiles = glob.sync("*.svg", { cwd: dir, absolute: false });
+    for (const svgFilename of svgFiles) {
+      const hexStr = svgFilename.replace(/\.svg$/i, "").toLowerCase();
+      const svgPath = path.join(dir, svgFilename);
+      registerEntry(hexStr, svgPath, svgFilename, fromHex(hexStr) || "");
+    }
+  }
+
+  if (!hexMap.size) {
+    console.warn(
+      "[sync-fluent-emoji] Fluent emoji assets not found in expected index dirs:",
+      [ASSETS_DIR, FLUENT_ROOT].join(", ")
+    );
   }
 
   return { glyph: glyphMap, hex: hexMap, name: nameMap };
@@ -632,6 +706,15 @@ const createPlaceholderSvg = async (cluster, destPath) => {
   await fsp.writeFile(destPath, svgContent, "utf8");
 };
 
+const isPlaceholderSvg = (svgPath) => {
+  try {
+    const content = fs.readFileSync(svgPath, "utf8");
+    return /<text[\s>]/i.test(content);
+  } catch (error) {
+    return false;
+  }
+};
+
 const resolveCluster = async (cluster) => {
   if (!cluster) return null;
   const index = await getAssetIndex();
@@ -729,6 +812,23 @@ const collectAssetsFromCompiledData = async () => {
     const json = JSON.parse(raw);
     const list = Array.isArray(json) ? json : Object.values(json || {});
     const assetPaths = new Set();
+    const isLikelyEmojiCluster = (cluster) => {
+      if (!cluster) return false;
+      if (/^\s+$/.test(cluster)) return false;
+      const codePoints = Array.from(cluster, (char) => char.codePointAt(0));
+      if (codePoints.some((cp) => cp > 0x7f)) return true;
+      return cluster.includes("\u20E3");
+    };
+    const addEmojiStringAssets = (value) => {
+      splitGraphemes(String(value || "")).forEach((cluster) => {
+        if (!isLikelyEmojiCluster(cluster)) return;
+        const hex = toHex(cluster);
+        if (hex) {
+          assetPaths.add(`${hex}.svg`);
+        }
+      });
+    };
+
     for (const item of list) {
       if (Array.isArray(item?.tokens)) {
         item.tokens.forEach((token) => {
@@ -737,6 +837,22 @@ const collectAssetsFromCompiledData = async () => {
             const filename = path.basename(token.asset);
             assetPaths.add(filename);
           }
+        });
+      }
+
+      if (Array.isArray(item?.hints)) {
+        item.hints.forEach((hintLine) => {
+          const [emojiPart = ""] = String(hintLine || "").split(" - ");
+          const cleanedEmoji = emojiPart.replace(/^\d+\.\s*/, "").trim();
+          addEmojiStringAssets(cleanedEmoji);
+        });
+      }
+
+      if (Array.isArray(item?.breakdown)) {
+        item.breakdown.forEach((line) => {
+          const cleanedLine = String(line || "").replace(/^•\s*/, "").trim();
+          const [emojiPart = ""] = cleanedLine.split(" - ");
+          addEmojiStringAssets(emojiPart.trim());
         });
       }
     }
@@ -800,8 +916,8 @@ const syncAll = async () => {
     const hex = filename.replace(/\.svg$/i, "");
     const destPath = path.join(DEST_DIR, filename);
 
-    // Skip if already exists
-    if (fs.existsSync(destPath)) {
+    // Skip if already exists UNLESS it's a placeholder fallback.
+    if (fs.existsSync(destPath) && !isPlaceholderSvg(destPath)) {
       processed += 1;
       continue;
     }
@@ -842,6 +958,10 @@ const syncAll = async () => {
 
     // STEP 4: Copy if found, otherwise add to missing
     if (sourcePath) {
+      if (path.resolve(sourcePath) === path.resolve(destPath)) {
+        processed += 1;
+        continue;
+      }
       // eslint-disable-next-line no-await-in-loop
       await fse.copy(sourcePath, destPath);
       copied += 1;

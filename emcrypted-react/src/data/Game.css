@@ -35,22 +35,20 @@
 
 .emoji-grid {
   --grid-cols: 6;
-  --cell-size: clamp(32px, 6.6vw, 56px);
-  --cell-gap: clamp(8px, 2vw, 14px);
+  --cell-gap: clamp(6px, 1.6vw, 12px);
   display: grid;
-  grid-template-columns: repeat(var(--grid-cols), minmax(var(--cell-size), var(--cell-size)));
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
   gap: var(--cell-gap);
-  width: fit-content;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   justify-items: center;
+  align-content: start;
 }
 
 .emoji-item {
-  width: var(--cell-size);
-  height: var(--cell-size);
-  min-width: var(--cell-size);
-  min-height: var(--cell-size);
+  width: 100%;
+  min-width: 0;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -62,8 +60,8 @@
 .emoji-item svg,
 .emoji-item .emoji-icon,
 .emoji-item .emoji-fallback {
-  width: calc(var(--cell-size) * 0.82);
-  height: calc(var(--cell-size) * 0.82);
+  width: min(86%, 50px);
+  height: min(86%, 50px);
 }
 
 .emoji-item.highlighted {
@@ -375,10 +373,16 @@ body.theme-dark .result-arrow {
 
 @media (max-width: 480px) {
   .emoji-grid {
-    /* a touch smaller default on very small phones */
-    --cell-size: clamp(16px, 8.5vw, 32px);
-    --cell-gap: clamp(3px, 2.2vw, 8px);
+    --cell-gap: clamp(4px, 1.8vw, 8px);
     width: 100%;
+  }
+
+  .emoji-item img,
+  .emoji-item svg,
+  .emoji-item .emoji-icon,
+  .emoji-item .emoji-fallback {
+    width: min(84%, 34px);
+    height: min(84%, 34px);
   }
 }
 

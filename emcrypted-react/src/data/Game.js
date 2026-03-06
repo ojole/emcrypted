@@ -26,40 +26,22 @@ const applyPolicyToTokens = (inputTokens) => {
 
   const clusters = inputTokens.map((token) => token.cluster);
   const renderTokens = getRenderableEmojiTokens(clusters, tokensByCluster);
-
-  // Map policy tokens by cluster while preserving order for repeated clusters.
-  const renderQueues = new Map();
-  renderTokens.forEach((token) => {
-    const key = token?.cluster || "";
-    if (!renderQueues.has(key)) {
-      renderQueues.set(key, []);
-    }
-    renderQueues.get(key).push(token);
-  });
-
-  // Preserve original token order. If policy has no safe replacement for a cluster,
-  // keep the original token to avoid index drift and visual mismatch.
-  const result = [];
-  inputTokens.forEach((originalToken) => {
-    const originalCluster = originalToken?.cluster || "";
-    const queue = renderQueues.get(originalCluster);
-    const renderToken = Array.isArray(queue) && queue.length ? queue.shift() : null;
-
-    if (!renderToken) {
-      result.push(originalToken);
-      return;
-    }
-
-    result.push({
+  return renderTokens.map((renderToken) => {
+    const originalToken = tokensByCluster.get(renderToken.cluster) || {};
+    const hex = renderToken.hex || originalToken.hex || "";
+    return {
       ...originalToken,
-      asset: renderToken.asset || originalToken.asset,
-      hex: renderToken.hex || originalToken.hex,
+      cluster: renderToken.cluster || originalToken.cluster || "",
+      asset: renderToken.asset || originalToken.asset || "",
+      hex,
+      hexFull: originalToken.hexFull || hex,
+      hexBase: originalToken.hexBase || stripToneFromHex(hex),
       hasTone:
-        typeof renderToken.hasTone === "boolean" ? renderToken.hasTone : originalToken.hasTone,
-    });
+        typeof renderToken.hasTone === "boolean"
+          ? renderToken.hasTone
+          : Boolean(originalToken.hasTone),
+    };
   });
-
-  return result;
 };
 
 const HINT_DURATION = 5;

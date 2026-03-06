@@ -592,11 +592,11 @@
       },
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -763,11 +763,11 @@
       },
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -1072,7 +1072,7 @@
       "1f9b8-200d-2642-fe0f",
       "1f303",
       "1f575-fe0f-200d-2642-fe0f",
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "2696-fe0f",
       "1f3ad",
       "1f987",
@@ -1091,7 +1091,7 @@
       "1f4a3",
       "1f697",
       "1f9b8-200d-2642-fe0f",
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "1f50d",
       "1f5a4",
       "1f987",
@@ -2643,11 +2643,11 @@
     "tokens": [
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -3075,7 +3075,7 @@
       }
     ],
     "tokenHex": [
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "2694-fe0f",
       "1f934",
       "1f468-200d-1f466-200d-1f466",
@@ -3785,11 +3785,11 @@
       },
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -3938,11 +3938,11 @@
       },
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -4006,7 +4006,7 @@
       "1f525",
       "1f48a",
       "1f3ad",
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "1f693",
       "2696-fe0f",
       "1f517",
@@ -4023,7 +4023,7 @@
       "1f4c9",
       "1f4b8",
       "23f3",
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "1f694",
       "2696-fe0f",
       "1f512",
@@ -4869,11 +4869,11 @@
       },
       {
         "cluster": "🕵🏻‍♂️",
-        "hex": "1f575-fe0f-200d-2642-fe0f",
-        "hexFull": "1f575-fe0f-200d-2642-fe0f",
+        "hex": "1f575-1f3fb-200d-2642-fe0f",
+        "hexFull": "1f575-1f3fb-200d-2642-fe0f",
         "hexBase": "1f575-200d-2642",
         "hasTone": true,
-        "asset": "/vendor/fluent-emoji/1f575-fe0f-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f575-1f3fb-200d-2642-fe0f.svg",
         "originalHex": "1f575-1f3fb-200d-2642-fe0f"
       },
       {
@@ -5095,7 +5095,7 @@
       "1f680",
       "1f61f",
       "1f624",
-      "1f575-fe0f-200d-2642-fe0f",
+      "1f575-1f3fb-200d-2642-fe0f",
       "1f54c",
       "1f319",
       "1f47d",
@@ -7467,11 +7467,11 @@
       },
       {
         "cluster": "💪🏻",
-        "hex": "1f4aa",
-        "hexFull": "1f4aa",
+        "hex": "1f4aa-1f3fb",
+        "hexFull": "1f4aa-1f3fb",
         "hexBase": "1f4aa",
         "hasTone": true,
-        "asset": "/vendor/fluent-emoji/1f4aa.svg",
+        "asset": "/vendor/fluent-emoji/1f4aa-1f3fb.svg",
         "originalHex": "1f4aa-1f3fb"
       },
       {
@@ -7691,7 +7691,7 @@
       "1f4a5",
       "1f52b",
       "1f3cb-fe0f-200d-2642-fe0f",
-      "1f4aa",
+      "1f4aa-1f3fb",
       "1f512",
       "1f4e6",
       "1f69a",
@@ -8080,7 +8080,7 @@
   {
     "title": "Terminator 2: Judgment Day",
     "description": "The movie follows Sarah Connor and her son John as they are pursued by a new, more advanced Terminator, the T-1000, sent back in time to kill him. With the help of the reprogrammed T-800, they must prevent the coming of Judgment Day, a catastrophic future event when machines will rise against humans.",
-    "output": "🤖💾🕐⏪👩🣨👦🔫🏍💥⏱️💣😱🌍🔥🏃‍♂️🏃‍♀️💨🤖🔀🤝🚔🏍🚁🏢💾🌐💥⏱️🔜🚫☠️🌍🏭⏸️🕐🔒⛓️🔄👩👦🕐➡️🌍💾🤖🕐⏩👫🌅",
+    "output": "🤖💾🕐⏪👩‍👦🔫🏍💥⏱️💣😱🌍🔥🏃‍♂️🏃‍♀️💨🤖🔀🤝🚔🏍🚁🏢💾🌐💥⏱️🔜🚫☠️🌍🏭⏸️🕐🔒⛓️🔄👩👦🕐➡️🌍💾🤖🕐⏩👫🌅",
     "hints": [
       "1. 🤖 - Mechanical beings from the future.",
       "2. 💾🕐⏪ - The use of time travel.",
@@ -8107,7 +8107,7 @@
       "• 🤖🕐⏩ - Represents the Terminator sent from the future.",
       "• 👫🌅 - Indicates the hopeful conclusion with Sarah and John's survival."
     ],
-    "emojiString": "🤖💾🕐⏪👩🣨👦🔫🏍💥⏱️💣😱🌍🔥🏃‍♂️🏃‍♀️💨🤖🔀🤝🚔🏍🚁🏢💾🌐💥⏱️🔜🚫☠️🌍🏭⏸️🕐🔒⛓️🔄👩👦🕐➡️🌍💾🤖🕐⏩👫🌅",
+    "emojiString": "🤖💾🕐⏪👩‍👦🔫🏍💥⏱️💣😱🌍🔥🏃‍♂️🏃‍♀️💨🤖🔀🤝🚔🏍🚁🏢💾🌐💥⏱️🔜🚫☠️🌍🏭⏸️🕐🔒⛓️🔄👩👦🕐➡️🌍💾🤖🕐⏩👫🌅",
     "tokens": [
       {
         "cluster": "🤖",
@@ -8146,31 +8146,13 @@
         "originalHex": "23ea"
       },
       {
-        "cluster": "👩",
-        "hex": "1f469",
-        "hexFull": "1f469",
-        "hexBase": "1f469",
+        "cluster": "👩‍👦",
+        "hex": "1f469-200d-1f466",
+        "hexFull": "1f469-200d-1f466",
+        "hexBase": "1f469-200d-1f466",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f469.svg",
-        "originalHex": "1f469"
-      },
-      {
-        "cluster": "🣨",
-        "hex": "1f8e8",
-        "hexFull": "1f8e8",
-        "hexBase": "1f8e8",
-        "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f8e8.svg",
-        "originalHex": "1f8e8"
-      },
-      {
-        "cluster": "👦",
-        "hex": "1f466",
-        "hexFull": "1f466",
-        "hexBase": "1f466",
-        "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f466.svg",
-        "originalHex": "1f466"
+        "asset": "/vendor/fluent-emoji/1f469-200d-1f466.svg",
+        "originalHex": "1f469-200d-1f466"
       },
       {
         "cluster": "🔫",
@@ -8565,9 +8547,7 @@
       "1f4be",
       "1f550",
       "23ea",
-      "1f469",
-      "1f8e8",
-      "1f466",
+      "1f469-200d-1f466",
       "1f52b",
       "1f3cd",
       "1f4a5",
@@ -9961,11 +9941,11 @@
       },
       {
         "cluster": "☔️",
-        "hex": "2614-fe0f",
-        "hexFull": "2614-fe0f",
+        "hex": "2614",
+        "hexFull": "2614",
         "hexBase": "2614",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/2614-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/2614.svg",
         "originalHex": "2614-fe0f"
       },
       {
@@ -10092,7 +10072,7 @@
       "1f54a-fe0f",
       "26a1",
       "1f329-fe0f",
-      "2614-fe0f",
+      "2614",
       "1f308",
       "1f52e",
       "1f4d6",
@@ -11442,11 +11422,11 @@
       },
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -11514,11 +11494,11 @@
       },
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -11599,7 +11579,7 @@
       "2696-fe0f",
       "1f52a",
       "1f575-fe0f-200d-2640-fe0f",
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "1f6e0-fe0f",
       "1f9f2",
       "1f525",
@@ -11607,7 +11587,7 @@
       "1f52b",
       "1f44b",
       "1f52a",
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "1f52b",
       "1f9d3",
       "1f64f",
@@ -11647,11 +11627,11 @@
     "tokens": [
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -11971,11 +11951,11 @@
       },
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -12124,7 +12104,7 @@
       }
     ],
     "tokenHex": [
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "1f4bc",
       "1f303",
       "1f340",
@@ -12160,7 +12140,7 @@
       "2696-fe0f",
       "1f494",
       "231b",
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "1fa96",
       "1f4a5",
       "1f3e2",
@@ -13042,11 +13022,11 @@
       },
       {
         "cluster": "👩‍🦰",
-        "hex": "1f469-200d-1f9b0",
-        "hexFull": "1f469-200d-1f9b0",
+        "hex": "1f469-200d-1f9b3",
+        "hexFull": "1f469-200d-1f9b3",
         "hexBase": "1f469-200d",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f469-200d-1f9b0.svg",
+        "asset": "/vendor/fluent-emoji/1f469-200d-1f9b3.svg",
         "originalHex": "1f469-200d-1f9b0"
       },
       {
@@ -13177,11 +13157,11 @@
       },
       {
         "cluster": "👩‍🦰",
-        "hex": "1f469-200d-1f9b0",
-        "hexFull": "1f469-200d-1f9b0",
+        "hex": "1f469-200d-1f9b3",
+        "hexFull": "1f469-200d-1f9b3",
         "hexBase": "1f469-200d",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f469-200d-1f9b0.svg",
+        "asset": "/vendor/fluent-emoji/1f469-200d-1f9b3.svg",
         "originalHex": "1f469-200d-1f9b0"
       },
       {
@@ -13258,11 +13238,11 @@
       },
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -13300,7 +13280,7 @@
       "270d-fe0f",
       "1f511",
       "1f6aa",
-      "1f469-200d-1f9b0",
+      "1f469-200d-1f9b3",
       "1f628",
       "1f6c1",
       "1f470",
@@ -13315,7 +13295,7 @@
       "1f528",
       "1f6aa",
       "1f630",
-      "1f469-200d-1f9b0",
+      "1f469-200d-1f9b3",
       "1f466",
       "1f511",
       "1f6aa",
@@ -13324,7 +13304,7 @@
       "1f6aa",
       "2744-fe0f",
       "1f697-200d-1f3c3-200d-2642-fe0f",
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "1f976",
       "1f3e8"
     ]
@@ -13362,20 +13342,20 @@
     "tokens": [
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
         "cluster": "👮‍♂️",
-        "hex": "1f46e-1f3fb-200d-2642-fe0f",
-        "hexFull": "1f46e-1f3fb-200d-2642-fe0f",
+        "hex": "1f46e-200d-2642-fe0f",
+        "hexFull": "1f46e-200d-2642-fe0f",
         "hexBase": "1f46e-200d-2642",
         "hasTone": false,
-        "asset": "/vendor/fluent-emoji/1f46e-1f3fb-200d-2642-fe0f.svg",
+        "asset": "/vendor/fluent-emoji/1f46e-200d-2642-fe0f.svg",
         "originalHex": "1f46e-200d-2642-fe0f"
       },
       {
@@ -13740,8 +13720,8 @@
       }
     ],
     "tokenHex": [
-      "1f46e-1f3fb-200d-2642-fe0f",
-      "1f46e-1f3fb-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
+      "1f46e-200d-2642-fe0f",
       "1f3d9-fe0f",
       "1f4c5",
       "2696-fe0f",

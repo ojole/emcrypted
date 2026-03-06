@@ -1,3 +1,5 @@
+import { splitGraphemes } from "./graphemes.js";
+
 /**
  * Central emoji normalization rules for rendering in:
  *  - Game board grid
@@ -120,6 +122,12 @@ const BLACK_SQUARE_ASSET = "/vendor/fluent-emoji/2b1b.svg";
 
 const RIGHT_ARROW_HEX = "27a1";     // ➡ right arrow
 const RIGHT_ARROW_ASSET = "/vendor/fluent-emoji/27a1.svg";
+const TONE_REGEX = /[\u{1F3FB}-\u{1F3FF}]/u;
+
+const toHex = (cluster) =>
+  Array.from(String(cluster || ""))
+    .map((char) => char.codePointAt(0).toString(16))
+    .join("-");
 
 const TRAVEL_OBJECT_FALLBACKS = {
   "⚓":  { asset: ANCHOR_ASSET,       hex: ANCHOR_HEX,        hasTone: false },
@@ -321,8 +329,6 @@ function fixBrokenZWJCombos(cluster) {
   // If cluster contains both vehicle and person emoji, it's likely broken
   if (vehicleEmojiPattern.test(cluster) && personEmojiPattern.test(cluster)) {
     // Split by ZWJ and reconstruct proper clusters
-    const { splitGraphemes } = require("./graphemes");
-    // Re-split this cluster into proper graphemes
     return splitGraphemes(cluster);
   }
 
@@ -387,10 +393,22 @@ export function getRenderableEmojiTokens(emojiClusters, tokensByCluster) {
           cluster, // keep the original cluster for matching/highlighting
           _policy: "normal",
         });
+        continue;
       }
     }
 
-    // if we don't know it, we silently drop.
+    // Direct hex fallback path so hints/breakdowns can still map to Fluent assets
+    // even when the cluster wasn't in the puzzle output token list.
+    const hex = toHex(cluster);
+    if (hex) {
+      out.push({
+        asset: `/vendor/fluent-emoji/${hex}.svg`,
+        hex,
+        hasTone: TONE_REGEX.test(cluster),
+        cluster,
+        _policy: "direct-hex",
+      });
+    }
   }
 
   return out;
