@@ -255,6 +255,29 @@ const REQUIRED_CLUSTERS = new Set([
 // 3D assets in Fluent are PNG (not matched by our SVG path patterns).
 const STYLE_PREFERENCE = ["Flat", "Color", "High Contrast"];
 
+const FORCED_FLAT_UI_ASSETS = [
+  {
+    hex: "274e", // ❎ cross mark button (exit)
+    source: path.join(ASSETS_DIR, "Cross mark button", "Flat", "cross_mark_button_flat.svg"),
+  },
+  {
+    hex: "274c", // ❌ cross mark (close glyph)
+    source: path.join(ASSETS_DIR, "Cross mark", "Flat", "cross_mark_flat.svg"),
+  },
+  {
+    hex: "2753", // ❓ red question mark (hint drawer)
+    source: path.join(ASSETS_DIR, "Red question mark", "Flat", "red_question_mark_flat.svg"),
+  },
+  {
+    hex: "2757", // ❗ red exclamation mark (hint pills)
+    source: path.join(ASSETS_DIR, "Red exclamation mark", "Flat", "red_exclamation_mark_flat.svg"),
+  },
+  {
+    hex: "1f31e", // 🌞 sun with face (theme toggle)
+    source: path.join(ASSETS_DIR, "Sun with face", "Flat", "sun_with_face_flat.svg"),
+  },
+];
+
 let folderIndexCache = null;
 let assetIndexPromise;
 const missingClusters = new Set();
@@ -976,6 +999,14 @@ const syncAll = async () => {
     }
   }
 
+  for (const forced of FORCED_FLAT_UI_ASSETS) {
+    if (!forced?.hex || !forced?.source) continue;
+    if (!fs.existsSync(forced.source)) continue;
+    const destPath = path.join(DEST_DIR, `${forced.hex}.svg`);
+    // eslint-disable-next-line no-await-in-loop
+    await fse.copy(forced.source, destPath);
+  }
+
   console.log(`sync-fluent-emoji: ensured ${processed} emoji assets (${copied} newly copied).`);
 
   if (missingClusters.size > 0) {
@@ -1002,6 +1033,13 @@ const syncFullLibrary = async () => {
     if (fs.existsSync(destPath)) continue;
     await fse.copy(entry.svgPath, destPath);
     count += 1;
+  }
+  for (const forced of FORCED_FLAT_UI_ASSETS) {
+    if (!forced?.hex || !forced?.source) continue;
+    if (!fs.existsSync(forced.source)) continue;
+    const destPath = path.join(DEST_DIR, `${forced.hex}.svg`);
+    // eslint-disable-next-line no-await-in-loop
+    await fse.copy(forced.source, destPath);
   }
   console.log(`sync-fluent-emoji: copied ${count} assets via full sync.`);
 };

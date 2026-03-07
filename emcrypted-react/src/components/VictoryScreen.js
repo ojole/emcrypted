@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { useThemeContext } from "../theme/ThemeContext";
 import EmojiIcon from "../utils/EmojiIcon";
 import PrimaryButton from "./PrimaryButton";
@@ -84,24 +84,7 @@ const VictoryScreen = ({ gameData, onNextGame, onHome }) => {
   // Scrollbar theme (affects custom scrollbar colors in styles.css)
   const scrollTheme = theme === "dark" ? "dark" : "light";
 
-  // credit-roll auto-scroll once and stop (match BetterLuckNextTimeScreen)
   const scrollRef = useRef(null);
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    let frame;
-    function step() {
-      const atBottom =
-        el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
-      if (!atBottom) {
-        el.scrollTop += 0.3; // slow, cinematic
-        frame = requestAnimationFrame(step);
-      }
-    }
-    frame = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(frame);
-  }, []);
 
   return (
     <div className="resultCardOuter">

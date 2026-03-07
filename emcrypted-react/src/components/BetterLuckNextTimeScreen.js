@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect } from "react";
+import React, { useMemo, useRef } from "react";
 import { useThemeContext } from "../theme/ThemeContext";
 import EmojiIcon from "../utils/EmojiIcon";
 import PrimaryButton from "./PrimaryButton";
@@ -75,24 +75,7 @@ const BetterLuckNextTimeScreen = ({ gameData, onNextGame, onHome }) => {
   // light/dark class for scrollbar styling
   const scrollTheme = theme === "dark" ? "dark" : "light";
 
-  // auto-scroll "credits roll" effect - scroll once, then stop
   const scrollRef = useRef(null);
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    let frame;
-    function step() {
-      // still scrolling?
-      const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
-      if (!atBottom) {
-        el.scrollTop += 0.3; // scroll down slowly
-        frame = requestAnimationFrame(step);
-      }
-    }
-    frame = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(frame);
-  }, []);
 
   return (
     <div className="resultCardOuter">

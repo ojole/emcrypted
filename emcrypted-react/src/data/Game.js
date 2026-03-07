@@ -826,7 +826,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                     className={`result-item ${isThisWrong ? "wrong-guess" : isThisCorrect ? "correct-guess" : ""}`}
                     onClick={() => submitGuess(movie.title)}
                   >
-                    <span className="result-title">{movie.title}</span>
+                    <span className="guess-option-title">{movie.title}</span>
                     <button
                       type="button"
                       className="result-arrow"

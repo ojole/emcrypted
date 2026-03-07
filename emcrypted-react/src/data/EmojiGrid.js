@@ -36,19 +36,19 @@ const EmojiGrid = forwardRef(
     const isDimming = dimSet.size > 0;
 
     let iconSize = isPhoneWidth
-      ? 26
+      ? 24
       : isVeryCompactWidth
-        ? 27
+        ? 25
         : isNarrowWidth
-          ? 29
+          ? 27
           : isEmbeddedCompactWidth
-            ? 31
-            : 34;
+            ? 29
+            : 32;
     if (isCompactHeight) iconSize -= 1;
     if (isTightHeight) iconSize -= 1;
     if (isUltraTightHeight) iconSize -= 1;
     if (compactMode) iconSize -= isPhoneWidth ? 1 : 2;
-    iconSize = Math.max(24, iconSize);
+    iconSize = Math.max(22, iconSize);
 
     const cellSize = iconSize + (isTightHeight ? 1 : 2);
     const cellGap = isPhoneWidth
@@ -58,10 +58,9 @@ const EmojiGrid = forwardRef(
         : isEmbeddedCompactWidth
           ? 5
           : 6;
-    const maxColsByWidth = isPhoneWidth ? 7 : isNarrowWidth ? 8 : isEmbeddedCompactWidth ? 8 : DEFAULT_COLS;
+    const maxColsByWidth = isPhoneWidth ? 6 : isNarrowWidth ? 7 : isEmbeddedCompactWidth ? 7 : DEFAULT_COLS;
     const minCols = isPhoneWidth ? 4 : 5;
-    const targetRows = isUltraTightHeight ? 6 : isTightHeight ? 7 : isCompactHeight ? 8 : isEmbeddedCompactWidth ? 8 : 9;
-    const desiredCols = tokens.length ? Math.ceil(tokens.length / targetRows) : maxColsByWidth;
+    const desiredCols = tokens.length ? Math.ceil(Math.sqrt(tokens.length)) : maxColsByWidth;
     const columns = tokens.length
       ? Math.min(maxColsByWidth, Math.max(minCols, desiredCols))
       : maxColsByWidth;
