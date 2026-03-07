@@ -27,16 +27,15 @@ body,
 }
 
 .game-stage {
+  --stage-top-pad: calc(max(12px, env(safe-area-inset-top)) + var(--hud-size) + 10px);
+  --stage-bottom-pad: calc(max(12px, env(safe-area-inset-bottom)) + 12px);
   width: 100%;
   min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding:
-    calc(max(12px, env(safe-area-inset-top)) + var(--hud-size) + 10px)
-    clamp(10px, 3vw, 22px)
-    calc(max(12px, env(safe-area-inset-bottom)) + 12px);
+  padding: var(--stage-top-pad) clamp(10px, 3vw, 22px) var(--stage-bottom-pad);
 }
 
 .app-header {
@@ -278,21 +277,16 @@ body.theme-dark .top-left-username {
 }
 
 .phoneCard--game {
-  width: min(calc(100% - 18px), 356px);
-  max-width: 356px;
+  width: min(calc(100% - 16px), 340px);
+  max-width: 340px;
   height: min(
-    650px,
-    calc(
-      100dvh
-      - max(20px, env(safe-area-inset-top))
-      - max(20px, env(safe-area-inset-bottom))
-      - 12px
-    )
+    620px,
+    calc(100dvh - var(--stage-top-pad) - var(--stage-bottom-pad))
   );
   min-height: 0;
   max-height: none;
   margin: 0 auto;
-  padding: clamp(10px, 2.1vh, 14px) clamp(10px, 3vw, 12px);
+  padding: clamp(8px, 1.8vh, 12px) clamp(9px, 2.8vw, 11px);
   gap: clamp(8px, 1.2vw, 14px);
 }
 
@@ -353,28 +347,22 @@ body.theme-dark .top-left-username {
   }
 
   .game-stage {
-    padding:
-      calc(max(10px, env(safe-area-inset-top)) + var(--hud-size) + 8px)
-      12px
-      calc(max(10px, env(safe-area-inset-bottom)) + 10px);
+    --stage-top-pad: calc(max(10px, env(safe-area-inset-top)) + var(--hud-size) + 8px);
+    --stage-bottom-pad: calc(max(10px, env(safe-area-inset-bottom)) + 8px);
+    padding: var(--stage-top-pad) 12px var(--stage-bottom-pad);
   }
 
   .phoneCard--game {
-    width: min(calc(100% - 18px), 320px);
-    max-width: 320px;
+    width: min(calc(100% - 14px), 312px);
+    max-width: 312px;
     height: min(
-      600px,
-      calc(
-        100dvh
-        - max(10px, env(safe-area-inset-top))
-        - max(10px, env(safe-area-inset-bottom))
-        - 8px
-      )
+      560px,
+      calc(100dvh - var(--stage-top-pad) - var(--stage-bottom-pad))
     );
     min-height: 0;
     max-height: none;
     margin: 0 auto;
-    padding: clamp(9px, 2vh, 11px) clamp(9px, 3vw, 10px);
+    padding: clamp(8px, 1.9vh, 10px) clamp(8px, 2.8vw, 9px);
     border-radius: 18px;
   }
 }

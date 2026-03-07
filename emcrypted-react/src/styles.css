@@ -193,7 +193,9 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  max-height: 480px;
+  height: clamp(320px, 54vh, 500px);
+  max-height: clamp(320px, 54vh, 500px);
+  min-height: 320px;
   padding: 16px 20px;
   box-sizing: border-box;
 }
@@ -208,7 +210,8 @@
 /* Scrollable middle section (breakdown rows only) */
 .summaryScrollable {
   flex: 1 1 auto;
-  min-height: 0;               /* 🔑 lets flexbox shrink this area instead of forcing overflow past the card */
+  min-height: 0;               /* keep this region as the dedicated breakdown scroller */
+  max-height: 100%;
   overflow-y: auto;
   padding-right: 12px;
   scrollbar-width: none;
@@ -225,6 +228,7 @@
   position: relative;
   flex: 1 1 auto;
   min-height: 0;
+  max-height: 100%;
 }
 
 /* Shared app-owned scrollbar styling for any internal scroll area */
@@ -382,4 +386,17 @@
   max-width: 260px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .resultCardInner {
+    height: clamp(300px, 50vh, 440px);
+    max-height: clamp(300px, 50vh, 440px);
+    min-height: 300px;
+    padding: 14px 14px;
+  }
+
+  .summaryScrollable {
+    padding-right: 10px;
+  }
 }

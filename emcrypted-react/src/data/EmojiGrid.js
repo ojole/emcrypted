@@ -36,19 +36,19 @@ const EmojiGrid = forwardRef(
     const isDimming = dimSet.size > 0;
 
     let iconSize = isPhoneWidth
-      ? 22
+      ? 20
       : isVeryCompactWidth
-        ? 23
+        ? 21
         : isNarrowWidth
-          ? 25
+          ? 23
           : isEmbeddedCompactWidth
-            ? 27
-            : 30;
+            ? 25
+            : 28;
     if (isCompactHeight) iconSize -= 1;
     if (isTightHeight) iconSize -= 1;
     if (isUltraTightHeight) iconSize -= 1;
     if (compactMode) iconSize -= isPhoneWidth ? 1 : 2;
-    iconSize = Math.max(20, iconSize);
+    iconSize = Math.max(18, iconSize);
 
     const cellSize = iconSize + (isTightHeight ? 1 : 2);
     const cellGap = isPhoneWidth

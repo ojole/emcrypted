@@ -177,6 +177,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
   const [highlightedEmojis, setHighlightedEmojis] = useState([]);
   const [dimmedEmojis, setDimmedEmojis] = useState([]);
   const [usedGuesses, setUsedGuesses] = useState([]);
+  const [failedGuesses, setFailedGuesses] = useState(() => new Set());
   const [sessionStartMs, setSessionStartMs] = useState(Date.now());
   const [gameOver, setGameOver] = useState(false);
   const [exitGlyph, setExitGlyph] = useState(EXIT_ICON);
@@ -265,6 +266,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
       setHighlightedEmojis([]);
       setDimmedEmojis([]);
       setUsedGuesses([]);
+      setFailedGuesses(new Set());
       setSearchResults([]);
       setSubmittedGuess("");
       setGameOver(false);
@@ -351,10 +353,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
       const filteredMovies = moviesList.filter((movie) =>
         movie.title.toLowerCase().includes(userInput.toLowerCase())
       );
-      const remainingResults = filteredMovies.filter(
-        (movie) => !usedGuesses.includes(movie.title.toLowerCase())
-      );
-      setSearchResults(remainingResults.slice(0, 5));
+      setSearchResults(filteredMovies.slice(0, 5));
     } else {
       setSearchResults([]);
     }
@@ -364,15 +363,25 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
   const calculateElapsedMs = useCallback(() => Date.now() - sessionStartMs, [sessionStartMs]);
 
   const submitGuess = (movieTitle) => {
-    const submittedTitle = String(movieTitle || "").toLowerCase();
+    const submittedTitle = String(movieTitle || "").trim().toLowerCase();
+    if (!submittedTitle || failedGuesses.has(submittedTitle) || !currentMovie) {
+      return;
+    }
+
+    const nextGuessCount = usedGuesses.includes(submittedTitle)
+      ? usedGuesses.length
+      : usedGuesses.length + 1;
+
     setSubmittedGuess(submittedTitle);
     setGuess(movieTitle);
-    setUsedGuesses((prev) => [...prev, movieTitle.toLowerCase()]);
+    setUsedGuesses((prev) =>
+      prev.includes(submittedTitle) ? prev : [...prev, submittedTitle]
+    );
     setRefereeData((prev) => ({
       ...prev,
       guesses: prev.guesses + 1,
     }));
-    if (!currentMovie) return;
+
     if (movieTitle.toLowerCase() === currentMovie.title.toLowerCase()) {
       setIsCorrect(true);
       setGameOver(true);
@@ -384,7 +393,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
         onVictory({
           title: currentMovie.title,
           hintsUsed: hintHistory.length,
-          guesses: usedGuesses.length + 1,
+          guesses: nextGuessCount,
           sessionTime: calculateElapsedMs(),
           breakdown: currentMovie.breakdown,
           tokens: policyTokens,
@@ -392,6 +401,14 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
         });
       }, CORRECT_FEEDBACK_MS);
     } else {
+      setFailedGuesses((prev) => {
+        if (prev.has(submittedTitle)) {
+          return prev;
+        }
+        const next = new Set(prev);
+        next.add(submittedTitle);
+        return next;
+      });
       setIsCorrect(false);
       setTimeout(() => {
         setIsCorrect(null);
@@ -805,10 +822,13 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
             />
             <div className="search-results scrollArea">
               {searchResults.map((movie, index) => {
+                const normalizedMovieTitle = movie.title.toLowerCase();
                 const isThisCorrect =
-                  isCorrect === true && movie.title.toLowerCase() === submittedGuess;
+                  isCorrect === true && normalizedMovieTitle === submittedGuess;
                 const isThisWrong =
-                  isCorrect === false && movie.title.toLowerCase() === submittedGuess;
+                  failedGuesses.has(normalizedMovieTitle) ||
+                  (isCorrect === false && normalizedMovieTitle === submittedGuess);
+                const isLockedWrong = failedGuesses.has(normalizedMovieTitle);
 
                 const arrowToken = {
                   asset: "/vendor/fluent-emoji/27a1-fe0f.svg",
@@ -840,16 +860,25 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                 return (
                   <div
                     key={`${movie.title}-${index}`}
-                    className={`result-item ${isThisWrong ? "wrong-guess" : isThisCorrect ? "correct-guess" : ""}`}
-                    onClick={() => submitGuess(movie.title)}
+                    className={`result-item ${isThisWrong ? "wrong-guess" : isThisCorrect ? "correct-guess" : ""} ${isLockedWrong ? "result-item-disabled" : ""}`}
+                    onClick={() => {
+                      if (!isLockedWrong) {
+                        submitGuess(movie.title);
+                      }
+                    }}
+                    aria-disabled={isLockedWrong}
                   >
                     <span className="guess-option-title">{movie.title}</span>
                     <button
                       type="button"
                       className="result-arrow"
+                      disabled={isLockedWrong}
+                      aria-disabled={isLockedWrong}
                       onClick={(e) => {
                         e.stopPropagation();
-                        submitGuess(movie.title);
+                        if (!isLockedWrong) {
+                          submitGuess(movie.title);
+                        }
                       }}
                     >
                       <EmojiIcon
