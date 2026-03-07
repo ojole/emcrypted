@@ -26,6 +26,19 @@ body,
   padding: 0;
 }
 
+.game-stage {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding:
+    calc(max(12px, env(safe-area-inset-top)) + var(--hud-size) + 10px)
+    clamp(10px, 3vw, 22px)
+    calc(max(12px, env(safe-area-inset-bottom)) + 12px);
+}
+
 .app-header {
   width: 100%;
   display: flex;
@@ -265,8 +278,8 @@ body.theme-dark .top-left-username {
 }
 
 .phoneCard--game {
-  width: min(calc(100% - 22px), 430px);
-  max-width: 430px;
+  width: min(calc(100% - 10px), 410px);
+  max-width: 410px;
   height: auto;
   min-height: 0;
   max-height: calc(
@@ -275,8 +288,8 @@ body.theme-dark .top-left-username {
     - max(20px, env(safe-area-inset-bottom))
     - 12px
   );
-  margin: clamp(8px, 2.4vh, 22px) auto;
-  padding: clamp(14px, 2.8vh, 22px) clamp(14px, 4vw, 22px) clamp(18px, 3.2vh, 30px);
+  margin: 0 auto;
+  padding: clamp(12px, 2.4vh, 18px) clamp(12px, 3.6vw, 16px);
   gap: clamp(8px, 1.2vw, 14px);
 }
 
@@ -336,9 +349,16 @@ body.theme-dark .top-left-username {
     margin: clamp(24px, 7vh, 48px) auto;
   }
 
+  .game-stage {
+    padding:
+      calc(max(10px, env(safe-area-inset-top)) + var(--hud-size) + 8px)
+      12px
+      calc(max(10px, env(safe-area-inset-bottom)) + 10px);
+  }
+
   .phoneCard--game {
-    width: min(calc(100% - 14px), 390px);
-    max-width: 390px;
+    width: min(calc(100% - 12px), 360px);
+    max-width: 360px;
     height: auto;
     min-height: 0;
     max-height: calc(
@@ -347,9 +367,15 @@ body.theme-dark .top-left-username {
       - max(10px, env(safe-area-inset-bottom))
       - 8px
     );
-    margin: clamp(8px, 2.4vh, 18px) auto;
-    padding: clamp(10px, 2.6vh, 14px) clamp(10px, 3.5vw, 12px) clamp(12px, 2.4vh, 18px);
+    margin: 0 auto;
+    padding: clamp(10px, 2.2vh, 13px) clamp(10px, 3.4vw, 12px);
     border-radius: 18px;
+  }
+}
+
+@media (max-height: 760px) {
+  .game-stage {
+    align-items: flex-start;
   }
 }
 

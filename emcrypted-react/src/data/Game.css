@@ -42,6 +42,11 @@
   box-sizing: border-box;
 }
 
+.game-screen.has-hint-rail .emojiGridWrap {
+  padding-left: clamp(28px, 5vw, 44px);
+  padding-right: clamp(6px, 2vw, 14px);
+}
+
 .emoji-grid {
   --grid-cols: 6;
   --emoji-render-size: 40px;
@@ -572,6 +577,11 @@ body.theme-dark .hintCountdownBar {
     padding: 0 clamp(6px, 2vw, 12px);
   }
 
+  .game-screen.has-hint-rail .emojiGridWrap {
+    padding-left: clamp(24px, 5.2vw, 40px);
+    padding-right: 6px;
+  }
+
   .game-input {
     padding: clamp(10px, 2vh, 14px) clamp(10px, 3vw, 14px)
       calc(clamp(12px, 2.2vh, 18px) + env(safe-area-inset-bottom));
@@ -597,6 +607,11 @@ body.theme-dark .hintCountdownBar {
 @media (max-width: 480px) {
   .emojiGridWrap {
     padding: 0 4px;
+  }
+
+  .game-screen.has-hint-rail .emojiGridWrap {
+    padding-left: clamp(20px, 7vw, 28px);
+    padding-right: 2px;
   }
 
   .hint-button .btn {

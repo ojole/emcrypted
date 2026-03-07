@@ -58,13 +58,15 @@ const GameFlow = () => {
       <Referee refereeData={refereeData} setRefereeData={setRefereeData} />
 
       {currentScreen === 'game' && (
-        <div className="phoneCard phoneCard--game">
-          <Game
-            onVictory={showVictoryScreen}
-            onExit={showBetterLuckNextTimeScreen}
-            refereeData={refereeData}
-            setRefereeData={setRefereeData}
-          />
+        <div className="game-stage">
+          <div className="phoneCard phoneCard--game">
+            <Game
+              onVictory={showVictoryScreen}
+              onExit={showBetterLuckNextTimeScreen}
+              refereeData={refereeData}
+              setRefereeData={setRefereeData}
+            />
+          </div>
         </div>
       )}
 

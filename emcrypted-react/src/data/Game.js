@@ -747,6 +747,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                 tokens={policyTokens}
                 highlightedEmojis={highlightedEmojis}
                 dimmedEmojis={dimmedEmojis}
+                compactMode={hintHistory.length > 0}
               />
             </div>
           )}
