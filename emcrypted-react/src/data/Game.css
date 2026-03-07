@@ -1,6 +1,6 @@
 .game-screen {
   width: 100%;
-  min-height: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: clamp(8px, 1.4vh, 14px);
@@ -17,11 +17,12 @@
 }
 
 .game-board {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   display: flex;
   flex-direction: column;
   gap: clamp(6px, 1vw, 10px);
   overflow-y: auto;
+  max-height: min(58vh, 520px);
   padding-bottom: clamp(10px, 2vh, 18px);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -203,8 +204,7 @@ body.theme-dark .hintCooldown {
 }
 
 .game-input {
-  position: sticky;
-  bottom: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -577,6 +577,10 @@ body.theme-dark .hintCountdownBar {
       calc(clamp(12px, 2.2vh, 18px) + env(safe-area-inset-bottom));
   }
 
+  .game-board {
+    max-height: min(52vh, 470px);
+  }
+
   /* Keep pills visible on mobile instead of hiding them */
   .hintHistoryRail {
     top: calc(max(12px, env(safe-area-inset-top)) + var(--hud-size) + clamp(12px, 4vw, 18px));
@@ -616,6 +620,10 @@ body.theme-dark .hintCountdownBar {
     padding-inline: 0.45rem;
   }
 
+  .game-board {
+    max-height: min(46vh, 420px);
+  }
+
   .text-input {
     font-size: clamp(1rem, 4.2vw, 1.15rem);
   }
@@ -634,5 +642,9 @@ body.theme-dark .hintCountdownBar {
     gap: 8px;
     padding-top: 10px;
     padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+
+  .game-board {
+    max-height: min(44vh, 380px);
   }
 }
