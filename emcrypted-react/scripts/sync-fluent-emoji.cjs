@@ -250,7 +250,10 @@ const REQUIRED_CLUSTERS = new Set([
   "👨‍👩‍👧‍👧",
 ]);
 
-const STYLE_PREFERENCE = ["Color", "Flat", "3D", "High Contrast"];
+// Prefer Flat SVG first because Color SVG assets include heavy blur filters that
+// become fuzzy at puzzle-grid sizes (especially in Safari/WebKit).
+// 3D assets in Fluent are PNG (not matched by our SVG path patterns).
+const STYLE_PREFERENCE = ["Flat", "Color", "High Contrast"];
 
 let folderIndexCache = null;
 let assetIndexPromise;
@@ -891,6 +894,7 @@ const collectClustersFromData = async () => {
 
 const syncAll = async () => {
   missingClusters.clear();
+  const forceCopy = process.env.EMOJI_FORCE_COPY === "1";
 
   // Ensure required baseline human/hand clusters exist (neutral/yellow defaults)
   for (const glyph of REQUIRED_CLUSTERS) {
@@ -918,7 +922,7 @@ const syncAll = async () => {
     const destPath = path.join(DEST_DIR, filename);
 
     // Skip if already exists UNLESS it's a placeholder fallback.
-    if (fs.existsSync(destPath) && !isPlaceholderSvg(destPath)) {
+    if (!forceCopy && fs.existsSync(destPath) && !isPlaceholderSvg(destPath)) {
       processed += 1;
       continue;
     }
