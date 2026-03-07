@@ -265,28 +265,29 @@ body.theme-dark .top-left-username {
 }
 
 .phoneCard--game {
-  width: min(100%, 560px);
+  width: min(100%, 460px);
+  max-width: 460px;
   height: clamp(
-    520px,
+    560px,
     calc(
       100dvh
-      - max(14px, env(safe-area-inset-top))
-      - max(14px, env(safe-area-inset-bottom))
-      - 18px
+      - max(28px, env(safe-area-inset-top))
+      - max(28px, env(safe-area-inset-bottom))
+      - 28px
     ),
-    900px
+    760px
   );
   min-height: clamp(
-    520px,
+    560px,
     calc(
       100dvh
-      - max(14px, env(safe-area-inset-top))
-      - max(14px, env(safe-area-inset-bottom))
-      - 18px
+      - max(28px, env(safe-area-inset-top))
+      - max(28px, env(safe-area-inset-bottom))
+      - 28px
     ),
-    900px
+    760px
   );
-  margin: 0 auto;
+  margin: clamp(8px, 2.4vh, 22px) auto;
   padding: clamp(14px, 2.8vh, 22px) clamp(14px, 4vw, 22px) clamp(18px, 3.2vh, 30px);
   gap: clamp(8px, 1.2vw, 14px);
 }
@@ -348,9 +349,17 @@ body.theme-dark .top-left-username {
   }
 
   .phoneCard--game {
-    width: min(100%, 100vw - 8px);
-    height: calc(100dvh - max(8px, env(safe-area-inset-top)) - max(8px, env(safe-area-inset-bottom)) - 8px);
-    min-height: calc(100dvh - max(8px, env(safe-area-inset-top)) - max(8px, env(safe-area-inset-bottom)) - 8px);
+    width: min(100%, 430px);
+    max-width: 430px;
+    height: min(
+      710px,
+      calc(100dvh - max(12px, env(safe-area-inset-top)) - max(12px, env(safe-area-inset-bottom)) - 12px)
+    );
+    min-height: min(
+      710px,
+      calc(100dvh - max(12px, env(safe-area-inset-top)) - max(12px, env(safe-area-inset-bottom)) - 12px)
+    );
+    margin: clamp(8px, 2.4vh, 18px) auto;
     padding: clamp(10px, 2.6vh, 16px) clamp(10px, 3.5vw, 14px) clamp(14px, 2.8vh, 20px);
     border-radius: 20px;
   }

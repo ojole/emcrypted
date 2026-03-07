@@ -144,6 +144,23 @@ const parseHint = (hint) => {
   return { emojiText: emojiSource, message };
 };
 
+const findContiguousSpan = (gridClusters, hintClusters, startAt = 0) => {
+  if (!hintClusters.length || !gridClusters.length || hintClusters.length > gridClusters.length) {
+    return -1;
+  }
+
+  outer: for (let i = Math.max(0, startAt); i <= gridClusters.length - hintClusters.length; i += 1) {
+    for (let j = 0; j < hintClusters.length; j += 1) {
+      if (gridClusters[i + j] !== hintClusters[j]) {
+        continue outer;
+      }
+    }
+    return i;
+  }
+
+  return -1;
+};
+
 const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
   const [moviesList, setMoviesList] = useState([]);
   const [currentMovie, setCurrentMovie] = useState(null);
@@ -181,7 +198,8 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     setDimmedEmojis([]);
   }, []);
 
-  const highlightHintTokens = useCallback((hintClusters, tokens) => {
+  const highlightHintTokens = useCallback((hintObj, tokens) => {
+    const hintClusters = Array.isArray(hintObj?.hintClusters) ? hintObj.hintClusters : [];
     if (!Array.isArray(tokens) || !tokens.length || !hintClusters.length) {
       setHighlightedEmojis([]);
       setDimmedEmojis([]);
@@ -189,27 +207,34 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     }
 
     const gridClusters = tokens.map((token) => token.cluster);
-    const length = hintClusters.length;
-    let matchStart = -1;
+    const explicitSpan = Array.isArray(hintObj?.span) ? hintObj.span : [];
+    const validSpan = explicitSpan.filter(
+      (index) => Number.isInteger(index) && index >= 0 && index < gridClusters.length
+    );
 
-    outer: for (let i = 0; i <= gridClusters.length - length; i += 1) {
-      for (let j = 0; j < length; j += 1) {
-        if (gridClusters[i + j] !== hintClusters[j]) {
-          continue outer;
-        }
+    let highlighted = validSpan;
+
+    if (!highlighted.length) {
+      const matchStart = findContiguousSpan(gridClusters, hintClusters, 0);
+      if (matchStart !== -1) {
+        highlighted = Array.from({ length: hintClusters.length }, (_, idx) => matchStart + idx);
+      } else {
+        // Last resort: map duplicates by count instead of highlighting every repeated cluster.
+        const neededCounts = new Map();
+        hintClusters.forEach((cluster) => {
+          neededCounts.set(cluster, (neededCounts.get(cluster) || 0) + 1);
+        });
+        highlighted = gridClusters
+          .map((cluster, index) => {
+            const remaining = neededCounts.get(cluster) || 0;
+            if (remaining <= 0) {
+              return -1;
+            }
+            neededCounts.set(cluster, remaining - 1);
+            return index;
+          })
+          .filter((index) => index !== -1);
       }
-      matchStart = i;
-      break;
-    }
-
-    let highlighted = [];
-    if (matchStart !== -1) {
-      highlighted = Array.from({ length }, (_, idx) => matchStart + idx);
-    } else {
-      const hintSet = new Set(hintClusters);
-      highlighted = gridClusters
-        .map((cluster, index) => (hintSet.has(cluster) ? index : -1))
-        .filter((index) => index !== -1);
     }
 
     const highlightSet = new Set(highlighted);
@@ -426,15 +451,52 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     });
   }, [currentMovie]);
 
+  const resolvedHints = useMemo(() => {
+    if (!currentMovie || !Array.isArray(currentMovie.hints)) {
+      return [];
+    }
+
+    const gridClusters = policyTokens.map((token) => token.cluster);
+    let cursor = 0;
+
+    return currentMovie.hints.map((rawHint, index) => {
+      const { emojiText, message } = parseHint(rawHint);
+      const hintClusters = splitGraphemes(emojiText);
+
+      let span = [];
+      if (hintClusters.length) {
+        const fromCursor = findContiguousSpan(gridClusters, hintClusters, cursor);
+        const fromStart = fromCursor === -1 ? findContiguousSpan(gridClusters, hintClusters, 0) : fromCursor;
+        const matchStart = fromCursor !== -1 ? fromCursor : fromStart;
+        if (matchStart !== -1) {
+          span = Array.from({ length: hintClusters.length }, (_, offset) => matchStart + offset);
+          cursor = matchStart + hintClusters.length;
+        }
+      }
+
+      return {
+        id: index,
+        rawHint,
+        message,
+        emojiText,
+        hintClusters,
+        span,
+      };
+    });
+  }, [currentMovie, policyTokens]);
+
   const showHint = useCallback((hintObj) => {
     const { emojiText, message, id } = hintObj;
-    const hintClusters = splitGraphemes(emojiText);
+    const hintClusters = Array.isArray(hintObj?.hintClusters)
+      ? hintObj.hintClusters
+      : splitGraphemes(emojiText);
+    const span = Array.isArray(hintObj?.span) ? hintObj.span : [];
 
-    setActiveHint({ id, message, emojiText });
+    setActiveHint({ id, message, emojiText, hintClusters, span });
     setShowHintBar(true);
     setHintText(message);
     setCountdown(HINT_DURATION);
-    highlightHintTokens(hintClusters, policyTokens);
+    highlightHintTokens({ id, message, emojiText, hintClusters, span }, policyTokens);
 
     // Auto-close after HINT_DURATION seconds
     if (hintTimeoutRef.current) {
@@ -446,17 +508,17 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
   }, [policyTokens, closeHint, highlightHintTokens]);
 
   const previewHint = useCallback((hintObj) => {
-    if (!hintObj?.emojiText) {
+    if (!hintObj?.emojiText || !Array.isArray(hintObj?.hintClusters)) {
       setHighlightedEmojis([]);
       setDimmedEmojis([]);
       return;
     }
-    highlightHintTokens(splitGraphemes(hintObj.emojiText), policyTokens);
+    highlightHintTokens(hintObj, policyTokens);
   }, [highlightHintTokens, policyTokens]);
 
   const restoreHintPreview = useCallback(() => {
     if (activeHint?.emojiText) {
-      highlightHintTokens(splitGraphemes(activeHint.emojiText), policyTokens);
+      highlightHintTokens(activeHint, policyTokens);
       return;
     }
     setHighlightedEmojis([]);
@@ -470,36 +532,17 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
 
   const handleHintClick = useCallback(() => {
     if (isHintActive || hintExhausted || !currentMovie) return;
-    const rawHint = currentMovie.hints?.[hintIndex];
-    if (!rawHint) return;
-    const { emojiText, message } = parseHint(rawHint);
+    const nextHint = resolvedHints[hintIndex];
+    if (!nextHint) return;
 
-    // Check if this hint already exists in history
-    const existingHint = hintHistory.find(h => h.message === message);
-
-    if (!existingHint) {
-      // New hint - add to history
-      const newHint = {
-        id: hintHistory.length,
-        message,
-        emojiText,
-        rawHint,
-      };
-      setHintHistory(prev => [...prev, newHint]);
-      setHintIndex(prev => prev + 1);
-
-      // Update referee data with distinct hint count
-      setRefereeData(prevData => ({
-        ...prevData,
-        hintsUsed: hintHistory.length + 1,
-      }));
-
-      showHint(newHint);
-    } else {
-      // Replay existing hint
-      showHint(existingHint);
-    }
-  }, [isHintActive, hintExhausted, currentMovie, hintIndex, hintHistory, showHint, setRefereeData]);
+    setHintHistory((prev) => [...prev, nextHint]);
+    setHintIndex((prev) => prev + 1);
+    setRefereeData((prevData) => ({
+      ...prevData,
+      hintsUsed: prevData.hintsUsed + 1,
+    }));
+    showHint(nextHint);
+  }, [isHintActive, hintExhausted, currentMovie, hintIndex, resolvedHints, showHint, setRefereeData]);
 
   const handleExit = () => {
     if (exitTimerRef.current) return;
@@ -753,7 +796,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
               onChange={handleGuessChange}
               placeholder="Guess the movie..."
             />
-            <div className="search-results">
+            <div className="search-results scrollArea">
               {searchResults.map((movie, index) => {
                 const isThisCorrect =
                   isCorrect === true && movie.title.toLowerCase() === guess.toLowerCase();
@@ -780,36 +823,15 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                   <div
                     key={`${movie.title}-${index}`}
                     className={`result-item ${isThisWrong ? "wrong-guess" : isThisCorrect ? "correct-guess" : ""}`}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      padding: "12px 16px",
-                      border: "1px solid rgba(255,255,255,0.15)",
-                      borderRadius: "6px",
-                      background: "rgba(0,0,0,0.2)",
-                      marginBottom: "8px",
-                      cursor: "pointer",
-                    }}
                     onClick={() => submitGuess(movie.title)}
                   >
-                    <span>{movie.title}</span>
+                    <span className="result-title">{movie.title}</span>
                     <button
                       type="button"
+                      className="result-arrow"
                       onClick={(e) => {
                         e.stopPropagation();
                         submitGuess(movie.title);
-                      }}
-                      style={{
-                        background: "transparent",
-                        border: "none",
-                        padding: 0,
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: 32,
-                        height: 32,
                       }}
                     >
                       <EmojiIcon

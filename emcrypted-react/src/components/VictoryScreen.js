@@ -4,8 +4,8 @@ import EmojiIcon from "../utils/EmojiIcon";
 import PrimaryButton from "./PrimaryButton";
 import ShareToast from "./ShareToast";
 import { getRenderableEmojiTokens } from "../utils/emojiPolicy";
-import { splitGraphemes } from "../utils/graphemes";
 import { formatMilliseconds } from "../utils/formatTime";
+import { parseEmojiPrefixedLine } from "../utils/emojiLineParser";
 import "../styles.css";
 
 // 🎉 headline confetti emoji (Fluent asset)
@@ -149,11 +149,7 @@ const VictoryScreen = ({ gameData, onNextGame, onHome }) => {
           ref={scrollRef}
         >
           {breakdownLines.map((line, index) => {
-            const sanitized = line.replace(/^•\s*/, "");
-            const [emojiRaw = "", ...rest] = sanitized.split(" - ");
-            const description = rest.join(" - ").trim() || sanitized;
-
-            const emojiClusters = splitGraphemes(emojiRaw.trim());
+            const { emojiClusters, description } = parseEmojiPrefixedLine(line);
             const renderTokens = getRenderableEmojiTokens(
               emojiClusters,
               tokensByCluster

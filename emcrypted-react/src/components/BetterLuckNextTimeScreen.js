@@ -3,7 +3,7 @@ import { useThemeContext } from "../theme/ThemeContext";
 import EmojiIcon from "../utils/EmojiIcon";
 import PrimaryButton from "./PrimaryButton";
 import { getRenderableEmojiTokens } from "../utils/emojiPolicy";
-import { splitGraphemes } from "../utils/graphemes";
+import { parseEmojiPrefixedLine } from "../utils/emojiLineParser";
 import "../styles.css";
 
 const formatMilliseconds = (ms) => {
@@ -140,11 +140,7 @@ const BetterLuckNextTimeScreen = ({ gameData, onNextGame, onHome }) => {
           ref={scrollRef}
         >
           {breakdownLines.map((line, index) => {
-            const sanitized = line.replace(/^•\s*/, "");
-            const [emojiRaw = "", ...rest] = sanitized.split(" - ");
-            const description = rest.join(" - ").trim() || sanitized;
-
-            const emojiClusters = splitGraphemes(emojiRaw.trim());
+            const { emojiClusters, description } = parseEmojiPrefixedLine(line);
             const renderTokens = getRenderableEmojiTokens(
               emojiClusters,
               tokensByCluster
