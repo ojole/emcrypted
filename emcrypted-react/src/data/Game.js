@@ -45,6 +45,8 @@ const applyPolicyToTokens = (inputTokens) => {
 };
 
 const HINT_DURATION = 5;
+const CORRECT_FEEDBACK_MS = 1000;
+const WRONG_FEEDBACK_MS = 1000;
 const EXIT_ICON = "❎";
 const EXIT_SAD_ICON = "😞";
 const PRIMARY_DATA_URL = "/data/moviesG2G.compiled.json";
@@ -171,6 +173,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
   const [hintText, setHintText] = useState("");
   const [countdown, setCountdown] = useState(0);
   const [isCorrect, setIsCorrect] = useState(null);
+  const [submittedGuess, setSubmittedGuess] = useState("");
   const [highlightedEmojis, setHighlightedEmojis] = useState([]);
   const [dimmedEmojis, setDimmedEmojis] = useState([]);
   const [usedGuesses, setUsedGuesses] = useState([]);
@@ -263,6 +266,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
       setDimmedEmojis([]);
       setUsedGuesses([]);
       setSearchResults([]);
+      setSubmittedGuess("");
       setGameOver(false);
       setExitGlyph(EXIT_ICON);
       setHintHistory([]);
@@ -354,11 +358,15 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
     } else {
       setSearchResults([]);
     }
+    setSubmittedGuess("");
   };
 
   const calculateElapsedMs = useCallback(() => Date.now() - sessionStartMs, [sessionStartMs]);
 
   const submitGuess = (movieTitle) => {
+    const submittedTitle = String(movieTitle || "").toLowerCase();
+    setSubmittedGuess(submittedTitle);
+    setGuess(movieTitle);
     setUsedGuesses((prev) => [...prev, movieTitle.toLowerCase()]);
     setRefereeData((prev) => ({
       ...prev,
@@ -382,15 +390,13 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
           tokens: policyTokens,
           isVictory: true,
         });
-      }, 600);
+      }, CORRECT_FEEDBACK_MS);
     } else {
       setIsCorrect(false);
-      setSearchResults((prev) =>
-        prev.filter((movie) => movie.title.toLowerCase() !== movieTitle.toLowerCase())
-      );
       setTimeout(() => {
         setIsCorrect(null);
-      }, 2000);
+        setSubmittedGuess("");
+      }, WRONG_FEEDBACK_MS);
     }
   };
 
@@ -751,6 +757,8 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
               />
             </div>
           )}
+        </div>
+        <div className="game-input">
           <div className="hintZone">
             {showHintBar && activeHint && (
               <div className="hintBar">
@@ -786,8 +794,6 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
               </div>
             )}
           </div>
-        </div>
-        <div className="game-input">
           <div className="search-bar">
             <input
               id="movie-guess"
@@ -800,9 +806,9 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
             <div className="search-results scrollArea">
               {searchResults.map((movie, index) => {
                 const isThisCorrect =
-                  isCorrect === true && movie.title.toLowerCase() === guess.toLowerCase();
+                  isCorrect === true && movie.title.toLowerCase() === submittedGuess;
                 const isThisWrong =
-                  isCorrect === false && movie.title.toLowerCase() === guess.toLowerCase();
+                  isCorrect === false && movie.title.toLowerCase() === submittedGuess;
 
                 const arrowToken = {
                   asset: "/vendor/fluent-emoji/27a1-fe0f.svg",
@@ -818,7 +824,18 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                   hasTone: false,
                 };
 
-                const iconToken = isThisCorrect ? celebrationToken : arrowToken;
+                const crossToken = {
+                  asset: "/vendor/fluent-emoji/274c.svg",
+                  cluster: "❌",
+                  hex: "274c",
+                  hasTone: false,
+                };
+
+                const iconToken = isThisCorrect
+                  ? celebrationToken
+                  : isThisWrong
+                    ? crossToken
+                    : arrowToken;
 
                 return (
                   <div
@@ -840,7 +857,7 @@ const Game = ({ onVictory, onExit, refereeData, setRefereeData }) => {
                         cluster={iconToken.cluster}
                         hex={iconToken.hex}
                         hasTone={iconToken.hasTone}
-                        size={28}
+                        size={24}
                       />
                     </button>
                   </div>

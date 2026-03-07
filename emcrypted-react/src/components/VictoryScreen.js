@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState, useEffect } from "react";
 import { useThemeContext } from "../theme/ThemeContext";
 import EmojiIcon from "../utils/EmojiIcon";
 import PrimaryButton from "./PrimaryButton";
@@ -85,6 +85,50 @@ const VictoryScreen = ({ gameData, onNextGame, onHome }) => {
   const scrollTheme = theme === "dark" ? "dark" : "light";
 
   const scrollRef = useRef(null);
+  useEffect(() => {
+    const host = scrollRef.current;
+    if (!host) return undefined;
+
+    host.scrollTop = 0;
+    let frame = 0;
+    let cancelled = false;
+
+    const stop = () => {
+      cancelled = true;
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+    };
+
+    const stopOnUserInput = () => {
+      stop();
+    };
+
+    host.addEventListener("wheel", stopOnUserInput, { passive: true });
+    host.addEventListener("touchstart", stopOnUserInput, { passive: true });
+    host.addEventListener("pointerdown", stopOnUserInput, { passive: true });
+
+    const step = () => {
+      if (cancelled) return;
+      const maxScroll = Math.max(0, host.scrollHeight - host.clientHeight);
+      if (maxScroll <= 0 || host.scrollTop >= maxScroll - 1) {
+        stop();
+        return;
+      }
+
+      const speed = Math.max(0.35, maxScroll / 1900);
+      host.scrollTop = Math.min(maxScroll, host.scrollTop + speed);
+      frame = requestAnimationFrame(step);
+    };
+
+    frame = requestAnimationFrame(step);
+
+    return () => {
+      stop();
+      host.removeEventListener("wheel", stopOnUserInput);
+      host.removeEventListener("touchstart", stopOnUserInput);
+      host.removeEventListener("pointerdown", stopOnUserInput);
+    };
+  }, [summary.title, breakdownLines.length]);
 
   return (
     <div className="resultCardOuter">

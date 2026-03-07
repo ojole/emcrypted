@@ -1,6 +1,7 @@
 .game-screen {
   width: 100%;
   min-height: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: clamp(8px, 1.4vh, 14px);
@@ -17,12 +18,13 @@
 }
 
 .game-board {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: clamp(6px, 1vw, 10px);
   overflow-y: auto;
-  max-height: min(58vh, 520px);
+  max-height: none;
   padding-bottom: clamp(10px, 2vh, 18px);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -108,6 +110,7 @@
   flex-direction: column;
   gap: 6px;
   width: 100%;
+  min-height: 26px;
 }
 
 /* --- Hint bar layout --- */
@@ -208,9 +211,9 @@ body.theme-dark .hintCooldown {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 0;
+  margin: auto 0 0;
   padding: clamp(12px, 2.6vh, 18px) clamp(12px, 3.4vw, 18px)
-    clamp(14px, 2.8vh, 22px);
+    clamp(20px, 4vh, 30px);
   background: var(--panel-bg);
   border-bottom-left-radius: var(--card-radius);
   border-bottom-right-radius: var(--card-radius);
@@ -223,6 +226,7 @@ body.theme-dark .game-input {
 }
 
 .search-bar {
+  --guess-input-font-size: clamp(1.05rem, 2vw, 1.3rem);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -264,7 +268,7 @@ body:not(.theme-dark) .search-results {
   border: none;
   background-color: rgba(168, 201, 255, 0.35);
   color: var(--color-ink);
-  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-size: var(--guess-input-font-size);
   text-align: center;
   width: 100%;
   box-sizing: border-box;
@@ -284,7 +288,7 @@ body:not(.theme-dark) .search-results {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  font-size: 0.9rem;
+  font-size: var(--guess-input-font-size);
   line-height: 1.2;
   cursor: pointer;
   transition: transform 0.18s ease, background-color 0.18s ease;
@@ -312,7 +316,7 @@ body:not(.theme-dark) .search-results {
   line-height: 1.15;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-weight: 600;
-  font-size: 0.96rem;
+  font-size: var(--guess-input-font-size);
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -321,24 +325,19 @@ body:not(.theme-dark) .search-results {
 }
 
 .result-arrow {
+  appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 9px;
-  border: 1px solid var(--btn-border);
-  background: var(--btn-bg);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   font-size: 1rem;
   cursor: pointer;
   padding: 0;
-}
-
-body.theme-dark .result-arrow {
-  border-color: rgba(255, 255, 255, 0.25);
-  background: #101f3a;
-  box-shadow: 0 4px 10px rgba(5, 11, 25, 0.45);
 }
 
 .hint-button {
@@ -557,7 +556,7 @@ body.theme-dark .hintCountdownBar {
 
   .game-input {
     padding: clamp(10px, 2vh, 14px) clamp(10px, 3vw, 14px)
-      calc(clamp(12px, 2.2vh, 18px) + env(safe-area-inset-bottom));
+      calc(clamp(16px, 3.2vh, 24px) + env(safe-area-inset-bottom));
   }
 
   .game-board {
@@ -582,6 +581,10 @@ body.theme-dark .hintCountdownBar {
     padding: 0 4px;
   }
 
+  .search-bar {
+    --guess-input-font-size: clamp(0.95rem, 3.8vw, 1.08rem);
+  }
+
   .search-results {
     max-height: min(22vh, 148px);
     gap: 5px;
@@ -590,10 +593,6 @@ body.theme-dark .hintCountdownBar {
   .result-item {
     padding: 7px 9px;
     border-radius: 10px;
-  }
-
-  .result-item .guess-option-title {
-    font-size: 0.86rem;
   }
 
   .hint-button .btn {
@@ -619,10 +618,6 @@ body.theme-dark .hintCountdownBar {
 
   .game-board {
     max-height: min(46vh, 420px);
-  }
-
-  .text-input {
-    font-size: clamp(1rem, 4.2vw, 1.15rem);
   }
 
   .btn {
