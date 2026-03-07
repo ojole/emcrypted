@@ -2,6 +2,7 @@ import React, { useMemo, useRef, useEffect } from "react";
 import { useThemeContext } from "../theme/ThemeContext";
 import EmojiIcon from "../utils/EmojiIcon";
 import PrimaryButton from "./PrimaryButton";
+import InlineOwnedScrollbar from "./ui/InlineOwnedScrollbar";
 import { getRenderableEmojiTokens } from "../utils/emojiPolicy";
 import { parseEmojiPrefixedLine } from "../utils/emojiLineParser";
 import "../styles.css";
@@ -135,54 +136,57 @@ const BetterLuckNextTimeScreen = ({ gameData, onNextGame, onHome }) => {
         </div>
 
         {/* MIDDLE: scrollable breakdown ONLY */}
-        <div
-          className={`summaryScrollable scrollArea ${scrollTheme}`}
-          ref={scrollRef}
-        >
-          {breakdownLines.map((line, index) => {
-            const { emojiClusters, description } = parseEmojiPrefixedLine(line);
-            const renderTokens = getRenderableEmojiTokens(
-              emojiClusters,
-              tokensByCluster
-            );
+        <div className={`summaryScrollWrap ${scrollTheme}`}>
+          <div
+            className={`summaryScrollable scrollArea ${scrollTheme}`}
+            ref={scrollRef}
+          >
+            {breakdownLines.map((line, index) => {
+              const { emojiClusters, description } = parseEmojiPrefixedLine(line);
+              const renderTokens = getRenderableEmojiTokens(
+                emojiClusters,
+                tokensByCluster
+              );
 
-            const showUnicodeFallback =
-              (!renderTokens || renderTokens.length === 0) &&
-              emojiClusters.length > 0;
+              const showUnicodeFallback =
+                (!renderTokens || renderTokens.length === 0) &&
+                emojiClusters.length > 0;
 
-            return (
-              <div
-                key={`${line}-${index}`}
-                className="summaryBreakdownRow"
-              >
-                <div className="emoji-col">
-                  {renderTokens.length > 0
-                    ? renderTokens.map((t, emojiIndex) => (
-                        <EmojiIcon
-                          key={emojiIndex}
-                          asset={t.asset}
-                          hex={t.hex}
-                          hasTone={t.hasTone}
-                          size={28}
-                        />
-                      ))
-                    : showUnicodeFallback
-                    ? (
-                        <span className="summaryUnicodeFallback">
-                          {emojiClusters.join("")}
-                        </span>
-                      )
-                    : null}
-                </div>
+              return (
                 <div
-                  className="text-col"
-                  style={{ color: "var(--color-ink)" }}
+                  key={`${line}-${index}`}
+                  className="summaryBreakdownRow"
                 >
-                  {description}
+                  <div className="emoji-col">
+                    {renderTokens.length > 0
+                      ? renderTokens.map((t, emojiIndex) => (
+                          <EmojiIcon
+                            key={emojiIndex}
+                            asset={t.asset}
+                            hex={t.hex}
+                            hasTone={t.hasTone}
+                            size={28}
+                          />
+                        ))
+                      : showUnicodeFallback
+                      ? (
+                          <span className="summaryUnicodeFallback">
+                            {emojiClusters.join("")}
+                          </span>
+                        )
+                      : null}
+                  </div>
+                  <div
+                    className="text-col"
+                    style={{ color: "var(--color-ink)" }}
+                  >
+                    {description}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <InlineOwnedScrollbar targetRef={scrollRef} className={scrollTheme} />
         </div>
 
         {/* BOTTOM: stats (always visible) */}

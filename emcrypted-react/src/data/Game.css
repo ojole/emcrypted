@@ -42,11 +42,6 @@
   box-sizing: border-box;
 }
 
-.game-screen.has-hint-rail .emojiGridWrap {
-  padding-left: clamp(28px, 5vw, 44px);
-  padding-right: clamp(6px, 2vw, 14px);
-}
-
 .emoji-grid {
   --grid-cols: 6;
   --emoji-render-size: 40px;
@@ -283,13 +278,14 @@ body:not(.theme-dark) .search-results {
 .result-item {
   background-color: var(--result-item-bg, var(--panel-bg));
   color: var(--color-ink);
-  padding: 14px 16px;
+  padding: 10px 12px;
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  font-size: 1.1rem;
+  font-size: clamp(0.8rem, 1.35vw, 0.95rem);
+  line-height: 1.15;
   cursor: pointer;
   transition: transform 0.18s ease, background-color 0.18s ease;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
@@ -313,20 +309,22 @@ body:not(.theme-dark) .search-results {
 .result-item .result-title {
   flex: 1;
   text-align: left;
-  line-height: 1.2;
+  line-height: 1.15;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
 }
 
 .result-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
   border: 1px solid var(--btn-border);
   background: var(--btn-bg);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  font-size: 1.35rem;
+  font-size: 1rem;
   cursor: pointer;
   padding: 0;
 }
@@ -577,11 +575,6 @@ body.theme-dark .hintCountdownBar {
     padding: 0 clamp(6px, 2vw, 12px);
   }
 
-  .game-screen.has-hint-rail .emojiGridWrap {
-    padding-left: clamp(24px, 5.2vw, 40px);
-    padding-right: 6px;
-  }
-
   .game-input {
     padding: clamp(10px, 2vh, 14px) clamp(10px, 3vw, 14px)
       calc(clamp(12px, 2.2vh, 18px) + env(safe-area-inset-bottom));
@@ -607,11 +600,6 @@ body.theme-dark .hintCountdownBar {
 @media (max-width: 480px) {
   .emojiGridWrap {
     padding: 0 4px;
-  }
-
-  .game-screen.has-hint-rail .emojiGridWrap {
-    padding-left: clamp(20px, 7vw, 28px);
-    padding-right: 2px;
   }
 
   .hint-button .btn {

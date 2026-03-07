@@ -3,6 +3,7 @@ import { useThemeContext } from "../theme/ThemeContext";
 import EmojiIcon from "../utils/EmojiIcon";
 import PrimaryButton from "./PrimaryButton";
 import ShareToast from "./ShareToast";
+import InlineOwnedScrollbar from "./ui/InlineOwnedScrollbar";
 import { getRenderableEmojiTokens } from "../utils/emojiPolicy";
 import { formatMilliseconds } from "../utils/formatTime";
 import { parseEmojiPrefixedLine } from "../utils/emojiLineParser";
@@ -144,65 +145,68 @@ const VictoryScreen = ({ gameData, onNextGame, onHome }) => {
         </div>
 
         {/* MIDDLE: scrollable breakdown ONLY */}
-        <div
-          className={`summaryScrollable scrollArea ${scrollTheme}`}
-          ref={scrollRef}
-        >
-          {breakdownLines.map((line, index) => {
-            const { emojiClusters, description } = parseEmojiPrefixedLine(line);
-            const renderTokens = getRenderableEmojiTokens(
-              emojiClusters,
-              tokensByCluster
-            );
+        <div className={`summaryScrollWrap ${scrollTheme}`}>
+          <div
+            className={`summaryScrollable scrollArea ${scrollTheme}`}
+            ref={scrollRef}
+          >
+            {breakdownLines.map((line, index) => {
+              const { emojiClusters, description } = parseEmojiPrefixedLine(line);
+              const renderTokens = getRenderableEmojiTokens(
+                emojiClusters,
+                tokensByCluster
+              );
 
-            // VictoryScreen currently has a unicode fallback
-            const showUnicodeFallback =
-              (!renderTokens || renderTokens.length === 0) &&
-              emojiClusters.length > 0;
+              // VictoryScreen currently has a unicode fallback
+              const showUnicodeFallback =
+                (!renderTokens || renderTokens.length === 0) &&
+                emojiClusters.length > 0;
 
-            return (
-              <div
-                key={`${line}-${index}`}
-                className="summaryBreakdownRow"
-              >
-                <div className="emoji-col">
-                  {renderTokens && renderTokens.length > 0
-                    ? renderTokens.map((t, emojiIndex) => (
-                        <EmojiIcon
-                          key={`${index}-${emojiIndex}-${t.cluster || t.hex || "raw"}`}
-                          asset={t.asset}
-                          hex={t.hex}
-                          hasTone={t.hasTone}
-                          size={28}
-                        />
-                      ))
-                    : showUnicodeFallback
-                    ? (
-                        <span
-                          style={{
-                            fontSize: "28px",
-                            lineHeight: 1.2,
-                            display: "flex",
-                            flexWrap: "wrap",
-                            gap: "4px",
-                            justifyContent: "center",
-                          }}
-                        >
-                          {emojiClusters.join("")}
-                        </span>
-                      )
-                    : null}
-                </div>
-
+              return (
                 <div
-                  className="text-col"
-                  style={{ color: "var(--color-ink)" }}
+                  key={`${line}-${index}`}
+                  className="summaryBreakdownRow"
                 >
-                  {description}
+                  <div className="emoji-col">
+                    {renderTokens && renderTokens.length > 0
+                      ? renderTokens.map((t, emojiIndex) => (
+                          <EmojiIcon
+                            key={`${index}-${emojiIndex}-${t.cluster || t.hex || "raw"}`}
+                            asset={t.asset}
+                            hex={t.hex}
+                            hasTone={t.hasTone}
+                            size={28}
+                          />
+                        ))
+                      : showUnicodeFallback
+                      ? (
+                          <span
+                            style={{
+                              fontSize: "28px",
+                              lineHeight: 1.2,
+                              display: "flex",
+                              flexWrap: "wrap",
+                              gap: "4px",
+                              justifyContent: "center",
+                            }}
+                          >
+                            {emojiClusters.join("")}
+                          </span>
+                        )
+                      : null}
+                  </div>
+
+                  <div
+                    className="text-col"
+                    style={{ color: "var(--color-ink)" }}
+                  >
+                    {description}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <InlineOwnedScrollbar targetRef={scrollRef} className={scrollTheme} />
         </div>
 
         {/* BOTTOM: stats (always visible) */}

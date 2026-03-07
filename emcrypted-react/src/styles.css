@@ -210,6 +210,21 @@
   flex: 1 1 auto;
   min-height: 0;               /* 🔑 lets flexbox shrink this area instead of forcing overflow past the card */
   overflow-y: auto;
+  padding-right: 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.summaryScrollable::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.summaryScrollWrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 /* Shared app-owned scrollbar styling for any internal scroll area */
@@ -239,6 +254,39 @@
 }
 
 .scrollArea::-webkit-scrollbar-thumb:hover {
+  background: var(--app-scroll-thumb-hover);
+}
+
+.inline-owned-scrollbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.16s ease;
+}
+
+.inline-owned-scrollbar-visible {
+  opacity: 1;
+}
+
+.inline-owned-scrollbar-thumb {
+  position: absolute;
+  right: 1px;
+  width: 5px;
+  min-height: 32px;
+  border-radius: 999px;
+  background: var(--app-scroll-thumb);
+  box-shadow:
+    inset 0 1px 0 var(--scrollbar-sheen),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
+    0 0 0 1px var(--app-scroll-thumb-shadow);
+  transition: background-color 0.16s ease;
+}
+
+.inline-owned-scrollbar-thumb:hover {
   background: var(--app-scroll-thumb-hover);
 }
 
