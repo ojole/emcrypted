@@ -265,7 +265,30 @@ body.theme-dark .top-left-username {
 }
 
 .phoneCard--game {
-  gap: clamp(10px, 1.2vw, 16px);
+  width: min(100%, 560px);
+  height: clamp(
+    520px,
+    calc(
+      100dvh
+      - max(14px, env(safe-area-inset-top))
+      - max(14px, env(safe-area-inset-bottom))
+      - 18px
+    ),
+    900px
+  );
+  min-height: clamp(
+    520px,
+    calc(
+      100dvh
+      - max(14px, env(safe-area-inset-top))
+      - max(14px, env(safe-area-inset-bottom))
+      - 18px
+    ),
+    900px
+  );
+  margin: 0 auto;
+  padding: clamp(14px, 2.8vh, 22px) clamp(14px, 4vw, 22px) clamp(18px, 3.2vh, 30px);
+  gap: clamp(8px, 1.2vw, 14px);
 }
 
 .panelHeader {
@@ -322,6 +345,14 @@ body.theme-dark .top-left-username {
 @media (max-width: 480px) {
   .phoneCard {
     margin: clamp(24px, 7vh, 48px) auto;
+  }
+
+  .phoneCard--game {
+    width: min(100%, 100vw - 8px);
+    height: calc(100dvh - max(8px, env(safe-area-inset-top)) - max(8px, env(safe-area-inset-bottom)) - 8px);
+    min-height: calc(100dvh - max(8px, env(safe-area-inset-top)) - max(8px, env(safe-area-inset-bottom)) - 8px);
+    padding: clamp(10px, 2.6vh, 16px) clamp(10px, 3.5vw, 14px) clamp(14px, 2.8vh, 20px);
+    border-radius: 20px;
   }
 }
 

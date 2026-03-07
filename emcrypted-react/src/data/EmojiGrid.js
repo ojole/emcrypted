@@ -4,27 +4,49 @@ import EmojiIcon from "../utils/EmojiIcon";
 const DEFAULT_COLS = 7;
 
 const EmojiGrid = forwardRef(({ tokens = [], highlightedEmojis = [], dimmedEmojis = [] }, ref) => {
-  const [viewportWidth, setViewportWidth] = useState(() =>
-    typeof window !== "undefined" ? window.innerWidth : 1024
-  );
+  const [viewport, setViewport] = useState(() => ({
+    width: typeof window !== "undefined" ? window.innerWidth : 1024,
+    height: typeof window !== "undefined" ? window.innerHeight : 900,
+  }));
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
-    const handleResize = () => setViewportWidth(window.innerWidth);
+    const handleResize = () =>
+      setViewport({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
     window.addEventListener("resize", handleResize, { passive: true });
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const viewportWidth = viewport.width;
+  const viewportHeight = viewport.height;
+  const isPhoneWidth = viewportWidth <= 430;
+  const isNarrowWidth = viewportWidth <= 640;
+  const isCompactHeight = viewportHeight <= 860;
+  const isTightHeight = viewportHeight <= 760;
+  const isUltraTightHeight = viewportHeight <= 680;
+
   const highlightSet = new Set(highlightedEmojis);
   const dimSet = new Set(dimmedEmojis);
   const isDimming = dimSet.size > 0;
-  const maxCols = viewportWidth <= 430 ? 5 : viewportWidth <= 640 ? 6 : DEFAULT_COLS;
-  const iconSize = viewportWidth <= 640 ? 32 : 36;
-  const cellSize = viewportWidth <= 430 ? 34 : viewportWidth <= 640 ? 35 : 38;
-  const cellGap = viewportWidth <= 430 ? 4 : viewportWidth <= 640 ? 5 : 8;
+
+  let iconSize = isPhoneWidth ? 30 : isNarrowWidth ? 32 : 36;
+  if (isCompactHeight) iconSize -= 1;
+  if (isTightHeight) iconSize -= 1;
+  if (isUltraTightHeight) iconSize -= 1;
+  iconSize = Math.max(26, iconSize);
+
+  const cellSize = iconSize + (isTightHeight ? 1 : 2);
+  const cellGap = isPhoneWidth ? (isUltraTightHeight ? 2 : 3) : isNarrowWidth ? (isTightHeight ? 3 : 4) : 6;
+  const maxColsByWidth = isPhoneWidth ? 7 : isNarrowWidth ? 8 : DEFAULT_COLS;
+  const minCols = isPhoneWidth ? 4 : 5;
+  const targetRows = isUltraTightHeight ? 6 : isTightHeight ? 7 : isCompactHeight ? 8 : 9;
+  const desiredCols = tokens.length ? Math.ceil(tokens.length / targetRows) : maxColsByWidth;
   const columns = tokens.length
-    ? Math.min(maxCols, Math.max(3, Math.ceil(Math.sqrt(tokens.length))))
-    : maxCols;
+    ? Math.min(maxColsByWidth, Math.max(minCols, desiredCols))
+    : maxColsByWidth;
   const gridClass = ["emoji-grid", isDimming ? "dim-others" : ""].filter(Boolean).join(" ");
 
   return (

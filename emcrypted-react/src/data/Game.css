@@ -3,7 +3,7 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 2vh, 18px);
+  gap: clamp(8px, 1.4vh, 14px);
   color: var(--color-ink);
   position: relative;
 }
@@ -20,9 +20,9 @@
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(10px, 1.2vw, 16px);
+  gap: clamp(6px, 1vw, 10px);
   overflow-y: auto;
-  padding-bottom: clamp(20px, 4vh, 32px);
+  padding-bottom: clamp(10px, 2vh, 18px);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -34,8 +34,8 @@
 .emojiGridWrap {
   width: 100%;
   max-width: min(var(--card-max-w, 820px), 100%);
-  margin: clamp(12px, 3vw, 24px) auto;
-  padding: 0 clamp(16px, 5vw, 28px);
+  margin: clamp(6px, 1.6vh, 14px) auto;
+  padding: 0 clamp(8px, 2.8vw, 18px);
   display: flex;
   justify-content: center;
   box-sizing: border-box;
@@ -207,9 +207,10 @@ body.theme-dark .hintCooldown {
   bottom: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
   margin: 0;
-  padding: clamp(18px, 4vw, 28px) 1.25rem clamp(24px, 6vw, 34px);
+  padding: clamp(12px, 2.6vh, 18px) clamp(12px, 3.4vw, 18px)
+    clamp(14px, 2.8vh, 22px);
   background: var(--panel-bg);
   border-bottom-left-radius: var(--card-radius);
   border-bottom-right-radius: var(--card-radius);
@@ -225,7 +226,7 @@ body.theme-dark .game-input {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .guessWrap {
@@ -369,7 +370,7 @@ body.theme-dark .result-arrow {
 }
 
 .hint-button .btn {
-  width: clamp(200px, 60%, 260px);
+  width: clamp(180px, 56%, 240px);
 }
 
 
@@ -571,6 +572,16 @@ body.theme-dark .hintCountdownBar {
 }
 
 @media (max-width: 768px) {
+  .emojiGridWrap {
+    margin: clamp(4px, 1vh, 10px) auto;
+    padding: 0 clamp(6px, 2vw, 12px);
+  }
+
+  .game-input {
+    padding: clamp(10px, 2vh, 14px) clamp(10px, 3vw, 14px)
+      calc(clamp(12px, 2.2vh, 18px) + env(safe-area-inset-bottom));
+  }
+
   /* Keep pills visible on mobile instead of hiding them */
   .hintHistoryRail {
     top: calc(max(12px, env(safe-area-inset-top)) + var(--hud-size) + clamp(12px, 4vw, 18px));
@@ -585,6 +596,14 @@ body.theme-dark .hintCountdownBar {
 }
 
 @media (max-width: 480px) {
+  .emojiGridWrap {
+    padding: 0 4px;
+  }
+
+  .hint-button .btn {
+    width: min(220px, 68%);
+  }
+
   .hintBarRow {
     white-space: normal;
     flex-wrap: wrap;
@@ -608,5 +627,17 @@ body.theme-dark .hintCountdownBar {
 
   .btn {
     border-radius: 12px;
+  }
+}
+
+@media (max-height: 820px) {
+  .emojiGridWrap {
+    margin: 4px auto;
+  }
+
+  .game-input {
+    gap: 8px;
+    padding-top: 10px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
   }
 }
