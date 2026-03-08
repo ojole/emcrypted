@@ -1,7 +1,7 @@
 .game-screen {
   width: 100%;
   min-height: 0;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: clamp(8px, 1.4vh, 14px);
@@ -18,14 +18,14 @@
 }
 
 .game-board {
-  flex: 0 1 auto;
+  flex: 0 0 auto;
   min-height: 0;
   display: flex;
   flex-direction: column;
   gap: clamp(6px, 1vw, 10px);
   overflow-y: auto;
-  max-height: min(50vh, 420px);
-  padding-bottom: clamp(2px, 0.8vh, 8px);
+  max-height: min(42vh, 320px);
+  padding-bottom: clamp(2px, 0.7vh, 6px);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -37,8 +37,8 @@
 .emojiGridWrap {
   width: 100%;
   max-width: min(var(--card-max-w, 820px), 100%);
-  margin: clamp(2px, 0.8vh, 8px) auto;
-  padding: 0 clamp(4px, 2vw, 12px);
+  margin: clamp(1px, 0.55vh, 6px) auto;
+  padding: 0 clamp(3px, 1.6vw, 10px);
   display: flex;
   justify-content: center;
   box-sizing: border-box;
@@ -211,9 +211,9 @@ body.theme-dark .hintCooldown {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: clamp(2px, 0.8vh, 8px) 0 0;
-  padding: clamp(8px, 1.8vh, 12px) clamp(9px, 2.6vw, 14px)
-    clamp(10px, 2vh, 14px);
+  margin: clamp(1px, 0.45vh, 5px) 0 0;
+  padding: clamp(7px, 1.6vh, 11px) clamp(8px, 2.4vw, 12px)
+    clamp(9px, 1.9vh, 12px);
   background: var(--panel-bg);
   border-bottom-left-radius: var(--card-radius);
   border-bottom-right-radius: var(--card-radius);
@@ -226,12 +226,12 @@ body.theme-dark .game-input {
 }
 
 .search-bar {
-  --guess-input-font-size: clamp(0.88rem, 1.25vw, 1rem);
-  --guess-option-font-size: clamp(0.84rem, 1.15vw, 0.98rem);
+  --guess-input-font-size: clamp(0.84rem, 1.1vw, 0.94rem);
+  --guess-option-font-size: clamp(0.76rem, 0.98vw, 0.86rem);
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .guessWrap {
@@ -241,10 +241,10 @@ body.theme-dark .game-input {
 
 .search-results {
   width: 100%;
-  max-height: min(20vh, 152px);
+  max-height: min(17vh, 124px);
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   padding: 0.2rem 0.1rem 0.1rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -283,7 +283,7 @@ body:not(.theme-dark) .search-results {
 .result-item {
   background-color: var(--result-item-bg, var(--panel-bg));
   color: var(--color-ink);
-  padding: 7px 9px;
+  padding: 6px 8px;
   border-radius: 12px;
   display: flex;
   justify-content: space-between;
@@ -334,8 +334,8 @@ body:not(.theme-dark) .search-results {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -361,7 +361,7 @@ body:not(.theme-dark) .search-results {
 }
 
 .hint-button .btn {
-  width: clamp(180px, 56%, 240px);
+  width: clamp(168px, 54%, 232px);
 }
 
 
@@ -574,7 +574,7 @@ body.theme-dark .hintCountdownBar {
   }
 
   .game-board {
-    max-height: min(44vh, 360px);
+    max-height: min(36vh, 272px);
   }
 
   /* Keep pills visible on mobile instead of hiding them */
@@ -597,16 +597,16 @@ body.theme-dark .hintCountdownBar {
 
   .search-bar {
     --guess-input-font-size: clamp(0.84rem, 2.8vw, 0.94rem);
-    --guess-option-font-size: clamp(0.8rem, 2.55vw, 0.9rem);
+    --guess-option-font-size: clamp(0.72rem, 2.18vw, 0.82rem);
   }
 
   .search-results {
-    max-height: min(18vh, 126px);
-    gap: 5px;
+    max-height: min(15vh, 108px);
+    gap: 4px;
   }
 
   .result-item {
-    padding: 7px 9px;
+    padding: 6px 7px;
     border-radius: 10px;
   }
 
@@ -632,7 +632,7 @@ body.theme-dark .hintCountdownBar {
   }
 
   .game-board {
-    max-height: min(42vh, 330px);
+    max-height: min(33vh, 232px);
   }
 
   .btn {
@@ -652,6 +652,6 @@ body.theme-dark .hintCountdownBar {
   }
 
   .game-board {
-    max-height: min(40vh, 312px);
+    max-height: min(34vh, 246px);
   }
 }

@@ -82,12 +82,12 @@ const EmojiGrid = forwardRef(
     const viewportWidth = viewport.width;
     const viewportHeight = viewport.height;
     const availableWidth = Math.max(
-      200,
-      (containerMetrics.width || viewportWidth) - (viewportWidth <= 430 ? 8 : 14)
+      188,
+      (containerMetrics.width || viewportWidth) - (viewportWidth <= 430 ? 6 : 10)
     );
     const availableHeight = Math.max(
-      180,
-      (containerMetrics.height || viewportHeight * 0.45) - (viewportWidth <= 430 ? 8 : 14)
+      164,
+      (containerMetrics.height || viewportHeight * 0.43) - (viewportWidth <= 430 ? 6 : 10)
     );
 
     const isEmbeddedCompactWidth = viewportWidth <= 760;
@@ -116,7 +116,7 @@ const EmojiGrid = forwardRef(
     const resolvedGap = Math.max(2, cellGap - (isDenseGrid ? 1 : 0));
 
     const minCols = isPhoneWidth ? 4 : 5;
-    const maxColsByDevice = isPhoneWidth ? 6 : isNarrowWidth ? 7 : DEFAULT_COLS;
+    const maxColsByDevice = isPhoneWidth ? 7 : isNarrowWidth ? 7 : DEFAULT_COLS;
     const hardColsByWidth = Math.max(
       minCols,
       Math.floor((availableWidth + resolvedGap) / (20 + resolvedGap))
@@ -127,14 +127,14 @@ const EmojiGrid = forwardRef(
     const rows = tokenCount ? Math.ceil(tokenCount / columns) : 1;
 
     let preferredIconSize = isPhoneWidth
-      ? 23
+      ? 25
       : isVeryCompactWidth
-        ? 24
+        ? 26
         : isNarrowWidth
-          ? 26
+          ? 28
           : isEmbeddedCompactWidth
-            ? 28
-            : 30;
+            ? 30
+            : 32;
 
     if (tokenCount <= 40) preferredIconSize += 2;
     if (tokenCount <= 24) preferredIconSize += 2;
@@ -144,10 +144,10 @@ const EmojiGrid = forwardRef(
     preferredIconSize -= densityPenalty;
     if (compactMode) preferredIconSize -= 1;
 
-    const maxIconByWidth = Math.floor((availableWidth - (columns - 1) * resolvedGap) / columns) - 2;
-    const maxIconByHeight = Math.floor((availableHeight - (rows - 1) * resolvedGap) / rows) - 2;
+    const maxIconByWidth = Math.floor((availableWidth - (columns - 1) * resolvedGap) / columns) - 1;
+    const maxIconByHeight = Math.floor((availableHeight - (rows - 1) * resolvedGap) / rows) - 1;
     let iconSize = Math.min(preferredIconSize, maxIconByWidth, maxIconByHeight);
-    iconSize = Math.max(17, Math.min(32, iconSize));
+    iconSize = Math.max(isPhoneWidth ? 18 : 20, Math.min(isPhoneWidth ? 30 : 34, iconSize));
     const cellSize = iconSize + (isTightHeight ? 1 : 2);
     const gridClass = ["emoji-grid", isDimming ? "dim-others" : ""].filter(Boolean).join(" ");
 
