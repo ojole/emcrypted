@@ -277,17 +277,15 @@ body.theme-dark .top-left-username {
 }
 
 .phoneCard--game {
-  width: min(calc(100% - 16px), 340px);
-  max-width: 340px;
-  height: min(
-    620px,
-    calc(100dvh - var(--stage-top-pad) - var(--stage-bottom-pad))
-  );
+  width: min(calc(100% - 18px), 338px);
+  max-width: 338px;
+  height: auto;
   min-height: 0;
-  max-height: none;
+  max-height: min(82dvh, calc(100dvh - var(--stage-top-pad) - var(--stage-bottom-pad)));
   margin: 0 auto;
-  padding: clamp(8px, 1.8vh, 12px) clamp(9px, 2.8vw, 11px);
-  gap: clamp(8px, 1.2vw, 14px);
+  padding: clamp(8px, 1.6vh, 11px) clamp(8px, 2.5vw, 10px);
+  gap: clamp(6px, 1vh, 10px);
+  overflow: hidden;
 }
 
 .panelHeader {
@@ -353,16 +351,13 @@ body.theme-dark .top-left-username {
   }
 
   .phoneCard--game {
-    width: min(calc(100% - 14px), 312px);
-    max-width: 312px;
-    height: min(
-      560px,
-      calc(100dvh - var(--stage-top-pad) - var(--stage-bottom-pad))
-    );
+    width: min(calc(100% - 14px), 308px);
+    max-width: 308px;
+    height: auto;
     min-height: 0;
-    max-height: none;
+    max-height: min(78dvh, calc(100dvh - var(--stage-top-pad) - var(--stage-bottom-pad)));
     margin: 0 auto;
-    padding: clamp(8px, 1.9vh, 10px) clamp(8px, 2.8vw, 9px);
+    padding: clamp(7px, 1.6vh, 9px) clamp(7px, 2.4vw, 8px);
     border-radius: 18px;
   }
 }

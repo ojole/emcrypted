@@ -190,8 +190,9 @@
   border: 1px solid var(--btn-border);
   box-shadow: none;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 0;
   position: relative;
   height: clamp(320px, 54vh, 500px);
   max-height: clamp(320px, 54vh, 500px);
@@ -204,13 +205,14 @@
 .summaryFixedTop {
   flex-shrink: 0;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 0;
+  padding-bottom: 10px;
 }
 
 /* Scrollable middle section (breakdown rows only) */
 .summaryScrollable {
-  flex: 1 1 auto;
-  min-height: 0;               /* keep this region as the dedicated breakdown scroller */
+  height: 100%;
+  min-height: 0;
   max-height: 100%;
   overflow-y: auto;
   padding-right: 12px;
@@ -229,6 +231,7 @@
   flex: 1 1 auto;
   min-height: 0;
   max-height: 100%;
+  overflow: hidden;
 }
 
 /* Shared app-owned scrollbar styling for any internal scroll area */
@@ -297,7 +300,8 @@
 /* Fixed bottom section (stats) */
 .summaryFixedBottom {
   flex-shrink: 0;
-  margin-top: 12px;
+  margin-top: 10px;
+  padding-top: 8px;
   text-align: center;
 }
 

@@ -1,4 +1,10 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import EmojiIcon from "../utils/EmojiIcon";
 
 const DEFAULT_COLS = 7;
@@ -9,6 +15,24 @@ const EmojiGrid = forwardRef(
       width: typeof window !== "undefined" ? window.innerWidth : 1024,
       height: typeof window !== "undefined" ? window.innerHeight : 900,
     }));
+    const [containerMetrics, setContainerMetrics] = useState({
+      width: 0,
+      height: 0,
+    });
+    const gridRef = useRef(null);
+
+    const assignGridRef = useCallback(
+      (node) => {
+        gridRef.current = node;
+        if (!ref) return;
+        if (typeof ref === "function") {
+          ref(node);
+          return;
+        }
+        ref.current = node;
+      },
+      [ref]
+    );
 
     useEffect(() => {
       if (typeof window === "undefined") return undefined;
@@ -21,8 +45,51 @@ const EmojiGrid = forwardRef(
       return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    useEffect(() => {
+      if (typeof window === "undefined") return undefined;
+      const node = gridRef.current;
+      if (!node) return undefined;
+      const wrapNode = node.parentElement;
+      const boardNode = node.closest(".game-board");
+
+      const updateMetrics = () => {
+        const width = wrapNode?.clientWidth || node.clientWidth || viewport.width;
+        const height = boardNode?.clientHeight || wrapNode?.clientHeight || viewport.height;
+        setContainerMetrics((prev) => {
+          if (prev.width === width && prev.height === height) {
+            return prev;
+          }
+          return { width, height };
+        });
+      };
+
+      updateMetrics();
+      window.addEventListener("resize", updateMetrics, { passive: true });
+
+      let observer = null;
+      if ("ResizeObserver" in window) {
+        observer = new ResizeObserver(updateMetrics);
+        if (wrapNode) observer.observe(wrapNode);
+        if (boardNode) observer.observe(boardNode);
+      }
+
+      return () => {
+        window.removeEventListener("resize", updateMetrics);
+        if (observer) observer.disconnect();
+      };
+    }, [tokens.length, viewport.height, viewport.width]);
+
     const viewportWidth = viewport.width;
     const viewportHeight = viewport.height;
+    const availableWidth = Math.max(
+      200,
+      (containerMetrics.width || viewportWidth) - (viewportWidth <= 430 ? 8 : 14)
+    );
+    const availableHeight = Math.max(
+      180,
+      (containerMetrics.height || viewportHeight * 0.45) - (viewportWidth <= 430 ? 8 : 14)
+    );
+
     const isEmbeddedCompactWidth = viewportWidth <= 760;
     const isVeryCompactWidth = viewportWidth <= 560;
     const isPhoneWidth = viewportWidth <= 430;
@@ -35,22 +102,10 @@ const EmojiGrid = forwardRef(
     const dimSet = new Set(dimmedEmojis);
     const isDimming = dimSet.size > 0;
 
-    let iconSize = isPhoneWidth
-      ? 20
-      : isVeryCompactWidth
-        ? 21
-        : isNarrowWidth
-          ? 23
-          : isEmbeddedCompactWidth
-            ? 25
-            : 28;
-    if (isCompactHeight) iconSize -= 1;
-    if (isTightHeight) iconSize -= 1;
-    if (isUltraTightHeight) iconSize -= 1;
-    if (compactMode) iconSize -= isPhoneWidth ? 1 : 2;
-    iconSize = Math.max(18, iconSize);
+    const tokenCount = Array.isArray(tokens) ? tokens.length : 0;
+    const densityPenalty = tokenCount >= 72 ? 3 : tokenCount >= 60 ? 2 : tokenCount >= 48 ? 1 : 0;
+    const isDenseGrid = tokenCount >= 56;
 
-    const cellSize = iconSize + (isTightHeight ? 1 : 2);
     const cellGap = isPhoneWidth
       ? (isUltraTightHeight ? 2 : 3)
       : isNarrowWidth
@@ -58,23 +113,53 @@ const EmojiGrid = forwardRef(
         : isEmbeddedCompactWidth
           ? 5
           : 6;
-    const maxColsByWidth = isPhoneWidth ? 6 : isNarrowWidth ? 7 : isEmbeddedCompactWidth ? 7 : DEFAULT_COLS;
+    const resolvedGap = Math.max(2, cellGap - (isDenseGrid ? 1 : 0));
+
     const minCols = isPhoneWidth ? 4 : 5;
-    const desiredCols = tokens.length ? Math.ceil(Math.sqrt(tokens.length)) : maxColsByWidth;
-    const columns = tokens.length
-      ? Math.min(maxColsByWidth, Math.max(minCols, desiredCols))
-      : maxColsByWidth;
+    const maxColsByDevice = isPhoneWidth ? 6 : isNarrowWidth ? 7 : DEFAULT_COLS;
+    const hardColsByWidth = Math.max(
+      minCols,
+      Math.floor((availableWidth + resolvedGap) / (20 + resolvedGap))
+    );
+    const maxCols = Math.max(minCols, Math.min(maxColsByDevice, hardColsByWidth));
+    const desiredCols = tokenCount ? Math.ceil(Math.sqrt(tokenCount)) : maxCols;
+    const columns = tokenCount ? Math.min(maxCols, Math.max(minCols, desiredCols)) : maxCols;
+    const rows = tokenCount ? Math.ceil(tokenCount / columns) : 1;
+
+    let preferredIconSize = isPhoneWidth
+      ? 23
+      : isVeryCompactWidth
+        ? 24
+        : isNarrowWidth
+          ? 26
+          : isEmbeddedCompactWidth
+            ? 28
+            : 30;
+
+    if (tokenCount <= 40) preferredIconSize += 2;
+    if (tokenCount <= 24) preferredIconSize += 2;
+    if (isCompactHeight) preferredIconSize -= 1;
+    if (isTightHeight) preferredIconSize -= 1;
+    if (isUltraTightHeight) preferredIconSize -= 1;
+    preferredIconSize -= densityPenalty;
+    if (compactMode) preferredIconSize -= 1;
+
+    const maxIconByWidth = Math.floor((availableWidth - (columns - 1) * resolvedGap) / columns) - 2;
+    const maxIconByHeight = Math.floor((availableHeight - (rows - 1) * resolvedGap) / rows) - 2;
+    let iconSize = Math.min(preferredIconSize, maxIconByWidth, maxIconByHeight);
+    iconSize = Math.max(17, Math.min(32, iconSize));
+    const cellSize = iconSize + (isTightHeight ? 1 : 2);
     const gridClass = ["emoji-grid", isDimming ? "dim-others" : ""].filter(Boolean).join(" ");
 
     return (
       <div
-        ref={ref}
+        ref={assignGridRef}
         className={gridClass}
         style={{
           "--grid-cols": columns,
           "--emoji-render-size": `${iconSize}px`,
           "--emoji-cell-size": `${cellSize}px`,
-          "--cell-gap": `${cellGap}px`,
+          "--cell-gap": `${resolvedGap}px`,
         }}
       >
         {tokens.map((token, index) => {
