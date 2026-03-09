@@ -264,6 +264,17 @@
   background: var(--app-scroll-thumb-hover);
 }
 
+/* Summary breakdown uses the owned overlay scrollbar only (prevents duplicate thumb). */
+.summaryScrollable.scrollArea {
+  scrollbar-width: none;
+}
+
+.summaryScrollable.scrollArea::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 .inline-owned-scrollbar {
   position: absolute;
   top: 0;

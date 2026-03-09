@@ -9,63 +9,81 @@ import TopRightToggles from "./components/TopRightToggles";
 
 const RootLayout = () => {
   React.useEffect(() => {
+    let keyboardLikelyOpen = false
+
     const snapViewport = () => {
       if (window.scrollX !== 0 || window.scrollY !== 0) {
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0)
       }
-    };
+    }
 
     const scheduleSnap = (delays) => {
-      delays.forEach((delay) => window.setTimeout(snapViewport, delay));
-    };
+      delays.forEach((delay) => window.setTimeout(snapViewport, delay))
+    }
 
     const handleFocusIn = (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLElement)) return;
+      const target = event.target
+      if (!(target instanceof HTMLElement)) return
       const isInputTarget =
         target.tagName === "INPUT" ||
         target.tagName === "TEXTAREA" ||
         target.tagName === "SELECT" ||
-        target.isContentEditable;
-      if (!isInputTarget) return;
-      scheduleSnap([0, 90, 200]);
-    };
+        target.isContentEditable
+      if (!isInputTarget) return
+      keyboardLikelyOpen = true
+    }
 
     const handleFocusOut = () => {
-      scheduleSnap([60, 180, 360, 620]);
-    };
+      const vv = window.visualViewport
+      const viewportDelta = vv ? window.innerHeight - vv.height : 0
+      if (viewportDelta < 80) {
+        keyboardLikelyOpen = false
+        scheduleSnap([120, 260, 480])
+      }
+    }
 
     const handleViewportShift = () => {
-      const vv = window.visualViewport;
+      const vv = window.visualViewport
       if (!vv) {
-        snapViewport();
-        return;
+        return
       }
-      if (vv.offsetTop !== 0 || vv.pageTop !== 0) {
-        scheduleSnap([0, 120]);
+      const viewportDelta = window.innerHeight - vv.height
+      const keyboardOpenNow = viewportDelta > 130
+      if (keyboardOpenNow) {
+        keyboardLikelyOpen = true
+        return
       }
-    };
+      if (keyboardLikelyOpen) {
+        keyboardLikelyOpen = false
+        scheduleSnap([120, 260, 460])
+      }
+    }
 
     const handleOrientationChange = () => {
-      scheduleSnap([120, 360]);
-    };
+      scheduleSnap([120, 360])
+    }
 
-    window.addEventListener("focusin", handleFocusIn, true);
-    window.addEventListener("focusout", handleFocusOut, true);
-    window.addEventListener("orientationchange", handleOrientationChange);
-    window.addEventListener("resize", handleViewportShift, { passive: true });
-    window.visualViewport?.addEventListener("resize", handleViewportShift, { passive: true });
-    window.visualViewport?.addEventListener("scroll", handleViewportShift, { passive: true });
+    const handleSubmitIntent = (event) => {
+      if (event.key !== "Enter") return
+      scheduleSnap([160, 320, 540])
+    }
+
+    window.addEventListener("focusin", handleFocusIn, true)
+    window.addEventListener("focusout", handleFocusOut, true)
+    window.addEventListener("keydown", handleSubmitIntent, true)
+    window.addEventListener("orientationchange", handleOrientationChange)
+    window.visualViewport?.addEventListener("resize", handleViewportShift, { passive: true })
+    window.visualViewport?.addEventListener("scroll", handleViewportShift, { passive: true })
 
     return () => {
-      window.removeEventListener("focusin", handleFocusIn, true);
-      window.removeEventListener("focusout", handleFocusOut, true);
-      window.removeEventListener("orientationchange", handleOrientationChange);
-      window.removeEventListener("resize", handleViewportShift);
-      window.visualViewport?.removeEventListener("resize", handleViewportShift);
-      window.visualViewport?.removeEventListener("scroll", handleViewportShift);
-    };
-  }, []);
+      window.removeEventListener("focusin", handleFocusIn, true)
+      window.removeEventListener("focusout", handleFocusOut, true)
+      window.removeEventListener("keydown", handleSubmitIntent, true)
+      window.removeEventListener("orientationchange", handleOrientationChange)
+      window.visualViewport?.removeEventListener("resize", handleViewportShift)
+      window.visualViewport?.removeEventListener("scroll", handleViewportShift)
+    }
+  }, [])
 
   return (
     <>
