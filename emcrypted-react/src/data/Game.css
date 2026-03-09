@@ -655,3 +655,9 @@ body.theme-dark .hintCountdownBar {
     max-height: min(34vh, 246px);
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .search-bar {
+    --guess-input-font-size: 16px;
+  }
+}
