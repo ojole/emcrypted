@@ -18,13 +18,13 @@
 }
 
 .game-board {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   min-height: 0;
   display: flex;
   flex-direction: column;
   gap: clamp(6px, 1vw, 10px);
   overflow-y: auto;
-  max-height: min(42vh, 320px);
+  max-height: none;
   padding-bottom: clamp(2px, 0.7vh, 6px);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -574,7 +574,7 @@ body.theme-dark .hintCountdownBar {
   }
 
   .game-board {
-    max-height: min(36vh, 272px);
+    max-height: none;
   }
 
   /* Keep pills visible on mobile instead of hiding them */
@@ -632,7 +632,7 @@ body.theme-dark .hintCountdownBar {
   }
 
   .game-board {
-    max-height: min(33vh, 232px);
+    max-height: none;
   }
 
   .btn {
@@ -652,8 +652,18 @@ body.theme-dark .hintCountdownBar {
   }
 
   .game-board {
-    max-height: min(34vh, 246px);
+    max-height: none;
   }
+}
+
+body.is-embedded .game-input {
+  margin-top: 0;
+  padding-top: clamp(6px, 1vh, 8px);
+  padding-bottom: clamp(8px, 1.4vh, 10px);
+}
+
+body.is-embedded .search-results {
+  max-height: min(15vh, 108px);
 }
 
 @media (hover: none) and (pointer: coarse) {
