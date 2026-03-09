@@ -221,6 +221,14 @@ body.theme-dark::after {
   }
 }
 
+@media (hover: none) and (pointer: coarse) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
 #appFrame {
   width: 100%;
   max-width: var(--card-max-w);
